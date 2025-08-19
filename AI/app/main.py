@@ -6,52 +6,53 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 import uvicorn
 from openai import OpenAI
-# 배포시 주석처리
-# from dotenv import load_dotenv
 
+# === [추가] RAG 로더 ===
+import json, re, unicodedata
+from pathlib import Path
+import numpy as np
+import faiss
+from sentence_transformers import SentenceTransformer
 
-# 환경변수 로드
-# 배포할 때는 주석처리하고 환경변수 직접 주입
-# load_dotenv()
-
-
-# .env에서 로드
+# -------------------------
+# 환경변수/설정
+# -------------------------
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL")
 APP_ENV = os.getenv("APP_ENV")
 
+# RAG 관련 (환경변수로 덮어쓰기 가능)
+INDEX_DIR = Path(os.getenv("RAG_INDEX_DIR", "./out/index-v1"))
+INDEX_PATH = INDEX_DIR / "faiss.index"
+META_PATH  = INDEX_DIR / "meta.json"
+EMBED_MODEL_NAME = os.getenv("EMBED_MODEL_NAME", "intfloat/multilingual-e5-base")
+TOP_K = int(os.getenv("RAG_TOP_K", "6"))
+MAX_CONTEXT_CHARS = int(os.getenv("RAG_MAX_CONTEXT_CHARS", "2400"))
 
-# ----- 요청/응답 schema -----
+# -------------------------
+# 요청/응답 스키마
+# -------------------------
 class ChatMessage(BaseModel):
     role: str = Field(..., description="system|user|assistant")
     content: str
 
-# client의 요청 형식
-# payload.xx로 불러올 것
 class ChatRequest(BaseModel):
-    # 요청시 필수 작성 fields
-    user_id: str # 사용자 ID
-    message: str # 사용자 입력 메시지
-
-    # AI서버 내에서 선택적으로 사용할 fields
-    context: Optional[Dict[str, Any]] = None # RAG 데이터 모음
-    history: Optional[List[ChatMessage]] = None # 멀티턴 대화를 위한 대화기록
-    language: Optional[str] = None # 사용 언어(언어감지모델 붙일 예정.)
+    user_id: str
+    message: str
+    context: Optional[Dict[str, Any]] = None
+    history: Optional[List[ChatMessage]] = None
+    language: Optional[str] = None
 
 class ChatResponse(BaseModel):
-    # client에게 보내줄 필수 response fields
-    reply: str # LLM의 답변 내용
-    model: str # 답변 생성에 사용한 모델
+    reply: str
+    model: str
+    usage: Optional[Dict[str, Any]] = None
+    meta: Dict[str, Any] = Field(default_factory=dict)
 
-    # 선택적으로 보내줄 fields
-    # meta는 미입력시 {} 전달
-    usage: Optional[Dict[str, Any]] = None # 크레딧 사용량 / 성능 지표 등
-    meta: Dict[str, Any] = Field(default_factory=dict) # 기타 데이터(자유 field)
-
-
-# ----- FastAPI App -----
+# -------------------------
+# FastAPI
+# -------------------------
 app = FastAPI(title="Campus Chatbot API", version="0.1.0")
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=os.getenv("CORS_ALLOW_ORIGINS", "*").split(","),
@@ -60,71 +61,143 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# AI서버 healthcheck
+# -------------------------
+# [추가] RAG 유틸 (싱글톤 로딩)
+# -------------------------
+_model = None
+_index = None
+_chunks: List[str] = []
+_metas: List[Dict[str, Any]] = []
+
+def _normalize(t: str) -> str:
+    t = unicodedata.normalize("NFKC", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+def _ensure_loaded():
+    """앱 생명주기 동안 한 번만 모델/인덱스 로드"""
+    global _model, _index, _chunks, _metas
+    if _model is None:
+        _model = SentenceTransformer(EMBED_MODEL_NAME)
+    if _index is None:
+        if not INDEX_PATH.exists() or not META_PATH.exists():
+            raise RuntimeError(f"RAG index not found at {INDEX_DIR}")
+        _index = faiss.read_index(str(INDEX_PATH))
+    if not _chunks or not _metas:
+        data = json.loads(META_PATH.read_text(encoding="utf-8"))
+        _chunks, _metas = data["chunks"], data["meta"]
+
+def _embed_query(q: str) -> np.ndarray:
+    # e5는 query에 프리픽스 필수
+    v = _model.encode([f"query: {_normalize(q)}"], normalize_embeddings=True, show_progress_bar=False)
+    return np.asarray(v, dtype="float32")
+
+def search_topk(question: str, top_k: int = TOP_K) -> List[Dict[str, Any]]:
+    _ensure_loaded()
+    q = _embed_query(question)
+    scores, idxs = _index.search(q, top_k)
+    idxs, sims = idxs[0], scores[0]
+    hits: List[Dict[str, Any]] = []
+    for i, s in zip(idxs, sims):
+        if i == -1:
+            continue
+        hits.append({"text": _chunks[i], "score": float(s), "meta": _metas[i]})
+    return hits
+
+def format_context(hits: List[Dict[str, Any]], limit: int = MAX_CONTEXT_CHARS) -> str:
+    buf, used = [], 0
+    for h in hits:
+        title = h["meta"].get("title") or h["meta"].get("doc_id") or "doc"
+        cid = h["meta"].get("chunk_id", 0)
+        block = f"[{title} #chunk{cid}]\n{h['text']}\n"
+        if used + len(block) > limit:
+            break
+        buf.append(block); used += len(block)
+    return "\n---\n".join(buf)
+
+# 앱 시작 시 미리 로드(선택)
+@app.on_event("startup")
+def _warmup():
+    try:
+        _ensure_loaded()
+    except Exception as e:
+        # 인덱스가 아직 없을 수 있으니 경고만
+        print(f"[RAG warmup] skip or warn: {e}")
+
 @app.get("/healthz")
 async def healthz():
-    return {"status": "ok", "env": APP_ENV}
+    return {"status": "ok", "env": APP_ENV, "rag_index_ready": INDEX_PATH.exists()}
 
-# chat 엔드포인트
+# -------------------------
+# Chat 엔드포인트
+# -------------------------
 @app.post("/chat", response_model=ChatResponse)
 async def chat(payload: ChatRequest):
-    # 요청마다 클라이언트 생성
     client = OpenAI(api_key=OPENAI_API_KEY)
 
-    # 시스템 프롬프트
+    # 1) RAG 컨텍스트 구성 (인덱스가 있을 때만)
+    context_text = ""
+    rag_sources = []
+    try:
+        hits = search_topk(payload.message, TOP_K)
+        context_text = format_context(hits, MAX_CONTEXT_CHARS) if hits else ""
+        rag_sources = [
+            {"title": h["meta"].get("title"), "chunk_id": h["meta"].get("chunk_id"), "score": h["score"]}
+            for h in hits
+        ]
+    except Exception as _:
+        # 인덱스 없거나 로딩 실패해도 대화는 진행
+        pass
+
+    # 2) 프롬프트 구성
     system_prompt = (
         "You are a multilingual campus assistant for '헤이영 캠퍼스'. "
-        "Answer in the user's requested language."
+        "Use ONLY the provided context to answer. If the answer is not in the context, say you don't know. "
+        f"Respond in the requested language."
     )
 
-    # 역할, 톤, 응답 가이드라인 등
+    user_prompt = (
+        f"[lang={payload.language}] {payload.message}\n\n"
+        f"---\nContext:\n{context_text if context_text else '(no context)'}"
+    )
+
     messages = [{"role": "system", "content": system_prompt}]
-    # 대화 history가 있을 경우 message에 추가
     if payload.history:
         messages.extend({"role": m.role, "content": m.content} for m in payload.history)
+    messages.append({"role": "user", "content": user_prompt})
 
-    # 감지한 언어
-    messages.append({"role": "user", "content": f"[lang={payload.language}] {payload.message}"})
-
-    # OpenAI API에 보낼 데이터 준비
+    # 3) LLM 호출
     try:
         completion = client.chat.completions.create(
-            model=OPENAI_MODEL, # 환경변수로 모델 선택
+            model=OPENAI_MODEL,
             messages=messages,
-
-            # 답변 일관성 / 자유도
-            temperature=0.2, # 0~2
-            top_p=1.0, # 0~1
-
-            max_tokens = 1000, # 출력토큰제한
+            temperature=0.2,
+            top_p=1.0,
+            max_tokens=800,
         )
-
-        # 응답 추출
         reply_text = completion.choices[0].message.content
-
-        # 응답 변환
         u = getattr(completion, "usage", None)
         usage: Optional[Dict[str, Any]] = (
             u.model_dump() if hasattr(u, "model_dump") else (dict(u) if u else None)
         )
-
-    # OpenAI API 호출 실패시
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"LLM request failed: {e}")
 
-    # 응답 schema
     return ChatResponse(
         reply=reply_text,
         model=OPENAI_MODEL,
         usage=usage,
-        meta={"user_id": payload.user_id, "language": payload.language},
+        meta={
+            "user_id": payload.user_id,
+            "language": payload.language,
+            "rag_used": bool(context_text),
+            "rag_sources": rag_sources,  # 프론트에서 출처 노출 가능
+        },
     )
 
-# local / container 환경에서 fastapi서버 실행 가능
 if __name__ == "__main__":
     uvicorn.run(
         "app.main:app",
         host="0.0.0.0",
-        port=int(os.getenv("PORT")),
-        reload=True, # 코드 변경시 자동 재시작
+        port=int(os.getenv("PORT", "8000")),
+        reload=True,
     )
