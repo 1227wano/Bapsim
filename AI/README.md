@@ -10,7 +10,8 @@
     - EMBED_MODEL_NAME=
     - RAG_TOP_K=
     - RAG_MAX_CONTEXT_CHARS=
-
+    - RAG_INDEX_DIR=
+    
   - 로컬 테스트 완료
   
   - 이미지 크기 5.83GB
@@ -20,7 +21,7 @@
 ## 컨테이너 실행 코드
 
 ```bash
-docker run -d -p 8000:8000 --name bmpm_ai -v /home/ubuntu/rag-data:/app/rag-data -e RAG_INDEX_DIR=/app/rag-data --env-file /home/ubuntu/.env  srogsrogi/bmpm_ai_0.1.0
+docker run -d -p 8000:8000 --name bmpm_ai -v /home/ubuntu/rag_data:/app/rag_data --env-file /home/ubuntu/.env srogsrogi/bmpm_ai_0.1.0
 ```
 
 
@@ -36,6 +37,6 @@ curl -sS http://3.39.192.187:8000/healthz
 ## 테스트 코드
 
 ```cmd
-curl -sS -X POST http://3.39.192.187:8000/chat -H "Content-Type: application/json" -d "{\"user_id\":\"u1\",\"message\":\"진행되고 있는 이벤트 알려줘\",\"context\":{\"locale\":\"ko\"}}"
+curl -sS -X POST http://3.39.192.187:8000/chat -H "Content-Type: application/json" -d "{\"user_id\":\"u1\",\"message\":\"진행되고 있는 이벤트 알려줘\",\"language\":\"ko\"}"
 ```
 
