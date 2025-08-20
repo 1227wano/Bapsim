@@ -14,17 +14,25 @@ import numpy as np
 import faiss
 from sentence_transformers import SentenceTransformer
 
+# dotenv(로컬용)
+from dotenv import load_dotenv
+
 # -------------------------
 # 환경변수/설정
 # -------------------------
+BASE_DIR = Path(__file__).resolve().parents[1]   # .../Bapsim/AI
+load_dotenv(dotenv_path=BASE_DIR / ".env") # 로컬용
+
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL")
 APP_ENV = os.getenv("APP_ENV")
 
 # RAG 관련 (환경변수로 덮어쓰기 가능)
-INDEX_DIR = Path(os.getenv("RAG_INDEX_DIR", "./out/index-v1"))
+
+INDEX_DIR = BASE_DIR / "rag_data" / "out" / "index-v2"
 INDEX_PATH = INDEX_DIR / "faiss.index"
 META_PATH  = INDEX_DIR / "meta.json"
+
 EMBED_MODEL_NAME = os.getenv("EMBED_MODEL_NAME", "intfloat/multilingual-e5-base")
 TOP_K = int(os.getenv("RAG_TOP_K", "6"))
 MAX_CONTEXT_CHARS = int(os.getenv("RAG_MAX_CONTEXT_CHARS", "2400"))
@@ -66,53 +74,58 @@ app.add_middleware(
 # -------------------------
 _model = None
 _index = None
+_items: List[Dict[str, Any]] = []
 _chunks: List[str] = []
 _metas: List[Dict[str, Any]] = []
 
-def _normalize(t: str) -> str:
+def _normalize_text(t: str) -> str:
     t = unicodedata.normalize("NFKC", t)
     return re.sub(r"\s+", " ", t).strip()
 
 def _ensure_loaded():
-    """앱 생명주기 동안 한 번만 모델/인덱스 로드"""
-    global _model, _index, _chunks, _metas
-    if _model is None:
-        _model = SentenceTransformer(EMBED_MODEL_NAME)
+    global _model, _index, _items, _normalize, _is_e5, _model_name
     if _index is None:
         if not INDEX_PATH.exists() or not META_PATH.exists():
             raise RuntimeError(f"RAG index not found at {INDEX_DIR}")
         _index = faiss.read_index(str(INDEX_PATH))
-    if not _chunks or not _metas:
         data = json.loads(META_PATH.read_text(encoding="utf-8"))
-        _chunks, _metas = data["chunks"], data["meta"]
+        _items = data["items"]
+        _model_name = data.get("model_name", EMBED_MODEL_NAME)
+        _normalize = bool(data.get("normalize", True))
+        _is_e5 = "e5" in _model_name.lower()
+    if _model is None:
+        _model = SentenceTransformer(_model_name)
+
 
 def _embed_query(q: str) -> np.ndarray:
-    # e5는 query에 프리픽스 필수
-    v = _model.encode([f"query: {_normalize(q)}"], normalize_embeddings=True, show_progress_bar=False)
+    _ensure_loaded()
+    q_text = f"query: {_normalize_text(q)}" if _is_e5 else _normalize_text(q)
+    v = _model.encode([q_text], normalize_embeddings=_normalize, show_progress_bar=False)
     return np.asarray(v, dtype="float32")
 
-def search_topk(question: str, top_k: int = TOP_K) -> List[Dict[str, Any]]:
+def search_topk(question: str, top_k: int = TOP_K):
     _ensure_loaded()
     q = _embed_query(question)
     scores, idxs = _index.search(q, top_k)
-    idxs, sims = idxs[0], scores[0]
-    hits: List[Dict[str, Any]] = []
-    for i, s in zip(idxs, sims):
+    hits = []
+    for i, s in zip(idxs[0], scores[0]):
         if i == -1:
             continue
-        hits.append({"text": _chunks[i], "score": float(s), "meta": _metas[i]})
+        it = _items[i]
+        hits.append({"text": it["text"], "score": float(s), "meta": it})
     return hits
 
 def format_context(hits: List[Dict[str, Any]], limit: int = MAX_CONTEXT_CHARS) -> str:
     buf, used = [], 0
     for h in hits:
-        title = h["meta"].get("title") or h["meta"].get("doc_id") or "doc"
-        cid = h["meta"].get("chunk_id", 0)
-        block = f"[{title} #chunk{cid}]\n{h['text']}\n"
+        mid = h["meta"].get("id") or h["meta"].get("doc_id") or "doc"
+        block = f"[{mid}]\n{h['text']}\n"
         if used + len(block) > limit:
             break
-        buf.append(block); used += len(block)
+        buf.append(block)
+        used += len(block)
     return "\n---\n".join(buf)
+
 
 # 앱 시작 시 미리 로드(선택)
 @app.on_event("startup")
@@ -125,7 +138,12 @@ def _warmup():
 
 @app.get("/healthz")
 async def healthz():
-    return {"status": "ok", "env": APP_ENV, "rag_index_ready": INDEX_PATH.exists()}
+    return {
+        "status": "ok",
+        "env": APP_ENV, # local에선 load_dotenv로 가져와서 null로 뜸
+        "rag_index_ready": INDEX_PATH.exists(),
+        "rag_meta_ready": META_PATH.exists(),
+    }
 
 # -------------------------
 # Chat 엔드포인트
@@ -201,3 +219,6 @@ if __name__ == "__main__":
         port=int(os.getenv("PORT", "8000")),
         reload=True,
     )
+
+# AI 경로에서 실행해야 함
+# python -m app.main

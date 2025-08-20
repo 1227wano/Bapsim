@@ -131,21 +131,43 @@ def build_and_save_index(chunks, metas, model_name, batch_size, out_dir, debug=F
     d = X.shape[1]
     print(f"[index] dim={d}, n_chunks={len(chunks)}")
 
-    index = faiss.IndexFlatIP(d)
+    index = faiss.IndexFlatIP(d)   # IP 사용
     index.add(X)
 
     out = Path(out_dir)
     out.mkdir(parents=True, exist_ok=True)
 
-    # 윈도우에서 긴 경로 저장 이슈 최소화
     faiss_path = out / "faiss.index"
-    meta_path = out / "meta.json"
+    meta_path  = out / "meta.json"
     faiss.write_index(index, to_long_path(faiss_path))
-    meta_path.write_text(json.dumps({"chunks": chunks, "meta": metas}, ensure_ascii=False), encoding="utf-8")
+
+    # ------ 여기부터 새 스키마 ------
+    items = []
+    for i, m in enumerate(metas):
+        items.append({
+            "id": f"{m.get('doc_id','doc')}#{m.get('chunk_id', i)}",
+            "text": chunks[i],
+            "source": m.get("source", m.get("type", "unknown")),
+            "start": None,
+            "end": None,
+            "lang": "ko"
+        })
+
+    meta_json = {
+        "version": 1,
+        "model_name": model_name,
+        "normalize": True,
+        "metric": "ip",
+        "dim": d,
+        "items": items
+    }
+    meta_path.write_text(json.dumps(meta_json, ensure_ascii=False), encoding="utf-8")
+    # ------ 새 스키마 끝 ------
 
     print(f"[save] {faiss_path}")
     print(f"[save] {meta_path}")
     return out
+
 
 def main():
     ap = argparse.ArgumentParser()

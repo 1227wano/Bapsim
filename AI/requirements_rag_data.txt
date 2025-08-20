@@ -1,0 +1,6 @@
+ujson==5.10.0
+tqdm==4.66.5
+numpy==1.26.4
+faiss-cpu==1.8.0.post1   # GPU 있으면 faiss-gpu 로 교체 가능
+sentence-transformers==3.1.1
+pdfminer.six==20240706   # pdfminer 공식 최신 패키지

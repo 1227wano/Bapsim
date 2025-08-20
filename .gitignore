@@ -1,1 +1,68 @@
+# ---- OS / Editor ----
+.DS_Store
+Thumbs.db
 .idea/
+.vscode/
+*.code-workspace
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.pytype/
+.pyre/
+.ipynb_checkpoints/
+
+# ---- Virtual envs ----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- Secrets / Local config ----
+.env
+.env.*.local
+*.pem
+*.key
+
+# ---- Logs / Coverage ----
+logs/
+*.log
+.coverage*
+htmlcov/
+coverage.xml
+
+# ---- Build / Dist ----
+build/
+dist/
+site/
+
+# ---- RAG artifacts (FAISS, 메타, 캐시 등) ----
+rag_data/out/
+**/faiss.index
+**/*.npy
+**/*.npz
+# (원본 데이터만 남기고 out/ 산출물은 버전관리 제외)
+
+# ---- HuggingFace / model caches (로컬 캐시) ----
+**/.hf_cache/
+**/.cache/huggingface/
+**/.cache/torch/
+
+# ---- Node(프론트) 섞여있을 때만 ----
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# ---- Java/Spring(모노레포일 때만) ----
+target/
+.gradle/
+*.iml
