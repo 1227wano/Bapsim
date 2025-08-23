@@ -1,0 +1,75 @@
+# --- Python build artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# --- Virtual envs
+.venv/
+venv/
+env/
+
+# --- Tests / linters / caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.tox/
+.cache/
+.coverage
+htmlcov/
+
+# --- OS / Editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# --- Git
+.git/
+.gitignore
+
+# --- Secrets & local configs (중요)
+.env
+*.env
+.env.*
+secrets/
+*.pem
+*.key
+*.crt
+*.cert
+*.pfx
+
+# --- Logs / temp / local data
+logs/
+*.log
+tmp/
+data/
+uploads/
+*.sqlite
+*.db
+
+# --- Node (혹시 FE 같이 둘 경우)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# --- Docker compose files (이미지엔 불필요)
+docker-compose*.yml
+compose*.yaml
+
+# --- (옵션) 대용량 인덱스/모델 파일
+# 필요하면 주석 해제/수정
+# *.faiss
+# *.index
+# *.bin
+# *.npy
+# models/
+# indexes/
