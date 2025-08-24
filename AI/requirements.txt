@@ -21,7 +21,8 @@ torchvision==0.17.2
 unidecode
 rapidfuzz
 
-
+# sql
+sqlalchemy
 
 # 초기 사용 라이브러리
 # fastapi==0.111.0

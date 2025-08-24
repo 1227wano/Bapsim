@@ -102,8 +102,8 @@ def is_offtopic(text: str) -> bool:
 def need_clarify(text: str, known=None):
     lo = _normalize(text).lower(); ks = known or {}; need=[]
     if not (ks.get("date") or any(k in lo for k in ["오늘","내일","202","월","일"])): need.append("날짜")
-    if not (ks.get("place") or any(k in lo for k in ["학생식당","교내식당","후생관","푸드코트"])): need.append("식당/매장")
-    if not (ks.get("campus") or any(k in lo for k in ["캠퍼스","학교","서강대","연세대"])): need.append("캠퍼스/학교")
+    if not (ks.get("place") or any(k in lo for k in ["학생식당","교내식당","후생관","푸드코트","학식"])): need.append("식당/매장")
+    if not (ks.get("campus") or any(k in lo for k in ["캠퍼스","학교","서강대","연세대","동국대","서울대"])): need.append("캠퍼스/학교")
     return None if not need else f"정확히 안내하려면 {'·'.join(need)}가 필요해요. 어떤 {'·'.join(need)}인가요?"
 
 # --- SQL Guard ---
