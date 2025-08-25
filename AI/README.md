@@ -18,6 +18,8 @@
 
 
 
+
+
 ## 컨테이너 실행 코드
 
 ```bash
@@ -41,7 +43,7 @@ curl -sS http://3.39.192.187:8000/healthz
 ### 기본 테스트 코드
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u1"",""message"":""오늘 학식 뭐 나와?""}"
+git clone curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u1"",""message"":""오늘 학식 뭐 나와?""}"
 ```
 
 
