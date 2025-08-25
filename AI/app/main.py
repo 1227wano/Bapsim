@@ -43,7 +43,7 @@ INDEX_DIR = Path(os.getenv("RAG_INDEX_DIR", "./out/index-v1"))
 INDEX_PATH = INDEX_DIR / "faiss.index"
 META_PATH  = INDEX_DIR / "meta.json"
 EMBED_MODEL_NAME = os.getenv("EMBED_MODEL_NAME", "intfloat/multilingual-e5-base")
-TOP_K = int(os.getenv("RAG_TOP_K", "4")) # 검색 후 가져올 결과 수
+TOP_K = int(os.getenv("RAG_TOP_K", "6")) # 검색 후 가져올 결과 수
 MAX_CONTEXT_CHARS = int(os.getenv("RAG_MAX_CONTEXT_CHARS", "2000")) # llm에 전달할 context 최대 글자수
 
 # SQL 관련
