@@ -18,11 +18,11 @@ torchaudio==2.2.2
 torchvision==0.17.2
 
 # 오프토픽 감지용 thesaurus 생성
-unidecode
-rapidfuzz
+unidecode==1.4.0
+rapidfuzz==3.13.0
 
 # sql
-sqlalchemy
+sqlalchemy==2.0.43
 
 # 초기 사용 라이브러리
 # fastapi==0.111.0
