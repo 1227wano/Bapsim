@@ -6,10 +6,16 @@ spring:
     name: bapsim-app
   
   datasource:
-    url: jdbc:mysql://mysql:3306/bapsim_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://mysql:3306/bapsim_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&autoReconnect=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
   
   jpa:
     hibernate:
@@ -21,6 +27,9 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
         enable_lazy_load_no_trans: false
+        connection:
+          characterEncoding: utf8
+          useUnicode: true
   
   jackson:
     serialization:
@@ -37,3 +46,5 @@ logging:
   level:
     com.bapsim: DEBUG
     org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
