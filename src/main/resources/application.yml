@@ -6,11 +6,11 @@ spring:
     name: bapsim-app
   
   datasource:
-    url: jdbc:mysql://mysql:3306/bapsim_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: bapsim_user
-    password: bapsim_password
     driver-class-name: com.mysql.cj.jdbc.Driver
-  
+    url: jdbc:mysql://localhost:3306/bapsim_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username:
+    password:
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -24,3 +24,4 @@ logging:
   level:
     com.bapsim: DEBUG
     org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
