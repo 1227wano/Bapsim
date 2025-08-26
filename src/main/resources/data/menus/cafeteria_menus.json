@@ -1,0 +1,937 @@
+[
+  {
+    "menuId": "20250825_C_1",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": true,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "두부스테이크+칠리소스",
+      "kcal": 450,
+      "allergy": 1,
+      "allergyInfo": "대두(두부)",
+      "category": "도시락",
+      "content": "두부스테이크와 칠리소스"
+    }
+  },
+  {
+    "menuId": "20250825_C_2",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "볶음우동",
+      "kcal": 380,
+      "allergy": 2,
+      "allergyInfo": "밀(우동면)",
+      "category": "도시락",
+      "content": "볶음우동"
+    }
+  },
+  {
+    "menuId": "20250825_C_3",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "조갯살미역국",
+      "kcal": 80,
+      "allergy": 9,
+      "allergyInfo": "조개류(조갯살)",
+      "category": "도시락",
+      "content": "조갯살미역국"
+    }
+  },
+  {
+    "menuId": "20250825_C_4",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "백미밥",
+      "kcal": 300,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "백미밥"
+    }
+  },
+  {
+    "menuId": "20250825_C_5",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "코울슬로",
+      "kcal": 150,
+      "allergy": 3,
+      "allergyInfo": "계란(마요네즈)",
+      "category": "도시락",
+      "content": "코울슬로"
+    }
+  },
+  {
+    "menuId": "20250825_C_6",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "포기김치",
+      "kcal": 25,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "포기김치"
+    }
+  },
+  {
+    "menuId": "20250825_D_7",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": true,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "새우샌드위치",
+      "kcal": 400,
+      "allergy": 7,
+      "allergyInfo": "새우",
+      "category": "브런치",
+      "content": "새우샌드위치"
+    }
+  },
+  {
+    "menuId": "20250825_D_8",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "메밀면샐러드",
+      "kcal": 300,
+      "allergy": 15,
+      "allergyInfo": "메밀",
+      "category": "브런치",
+      "content": "메밀면샐러드"
+    }
+  },
+  {
+    "menuId": "20250825_D_9",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "오리엔탈드레싱",
+      "kcal": 100,
+      "allergy": 1,
+      "allergyInfo": "대두",
+      "category": "브런치",
+      "content": "오리엔탈드레싱"
+    }
+  },
+  {
+    "menuId": "20250825_E_10",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": true,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "떡갈비메밀면샐러드",
+      "kcal": 550,
+      "allergy": 14,
+      "allergyInfo": "쇠고기, 메밀",
+      "category": "샐러드",
+      "content": "떡갈비메밀면샐러드"
+    }
+  },
+  {
+    "menuId": "20250825_E_11",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "food": {
+      "menuName": "오리엔탈드레싱",
+      "kcal": 100,
+      "allergy": 1,
+      "allergyInfo": "대두",
+      "category": "샐러드",
+      "content": "오리엔탈드레싱"
+    }
+  },
+  {
+    "menuId": "20250826_C_1",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "수제닭강정",
+      "kcal": 550,
+      "allergy": 12,
+      "allergyInfo": "닭고기",
+      "category": "도시락",
+      "content": "수제닭강정"
+    }
+  },
+  {
+    "menuId": "20250826_C_2",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "조랭이떡떡볶이",
+      "kcal": 350,
+      "allergy": 2,
+      "allergyInfo": "밀(떡)",
+      "category": "도시락",
+      "content": "조랭이떡떡볶이"
+    }
+  },
+  {
+    "menuId": "20250826_C_3",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "두부새우젓국",
+      "kcal": 90,
+      "allergy": 1,
+      "allergyInfo": "대두(두부), 새우",
+      "category": "도시락",
+      "content": "두부새우젓국"
+    }
+  },
+  {
+    "menuId": "20250826_C_4",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "백미밥",
+      "kcal": 300,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "백미밥"
+    }
+  },
+  {
+    "menuId": "20250826_C_5",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "오징어미나리초무침",
+      "kcal": 120,
+      "allergy": 10,
+      "allergyInfo": "오징어",
+      "category": "도시락",
+      "content": "오징어미나리초무침"
+    }
+  },
+  {
+    "menuId": "20250826_C_6",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "포기김치",
+      "kcal": 25,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "포기김치"
+    }
+  },
+  {
+    "menuId": "20250826_D_7",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "돈까스샌드위치",
+      "kcal": 500,
+      "allergy": 13,
+      "allergyInfo": "돼지고기, 밀(빵)",
+      "category": "브런치",
+      "content": "돈까스샌드위치"
+    }
+  },
+  {
+    "menuId": "20250826_D_8",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "알리오올리오샐러드",
+      "kcal": 300,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "브런치",
+      "content": "알리오올리오샐러드"
+    }
+  },
+  {
+    "menuId": "20250826_D_9",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "키위드레싱",
+      "kcal": 80,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "브런치",
+      "content": "키위드레싱"
+    }
+  },
+  {
+    "menuId": "20250826_E_10",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "매콤제육보울",
+      "kcal": 600,
+      "allergy": 13,
+      "allergyInfo": "돼지고기",
+      "category": "샐러드",
+      "content": "매콤제육보울"
+    }
+  },
+  {
+    "menuId": "20250826_E_11",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "food": {
+      "menuName": "키위드레싱",
+      "kcal": 80,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "샐러드",
+      "content": "키위드레싱"
+    }
+  },
+  {
+    "menuId": "20250827_C_1",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "박대감감자탕",
+      "kcal": 450,
+      "allergy": 13,
+      "allergyInfo": "돼지고기",
+      "category": "도시락",
+      "content": "박대감감자탕"
+    }
+  },
+  {
+    "menuId": "20250827_C_2",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "해물부추전",
+      "kcal": 250,
+      "allergy": 9,
+      "allergyInfo": "조개류",
+      "category": "도시락",
+      "content": "해물부추전"
+    }
+  },
+  {
+    "menuId": "20250827_C_3",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "고추잡채+꽃빵",
+      "kcal": 400,
+      "allergy": 13,
+      "allergyInfo": "돼지고기, 밀",
+      "category": "도시락",
+      "content": "고추잡채와 꽃빵"
+    }
+  },
+  {
+    "menuId": "20250827_C_4",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "백미밥",
+      "kcal": 300,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "백미밥"
+    }
+  },
+  {
+    "menuId": "20250827_C_5",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "마늘쫑락교무침",
+      "kcal": 50,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "마늘쫑락교무침"
+    }
+  },
+  {
+    "menuId": "20250827_C_6",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "깍두기",
+      "kcal": 30,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "깍두기"
+    }
+  },
+  {
+    "menuId": "20250827_D_7",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "크랜베리닭가슴살샌드위치",
+      "kcal": 420,
+      "allergy": 12,
+      "allergyInfo": "닭고기, 밀(빵)",
+      "category": "브런치",
+      "content": "크랜베리닭가슴살샌드위치"
+    }
+  },
+  {
+    "menuId": "20250827_D_8",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "고구마샐러드",
+      "kcal": 200,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "브런치",
+      "content": "고구마샐러드"
+    }
+  },
+  {
+    "menuId": "20250827_D_9",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "참깨드레싱",
+      "kcal": 110,
+      "allergy": null,
+      "allergyInfo": "참깨",
+      "category": "브런치",
+      "content": "참깨드레싱"
+    }
+  },
+  {
+    "menuId": "20250827_E_10",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "흑임자닭가슴살파스타",
+      "kcal": 500,
+      "allergy": 12,
+      "allergyInfo": "닭고기, 밀(파스타)",
+      "category": "샐러드",
+      "content": "흑임자닭가슴살파스타"
+    }
+  },
+  {
+    "menuId": "20250827_E_11",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "food": {
+      "menuName": "참깨드레싱",
+      "kcal": 110,
+      "allergy": null,
+      "allergyInfo": "참깨",
+      "category": "샐러드",
+      "content": "참깨드레싱"
+    }
+  },
+  {
+    "menuId": "20250828_C_1",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "탕수육",
+      "kcal": 550,
+      "allergy": 13,
+      "allergyInfo": "돼지고기, 밀",
+      "category": "도시락",
+      "content": "탕수육"
+    }
+  },
+  {
+    "menuId": "20250828_C_2",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "수제짜장",
+      "kcal": 400,
+      "allergy": 13,
+      "allergyInfo": "돼지고기",
+      "category": "도시락",
+      "content": "수제짜장"
+    }
+  },
+  {
+    "menuId": "20250828_C_3",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "짬뽕국",
+      "kcal": 150,
+      "allergy": 9,
+      "allergyInfo": "새우, 오징어, 조개류",
+      "category": "도시락",
+      "content": "짬뽕국"
+    }
+  },
+  {
+    "menuId": "20250828_C_4",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "백미밥",
+      "kcal": 300,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "백미밥"
+    }
+  },
+  {
+    "menuId": "20250828_C_5",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "유자청단무지무침",
+      "kcal": 40,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "유자청단무지무침"
+    }
+  },
+  {
+    "menuId": "20250828_C_6",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "포기김치",
+      "kcal": 25,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "포기김치"
+    }
+  },
+  {
+    "menuId": "20250828_D_7",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "햄치즈샌드위치",
+      "kcal": 450,
+      "allergy": 13,
+      "allergyInfo": "돼지고기(햄), 우유(치즈), 밀(빵)",
+      "category": "브런치",
+      "content": "햄치즈샌드위치"
+    }
+  },
+  {
+    "menuId": "20250828_D_8",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "버섯샐러드",
+      "kcal": 150,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "브런치",
+      "content": "버섯샐러드"
+    }
+  },
+  {
+    "menuId": "20250828_D_9",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "발사믹드레싱",
+      "kcal": 90,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "브런치",
+      "content": "발사믹드레싱"
+    }
+  },
+  {
+    "menuId": "20250828_E_10",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "훈제오리고구마무스샐러드",
+      "kcal": 500,
+      "allergy": 1,
+      "allergyInfo": "대두(오리), 우유",
+      "category": "샐러드",
+      "content": "훈제오리고구마무스샐러드"
+    }
+  },
+  {
+    "menuId": "20250828_E_11",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "food": {
+      "menuName": "발사믹드레싱",
+      "kcal": 90,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "샐러드",
+      "content": "발사믹드레싱"
+    }
+  },
+  {
+    "menuId": "20250829_C_1",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "고등어데리야끼구이",
+      "kcal": 500,
+      "allergy": 11,
+      "allergyInfo": "고등어",
+      "category": "도시락",
+      "content": "고등어데리야끼구이"
+    }
+  },
+  {
+    "menuId": "20250829_C_2",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "햄마늘쫑볶음",
+      "kcal": 200,
+      "allergy": 13,
+      "allergyInfo": "돼지고기(햄)",
+      "category": "도시락",
+      "content": "햄마늘쫑볶음"
+    }
+  },
+  {
+    "menuId": "20250829_C_3",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "순두부찌개",
+      "kcal": 180,
+      "allergy": 1,
+      "allergyInfo": "대두(순두부)",
+      "category": "도시락",
+      "content": "순두부찌개"
+    }
+  },
+  {
+    "menuId": "20250829_C_4",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "백미밥",
+      "kcal": 300,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "백미밥"
+    }
+  },
+  {
+    "menuId": "20250829_C_5",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "궁채장아찌",
+      "kcal": 30,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "궁채장아찌"
+    }
+  },
+  {
+    "menuId": "20250829_C_6",
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "포기김치",
+      "kcal": 25,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "도시락",
+      "content": "포기김치"
+    }
+  },
+  {
+    "menuId": "20250829_D_7",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "BELT샌드위치",
+      "kcal": 400,
+      "allergy": 13,
+      "allergyInfo": "돼지고기(베이컨), 밀(빵), 계란",
+      "category": "브런치",
+      "content": "BELT샌드위치"
+    }
+  },
+  {
+    "menuId": "20250829_D_8",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "두부샐러드",
+      "kcal": 250,
+      "allergy": 1,
+      "allergyInfo": "대두(두부)",
+      "category": "브런치",
+      "content": "두부샐러드"
+    }
+  },
+  {
+    "menuId": "20250829_D_9",
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "자두드레싱",
+      "kcal": 80,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "브런치",
+      "content": "자두드레싱"
+    }
+  },
+  {
+    "menuId": "20250829_E_10",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "불고기버섯보울",
+      "kcal": 550,
+      "allergy": 14,
+      "allergyInfo": "쇠고기",
+      "category": "샐러드",
+      "content": "불고기버섯보울"
+    }
+  },
+  {
+    "menuId": "20250829_E_11",
+    "kind": "E",
+    "mealType": "샐러드",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "food": {
+      "menuName": "자두드레싱",
+      "kcal": 80,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "샐러드",
+      "content": "자두드레싱"
+    }
+  }
+]
