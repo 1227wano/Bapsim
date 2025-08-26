@@ -10,8 +10,8 @@ COPY build.gradle .
 # 소스 코드 복사
 COPY src src
 
-# 애플리케이션 빌드
-RUN gradle build -x test
+# 직접 Gradle을 사용하여 빌드
+RUN gradle build -x test --no-daemon
 
 # 실행 단계
 FROM eclipse-temurin:17-jre
