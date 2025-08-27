@@ -282,82 +282,183 @@ async def chat(payload: ChatRequest):
         pass
 
     # 2) DB schemas
-    schema_hints ='''
-    cafeterias.cafe_no bigint
-    cafeterias.build_name varchar
-    cafeterias.close_time datetime
-    cafeterias.created_at datetime
-    cafeterias.created_id varchar
-    cafeterias.del_yn varchar
-    cafeterias.open_time datetime
-    cafeterias.phone_no bigint
-    cafeterias.run_yn varchar
-    cafeterias.uni_id int
-    cafeterias.updated_at datetime
-    cafeterias.updated_id varchar
-    cafeterias.visitor bigint
-    food.menu_id varchar
-    food.allergy bigint
-    food.allergy_info varchar
-    food.category varchar
-    food.content varchar
-    food.kcal bigint
-    food.menu_name varchar
-    food.photo_path varchar
-    menu_price.price_no bigint
-    menu_price.created_at datetime
-    menu_price.created_id varchar
-    menu_price.description varchar
-    menu_price.effective_date date
-    menu_price.expiry_date date
-    menu_price.is_active bit
-    menu_price.kind varchar
-    menu_price.meal_type varchar
-    menu_price.price bigint
-    menu_price.updated_at datetime
-    menu_price.updated_id varchar
-    menus.menu_no bigint
-    menus.cafe_no bigint
-    menus.created_at datetime
-    menus.created_id varchar
-    menus.is_signature bit
-    menus.kind varchar
-    menus.meal_type varchar
-    menus.menu_date date
-    menus.menu_id varchar
-    menus.res_no bigint
-    menus.sold_out bit
-    menus.updated_at datetime
-    menus.updated_id varchar
-    price.menu_no bigint
-    price.price bigint
-    restaurants.res_no bigint
-    restaurants.address varchar
-    restaurants.close_time datetime
-    restaurants.created_at datetime
-    restaurants.created_id varchar
-    restaurants.del_yn varchar
-    restaurants.open_time datetime
-    restaurants.phone_no bigint
-    restaurants.res_name varchar
-    restaurants.run_yn varchar
-    restaurants.updated_at datetime
-    restaurants.updated_id varchar
-    restaurants.visitor bigint
-    university.uni_id int
-    university.uni_name varchar
-    '''
+    schema_hints = '''
+CREATE TABLE `ai_service` (
+  `session_id` int NOT NULL AUTO_INCREMENT,
+  `assistant_message` varchar(500) DEFAULT NULL,
+  `language` varchar(5) DEFAULT NULL,
+  `llm_latency_ms` int DEFAULT NULL,
+  `rag_used` bit(1) DEFAULT NULL,
+  `total_latency_ms` int DEFAULT NULL,
+  `usage_completion_token` int DEFAULT NULL,
+  `usage_prompt_token` int DEFAULT NULL,
+  `usage_total_tokens` int DEFAULT NULL,
+  `user_message` varchar(500) NOT NULL,
+  `user_no` bigint NOT NULL,
+  PRIMARY KEY (`session_id`),
+  KEY `FKkuddcm60ngkv7nwgh4jq06byw` (`user_no`),
+  CONSTRAINT `FKkuddcm60ngkv7nwgh4jq06byw` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`)
+);
+
+CREATE TABLE `cafeterias` (
+  `cafe_no` bigint NOT NULL AUTO_INCREMENT,
+  `build_name` varchar(100) NOT NULL,
+  `close_time` datetime(6) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `del_yn` varchar(1) NOT NULL,
+  `open_time` datetime(6) NOT NULL,
+  `phone_no` bigint NOT NULL,
+  `run_yn` varchar(1) NOT NULL,
+  `uni_id` int NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  `updated_id` varchar(100) NOT NULL,
+  `visitor` bigint NOT NULL,
+  PRIMARY KEY (`cafe_no`),
+  KEY `FK45m3c5v2k3lgru6pf5qi16fsd` (`uni_id`),
+  CONSTRAINT `FK45m3c5v2k3lgru6pf5qi16fsd` FOREIGN KEY (`uni_id`) REFERENCES `university` (`uni_id`)
+);
+
+CREATE TABLE `food` (
+  `menu_id` varchar(100) NOT NULL,
+  `allergy` bigint NOT NULL,
+  `allergy_info` varchar(500) DEFAULT NULL,
+  `category` varchar(10) NOT NULL,
+  `content` varchar(500) DEFAULT NULL,
+  `kcal` bigint NOT NULL,
+  `menu_name` varchar(100) NOT NULL,
+  `photo_path` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`menu_id`)
+);
+
+CREATE TABLE `member` (
+  `user_no` bigint NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `uni_id` int NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  `updated_id` varchar(100) NOT NULL,
+  `user_email` varchar(100) DEFAULT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `user_pass` varchar(500) NOT NULL,
+  `user_phone` varchar(20) DEFAULT NULL,
+  `user_status` varchar(20) NOT NULL,
+  `user_type` varchar(20) NOT NULL,
+  PRIMARY KEY (`user_no`),
+  KEY `FK9q5d146oedfylqq10ynsw2rad` (`uni_id`),
+  CONSTRAINT `FK9q5d146oedfylqq10ynsw2rad` FOREIGN KEY (`uni_id`) REFERENCES `university` (`uni_id`)
+);
+
+CREATE TABLE `menu_price` (
+  `price_no` bigint NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `effective_date` date NOT NULL,
+  `expiry_date` date DEFAULT NULL,
+  `is_active` bit(1) NOT NULL,
+  `kind` varchar(1) NOT NULL,
+  `meal_type` varchar(100) NOT NULL,
+  `price` bigint NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  `updated_id` varchar(100) NOT NULL,
+  PRIMARY KEY (`price_no`)
+);
+
+CREATE TABLE `menus` (
+  `menu_no` bigint NOT NULL AUTO_INCREMENT,
+  `cafe_no` bigint DEFAULT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `is_signature` bit(1) NOT NULL,
+  `kind` varchar(1) NOT NULL,
+  `meal_type` varchar(100) NOT NULL,
+  `menu_date` date DEFAULT NULL,
+  `menu_id` varchar(100) NOT NULL,
+  `res_no` bigint DEFAULT NULL,
+  `sold_out` bit(1) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  `updated_id` varchar(100) NOT NULL,
+  PRIMARY KEY (`menu_no`),
+  KEY `FKnykch7bxg7bj2jild7whax77q` (`cafe_no`),
+  KEY `FKddapuc09wj3277ktku7kvsogc` (`menu_id`),
+  KEY `FKnnvxcvyycmv9i1wk0xa5jgqm7` (`res_no`),
+  CONSTRAINT `FKddapuc09wj3277ktku7kvsogc` FOREIGN KEY (`menu_id`) REFERENCES `food` (`menu_id`),
+  CONSTRAINT `FKnnvxcvyycmv9i1wk0xa5jgqm7` FOREIGN KEY (`res_no`) REFERENCES `restaurants` (`res_no`),
+  CONSTRAINT `FKnykch7bxg7bj2jild7whax77q` FOREIGN KEY (`cafe_no`) REFERENCES `cafeterias` (`cafe_no`)
+);
+
+CREATE TABLE `payment` (
+  `payment_id` bigint NOT NULL AUTO_INCREMENT,
+  `amount` int NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `transaction_id` varchar(100) NOT NULL,
+  `user_no` bigint NOT NULL,
+  PRIMARY KEY (`payment_id`),
+  KEY `FKq00swcd16wo3krqt988obcrpf` (`user_no`),
+  CONSTRAINT `FKq00swcd16wo3krqt988obcrpf` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`)
+);
+
+CREATE TABLE `point_history` (
+  `point_id` bigint NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) NOT NULL,
+  `payment_id` bigint DEFAULT NULL,
+  `point_changed` int DEFAULT NULL,
+  `reason` varchar(50) DEFAULT NULL,
+  `user_no` bigint NOT NULL,
+  PRIMARY KEY (`point_id`),
+  KEY `FKkq2exxev3tsehlgb2eg06csb3` (`payment_id`),
+  KEY `FKa8d7aw32854b8cye192tnd3t5` (`user_no`),
+  CONSTRAINT `FKa8d7aw32854b8cye192tnd3t5` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`),
+  CONSTRAINT `FKkq2exxev3tsehlgb2eg06csb3` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`payment_id`)
+);
+
+CREATE TABLE `price` (
+  `menu_no` bigint NOT NULL,
+  `price` bigint NOT NULL,
+  PRIMARY KEY (`menu_no`)
+);
+
+CREATE TABLE `restaurants` (
+  `res_no` bigint NOT NULL AUTO_INCREMENT,
+  `address` varchar(2000) NOT NULL,
+  `close_time` datetime(6) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `del_yn` varchar(1) NOT NULL,
+  `open_time` datetime(6) NOT NULL,
+  `phone_no` bigint NOT NULL,
+  `res_name` varchar(100) NOT NULL,
+  `run_yn` varchar(1) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  `updated_id` varchar(100) NOT NULL,
+  `visitor` bigint NOT NULL,
+  PRIMARY KEY (`res_no`)
+);
+
+CREATE TABLE `university` (
+  `uni_id` int NOT NULL AUTO_INCREMENT,
+  `uni_name` varchar(30) NOT NULL,
+  PRIMARY KEY (`uni_id`)
+);
+'''
 
     # 3) 프롬프트 구성
     system_prompt = (
-        "You are a multilingual campus assistant for '헤이영 캠퍼스'. Your primary function is to answer questions by querying a database. "
-        f"Always respond STRICTLY in '{lang}'.\n"
-        "Use the `sql_answer` tool to query the database whenever the user asks about menus, prices, cafeterias, or other information contained in the database schema. "
-        "Only use the RAG context if the question is about general policies, events, or user guides.\n"
-        "Use the provided context and available tools when helpful. "
-        "Always mask PII and ask at most one concise clarifying question.\n"
-        "If the answer is not in the context or DB, say you don't know.\n"
-        f"Here are the database schema hints to help you decide when to use the `sql_answer` tool:\n'{schema_hints}'"
+        "You are a powerful and intelligent campus assistant for '헤이영 캠퍼스'. Your primary function is to answer questions by querying a database using the `sql_answer` tool.\n"
+        "You MUST follow these rules:\n"
+        "1. Analyze the user's question to determine the required tool.\n"
+        "2. If the question is about menus, prices, cafeterias, operating hours, or any other information that can be found in the database schema, you MUST use the `sql_answer` tool.\n"
+        "3. For questions about general policies, events, or user guides, use the `rag_lookup` tool.\n"
+        "4. If the answer is not in the database or RAG context, you must state that you don't know.\n"
+        f"5. Always respond STRICTLY in the user's language, which is '{lang}'.\n\n"
+        "Here are some examples:\n"
+        " - User question: '오늘 학생식당 메뉴 알려줘' -> Tool to use: `sql_answer`\n"
+        " - User question: 'tell me about the new library event' -> Tool to use: `rag_lookup`\n"
+        " - User question: '너는 누구니?' -> Tool to use: None, just answer directly.\n\n"
+        "Here is the database schema. Use this to decide when to use the `sql_answer` tool and to help you generate the correct query:\n"
+        f"{schema_hints}"
     )
 
     # if payload.language == "example":
