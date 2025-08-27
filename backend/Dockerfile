@@ -18,8 +18,8 @@ FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-# 빌드된 JAR 파일 복사
-COPY --from=build /app/build/libs/*.jar app.jar
+# 빌드된 JAR 파일 복사 (Spring Boot 실행 가능 JAR)
+# COPY --from=build /app/build/libs/*.jar app.jar
 
 # 포트 노출
 EXPOSE 8080
