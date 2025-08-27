@@ -1,9 +1,10 @@
 # Frontend, AI project
-bapsim-front/
+frontend/
 AI/
 
 # Gradle cache
 .gradle/
+**/.gradle/
 build/
 
 # IDE settings
