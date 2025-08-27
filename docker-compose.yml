@@ -36,13 +36,15 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/${DB_NAME}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
       - SPRING_DATASOURCE_USERNAME=${DB_USER}
       - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "127.0.0.1:8082:8080"   # backend는 Nginx 프록시용 (외부 직접 노출 금지)
 
   frontend:
     image: ${DOCKER_HUB_USERNAME}/bmpm_front:latest
     container_name: bapsim-frontend
     restart: unless-stopped
     ports:
-      - "80:80"
+      - "127.0.0.1:8081:80"    # 프론트도 8081만 열어줌 (호스트 80 안 씀)
     depends_on:
       - backend
     networks:
