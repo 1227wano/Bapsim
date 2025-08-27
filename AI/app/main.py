@@ -187,23 +187,6 @@ async def healthz():
 # -------------------------
 # LLM 헬퍼/에이전트 루프
 # -------------------------
-def _llm_sql_generator(client: OpenAI, prompt: str) -> str:
-    """SQL 생성용 미니 헬퍼(SELECT 1개만)
-    rdb 스키마 구조 확정되면 테이블 구조 포함하여 프롬프트 정교화할 것
-    one-shot만 줘도 될 듯
-    """
-    mdl = os.getenv("SQL_LLM_MODEL", OPENAI_MODEL or "gpt-4o-mini")
-    r = client.chat.completions.create(
-        model=mdl,
-        messages=[
-            {"role": "system", "content": "You generate a single SELECT SQL only."},
-            {"role": "user", "content": prompt},
-        ],
-        temperature=0.0,
-        max_tokens=300,
-    )
-    return r.choices[0].message.content.strip()
-
 async def run_agent_loop(
     client: OpenAI,
     base_messages: List[Dict[str, str]],
@@ -298,13 +281,83 @@ async def chat(payload: ChatRequest):
         # 인덱스 없거나 로딩 실패해도 대화는 진행
         pass
 
-    # 2) 프롬프트 구성
+    # 2) DB schemas
+    schema_hints ='''
+    cafeterias.cafe_no bigint
+    cafeterias.build_name varchar
+    cafeterias.close_time datetime
+    cafeterias.created_at datetime
+    cafeterias.created_id varchar
+    cafeterias.del_yn varchar
+    cafeterias.open_time datetime
+    cafeterias.phone_no bigint
+    cafeterias.run_yn varchar
+    cafeterias.uni_id int
+    cafeterias.updated_at datetime
+    cafeterias.updated_id varchar
+    cafeterias.visitor bigint
+    food.menu_id varchar
+    food.allergy bigint
+    food.allergy_info varchar
+    food.category varchar
+    food.content varchar
+    food.kcal bigint
+    food.menu_name varchar
+    food.photo_path varchar
+    menu_price.price_no bigint
+    menu_price.created_at datetime
+    menu_price.created_id varchar
+    menu_price.description varchar
+    menu_price.effective_date date
+    menu_price.expiry_date date
+    menu_price.is_active bit
+    menu_price.kind varchar
+    menu_price.meal_type varchar
+    menu_price.price bigint
+    menu_price.updated_at datetime
+    menu_price.updated_id varchar
+    menus.menu_no bigint
+    menus.cafe_no bigint
+    menus.created_at datetime
+    menus.created_id varchar
+    menus.is_signature bit
+    menus.kind varchar
+    menus.meal_type varchar
+    menus.menu_date date
+    menus.menu_id varchar
+    menus.res_no bigint
+    menus.sold_out bit
+    menus.updated_at datetime
+    menus.updated_id varchar
+    price.menu_no bigint
+    price.price bigint
+    restaurants.res_no bigint
+    restaurants.address varchar
+    restaurants.close_time datetime
+    restaurants.created_at datetime
+    restaurants.created_id varchar
+    restaurants.del_yn varchar
+    restaurants.open_time datetime
+    restaurants.phone_no bigint
+    restaurants.res_name varchar
+    restaurants.run_yn varchar
+    restaurants.updated_at datetime
+    restaurants.updated_id varchar
+    restaurants.visitor bigint
+    university.uni_id int
+    university.uni_name varchar
+    '''
+
+    # 3) 프롬프트 구성
     system_prompt = (
-        "You are a multilingual campus assistant for '헤이영 캠퍼스'. "
-        f"Always respond STRICTLY in '{lang}'. "
+        "You are a multilingual campus assistant for '헤이영 캠퍼스'. Your primary function is to answer questions by querying a database. "
+        f"Always respond STRICTLY in '{lang}'.\n"
+        "Use the `sql_answer` tool to query the database whenever the user asks about menus, prices, cafeterias, or other information contained in the database schema. "
+        "Only use the RAG context if the question is about general policies, events, or user guides.\n"
         "Use the provided context and available tools when helpful. "
-        "If the answer is not in the context or DB, say you don't know. "
-        "Always mask PII and ask at most one concise clarifying question."
+        "Always mask PII and ask at most one concise clarifying question.\n"
+        "If the answer is not in the context or DB, say you don't know.\n"
+        f"Here are the database schema hints to help you decide when to use the `sql_answer` tool:\n'{schema_hints}'"
     )
 
     # if payload.language == "example":
@@ -321,11 +374,12 @@ async def chat(payload: ChatRequest):
         messages.extend({"role": m.role, "content": m.content} for m in payload.history)
     messages.append({"role": "user", "content": user_prompt})
 
-    # 3) tool 실행 컨텍스트 주입(ctx)
+    # 4) tool 실행 컨텍스트 주입(ctx)
     ctx: Dict[str, Any] = {
         # SQL
         "engine": getattr(app.state, "engine", None),
-        "llm_sql": (lambda p: _llm_sql_generator(client, p)),
+        "openai": client,
+        "schema_hints": schema_hints,
         "allow_tables": ALLOW_TABLES,
         "sql_max_limit": SQL_MAX_LIMIT,
         "sql_max_rows": SQL_MAX_ROWS,
@@ -334,7 +388,7 @@ async def chat(payload: ChatRequest):
         "rag_max_chars": MAX_CONTEXT_CHARS,
     }
 
-    # 4) 에이전트 1~3스텝 실행 → 실패 시 fallback + 단발 LLM 호출
+    # 5) 에이전트 1~3스텝 실행 → 실패 시 fallback + 단발 LLM 호출
     try:
         reply_text, usage, tools_used, tool_results, llm_ms, llm_calls = await run_agent_loop(
             client, messages, ctx, max_steps=3
@@ -356,7 +410,7 @@ async def chat(payload: ChatRequest):
             raise HTTPException(status_code=500, detail=f"LLM request failed: {e} / fallback: {e2}")
         tools_used, tool_results = [], []
 
-    # 5) 응답
+    # 6) 응답
     total_ms = int((time.perf_counter() - t0) * 1000)
     return ChatResponse(
         reply=reply_text,
