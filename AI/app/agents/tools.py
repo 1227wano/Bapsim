@@ -137,6 +137,8 @@ class SQLAnswerInput(BaseModel):
 
 def sql_answer_run(args, ctx):
     from sqlalchemy import text
+    import re
+
     eng = ctx.get("engine")
     client = ctx.get("openai")   # main.py에서 넣어줘야 함
     if not eng:
@@ -147,28 +149,51 @@ def sql_answer_run(args, ctx):
     if not sql:
         schema_ddl = args.get("schema_ddl") or ctx.get("schema_hints", "")
         q = args.get("question", "")
-        prompt = f"""
-        You are a SQL generator. Based on the schema:
+        mdl = ctx.get("sql_llm_model", "gpt-5-mini")
+        sql_max_limit = int(ctx.get("sql_max_limit", 200) or 200)
 
-        {schema_ddl}
+        # 프롬프트
+        system_msg = (
+            "You are a SQL generator. "
+            "Return exactly ONE safe SELECT SQL statement. "
+            "No explanations, no comments, no markdown fences. "
+            "Always ensure the query is read-only. "
+            f"If there is no LIMIT clause, add 'LIMIT {sql_max_limit}'.\n\n"
+            "Example:\n"
+            "User question: 한식 메뉴 뭐 있는지 알려줘\n"
+            f"""SQL: SELECT DISTINCT f.menu_name 
+            FROM menus m JOIN food f ON m.menu_id=f.menu_id 
+            WHERE f.category='한식' LIMIT {sql_max_limit};"""
+        )
+        user_msg = (
+            f"Schema:\n{schema_ddl}\n\n"
+            f"User question: {q}\n"
+            "SQL:"
+        )
 
-        Generate ONE safe SELECT SQL query (no explanation, no comments).
-        User question: {q}
-        """
-        mdl = ctx.get("sql_llm_model", "gpt-4o-mini")
         try:
-            resp = client.chat.completions.create(
+            resp = client.responses.create(
                 model=mdl,
-                messages=[
-                    {"role":"system","content":"You generate a single SELECT SQL only."},
-                    {"role":"user","content": prompt}
+                input=[
+                    {"role": "system", "content": system_msg},
+                    {"role": "user", "content": user_msg},
                 ],
-                temperature=0.0,
-                max_tokens=300,
+                max_output_tokens=300,
+                reasoning={"effort": "minimal"}, # 최소 수준 추론
+                text={"verbosity": "low"}, # sql query는 짧고 간결하게 답변
             )
-            sql = resp.choices[0].message.content.strip()
+            sql = (resp.output_text or "").strip()
         except Exception as e:
             return {"error": "LLM_SQL_ERROR", "detail": str(e)}
+
+        # 후처리
+        sql = re.sub(r"^```(?:sql)?|```$", "", sql.strip(), flags=re.IGNORECASE | re.MULTILINE).strip()
+        if ";" in sql:
+            sql = sql.split(";", 1)[0].strip() + ";"
+        if re.search(r"\blimit\b", sql, flags=re.IGNORECASE) is None:
+            sql = sql.rstrip(";") + f" LIMIT {sql_max_limit};"
+        if not re.match(r"^\s*select\b", sql, flags=re.IGNORECASE):
+            return {"error": "BAD_SQL_FORMAT", "detail": sql}
 
     # 2) 안전성 검사
     ok, safe, reason = guard_sql(sql, ctx.get("allow_tables"), ctx.get("sql_max_limit",200))
@@ -188,7 +213,8 @@ def sql_answer_run(args, ctx):
         return {"error":"SQL_EXEC_ERROR","detail":str(e)[:200], "sql":safe}
 
     # 4) 결과 반환 → 다음 루프에서 LLM이 자연어 답변 생성
-    return {"safe_sql": safe, "cols": cols, "rows": rows}
+    return {"rows": rows}
+
 
 # ====== Tool #3: RAG ======
 class RAGLookupInput(BaseModel):
@@ -215,12 +241,37 @@ def safety_redactor_run(args, ctx):
     return {"rejected":False,"text_redacted":red,"pii_detected":hit,"found":kinds}
 
 # ===== Registry =====
-TOOLS_SPEC=[
-  {"type":"function","function":{"name":"offtopic_router","description":"비관련 질문 필터","parameters":OfftopicInput.model_json_schema()}},
-  {"type":"function","function":{"name":"sql_answer","description":"DB 조회 및 SQL 실행","parameters":SQLAnswerInput.model_json_schema()}},
-  {"type":"function","function":{"name":"rag_lookup","description":"임베딩 검색","parameters":RAGLookupInput.model_json_schema()}},
-  {"type":"function","function":{"name":"clarify_builder","description":"모호 질문 재질문","parameters":ClarifyInput.model_json_schema()}},
-  {"type":"function","function":{"name":"safety_redactor","description":"PII 마스킹/차단","parameters":SafetyRedactorInput.model_json_schema()}}
+TOOLS_SPEC = [
+  {
+    "type": "function",
+    "name": "offtopic_router",
+    "description": "비관련 질문 필터",
+    "parameters": OfftopicInput.model_json_schema(),
+  },
+  {
+    "type": "function",
+    "name": "sql_answer",
+    "description": "DB 조회 및 SQL 실행",
+    "parameters": SQLAnswerInput.model_json_schema(),
+  },
+  {
+    "type": "function",
+    "name": "rag_lookup",
+    "description": "임베딩 검색",
+    "parameters": RAGLookupInput.model_json_schema(),
+  },
+  {
+    "type": "function",
+    "name": "clarify_builder",
+    "description": "모호 질문 재질문",
+    "parameters": ClarifyInput.model_json_schema(),
+  },
+  {
+    "type": "function",
+    "name": "safety_redactor",
+    "description": "PII 마스킹/차단",
+    "parameters": SafetyRedactorInput.model_json_schema(),
+  },
 ]
 TOOLS_EXEC={
   "offtopic_router":offtopic_router_run,
