@@ -64,7 +64,6 @@ def redact_pii(text: str):
     return red, hit, kinds
 
 # --- 오프토픽 판별 ---
-
 def _is_domain_by_fuzzy(text: str, min_ratio: int = 80, min_hits: int = 1) -> bool:
     """
     간단·빠른 1차 게이트:
@@ -107,6 +106,8 @@ def need_clarify(text: str, known=None):
     return None if not need else f"정확히 안내하려면 {'·'.join(need)}가 필요해요. 어떤 {'·'.join(need)}인가요?"
 
 # --- SQL Guard ---
+# SELECT 외 쿼리는 거부
+# 사용하는 SQL 계정도 Read-only 권한이지만 이중 보안 적용
 DENY = ("update","delete","insert","drop","alter","grant","revoke","create","truncate")
 def guard_sql(sql: str, allow_tables=None, force_limit=200):
     s = (sql or "").strip().rstrip(";"); low = s.lower()
@@ -129,26 +130,65 @@ def offtopic_router_run(args, ctx):
 
 # ====== Tool #2: SQL ======
 class SQLAnswerInput(BaseModel):
-    question: str; schema_ddl: str
+    question: str
+    schema_ddl: str
     known_filters: Optional[Dict[str,Any]]=None
     proposed_sql: Optional[str]=None
+
 def sql_answer_run(args, ctx):
     from sqlalchemy import text
-    eng=ctx.get("engine");
-    if not eng: return {"error":"DB_NOT_READY"}
-    sql=args.get("proposed_sql") or ""
-    if not sql: return {"need_sql":True}
-    ok,safe,reason=guard_sql(sql,ctx.get("allow_tables"),ctx.get("sql_max_limit",200))
-    if not ok: return {"error":"SQL_BLOCKED","reason":reason,"sql":sql}
-    rows=[]; cols=[]
+    eng = ctx.get("engine")
+    client = ctx.get("openai")   # main.py에서 넣어줘야 함
+    if not eng:
+        return {"error": "DB_NOT_READY"}
+
+    # 1) SQL 확보: 있으면 그대로 쓰고, 없으면 LLM 호출
+    sql = args.get("proposed_sql") or ""
+    if not sql:
+        schema_ddl = args.get("schema_ddl") or ctx.get("schema_hints", "")
+        q = args.get("question", "")
+        prompt = f"""
+        You are a SQL generator. Based on the schema:
+
+        {schema_ddl}
+
+        Generate ONE safe SELECT SQL query (no explanation, no comments).
+        User question: {q}
+        """
+        mdl = ctx.get("sql_llm_model", "gpt-4o-mini")
+        try:
+            resp = client.chat.completions.create(
+                model=mdl,
+                messages=[
+                    {"role":"system","content":"You generate a single SELECT SQL only."},
+                    {"role":"user","content": prompt}
+                ],
+                temperature=0.0,
+                max_tokens=300,
+            )
+            sql = resp.choices[0].message.content.strip()
+        except Exception as e:
+            return {"error": "LLM_SQL_ERROR", "detail": str(e)}
+
+    # 2) 안전성 검사
+    ok, safe, reason = guard_sql(sql, ctx.get("allow_tables"), ctx.get("sql_max_limit",200))
+    if not ok:
+        return {"error":"SQL_BLOCKED","reason":reason,"sql":sql}
+
+    # 3) 실행
+    rows, cols = [], []
     try:
         with eng.connect() as c:
-            res=c.execute(text(safe)); cols=list(res.keys())
-            for i,r in enumerate(res):
-                if i>=ctx.get("sql_max_rows",200): break
+            res = c.execute(text(safe))
+            cols = list(res.keys())
+            for i, r in enumerate(res):
+                if i >= ctx.get("sql_max_rows",200): break
                 rows.append(list(r))
-    except Exception as e: return {"error":"SQL_EXEC_ERROR","detail":str(e)[:200]}
-    return {"safe_sql":safe,"cols":cols,"rows":rows}
+    except Exception as e:
+        return {"error":"SQL_EXEC_ERROR","detail":str(e)[:200], "sql":safe}
+
+    # 4) 결과 반환 → 다음 루프에서 LLM이 자연어 답변 생성
+    return {"safe_sql": safe, "cols": cols, "rows": rows}
 
 # ====== Tool #3: RAG ======
 class RAGLookupInput(BaseModel):

@@ -22,7 +22,7 @@
 
 
 
-- 0.1.1
+- 0.2.0
 
   - agents(with 5 tools) 추가
     - 오프토픽 처리
@@ -40,7 +40,10 @@
   - 에이전트 루프 기반으로 필요한 tool 선택 -> 실행 반복 후 최종 반환
   - 이미지 크기 5.86GB
 
-
+## 로컬 서버 실행 코드
+```bash
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
 
 ## 컨테이너 실행 코드
 
@@ -53,7 +56,7 @@ docker run -d -p 8000:8000 --name bmpm_ai -v /home/ubuntu/rag_data:/app/rag_data
 ## Healthcheck 코드
 
 ```cmd
-curl -sS http://3.39.192.187:8000/healthz
+curl -sS http://3.34.126.173:8000/healthz
 ```
 
 
@@ -65,7 +68,7 @@ curl -sS http://3.39.192.187:8000/healthz
 ### 기본 테스트 코드
 
 ```cmd
-git clone curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u1"",""message"":""오늘 학식 뭐 나와?""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u1"",""message"":""오늘 학식 뭐 나와?""}"
 ```
 
 
