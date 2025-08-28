@@ -4,6 +4,10 @@ from pydantic import BaseModel
 import re, unicodedata
 from rapidfuzz import fuzz, process
 from unidecode import unidecode
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ===== 공통 유틸리티 =====
 # 문장 전처리 함수
@@ -119,6 +123,7 @@ def guard_sql(sql: str, allow_tables=None, force_limit=200):
     if " limit " not in low: s+=f" LIMIT {force_limit}"
     return True, s+";", ""
 
+
 # ====== Tool #1: 오프토픽 ======
 class OfftopicInput(BaseModel):
     question: str
@@ -131,7 +136,6 @@ def offtopic_router_run(args, ctx):
 # ====== Tool #2: SQL ======
 class SQLAnswerInput(BaseModel):
     question: str
-    schema_ddl: str
     known_filters: Optional[Dict[str,Any]]=None
     proposed_sql: Optional[str]=None
 
@@ -213,17 +217,19 @@ def sql_answer_run(args, ctx):
         return {"error":"SQL_EXEC_ERROR","detail":str(e)[:200], "sql":safe}
 
     # 4) 결과 반환 → 다음 루프에서 LLM이 자연어 답변 생성
-    return {"rows": rows}
+    # rows를 dict의 list로 변환
+    results = [dict(zip(cols, row)) for row in rows]
+    return {"results": results}
 
 
 # ====== Tool #3: RAG ======
-class RAGLookupInput(BaseModel):
-    query: str; filters: Optional[Dict[str,Any]]=None; top_k:int=6
-def rag_lookup_run(args, ctx):
-    f=ctx.get("rag_search");
-    if not f: return {"error":"RAG_NOT_READY"}
-    hits=f(_normalize(args["query"]),args.get("top_k",6),args.get("filters") or {})
-    return {"context":"\n".join(h["text"] for h in hits),"sources":[h.get("meta",{}) for h in hits]}
+# class RAGLookupInput(BaseModel):
+#     query: str; filters: Optional[Dict[str,Any]]=None; top_k:int=6
+# def rag_lookup_run(args, ctx):
+#     f=ctx.get("rag_search");
+#     if not f: return {"error":"RAG_NOT_READY"}
+#     hits=f(_normalize(args["query"]),args.get("top_k",6),args.get("filters") or {})
+#     return {"context":"\n".join(h["text"] for h in hits),"sources":[h.get("meta",{}) for h in hits]}
 
 # ====== Tool #4: Clarify ======
 class ClarifyInput(BaseModel):
@@ -252,14 +258,26 @@ TOOLS_SPEC = [
     "type": "function",
     "name": "sql_answer",
     "description": "DB 조회 및 SQL 실행",
-    "parameters": SQLAnswerInput.model_json_schema(),
+    "parameters": {
+        "type": "object",
+        "properties": {
+          "question": {"type": "string"},
+          "known_filters": {"type": "object", "nullable": True},
+          "proposed_sql": {"type": "string", "nullable": True}
+        },
+        "required": ["question"]
+      },
   },
-  {
-    "type": "function",
-    "name": "rag_lookup",
-    "description": "임베딩 검색",
-    "parameters": RAGLookupInput.model_json_schema(),
-  },
+  # {
+  #   "type": "function",
+  #   "name": "rag_lookup",
+  #   "description": "임베딩 검색",
+  #   "parameters": RAGLookupInput.model_json_schema(),
+  # },
+    {
+    "type": "file_search",
+    "vector_store_ids": [os.getenv("VECTOR_STORE_ID")] # 리스트로 전달
+    },
   {
     "type": "function",
     "name": "clarify_builder",
@@ -276,7 +294,7 @@ TOOLS_SPEC = [
 TOOLS_EXEC={
   "offtopic_router":offtopic_router_run,
   "sql_answer":sql_answer_run,
-  "rag_lookup":rag_lookup_run,
+  # "rag_lookup":rag_lookup_run,
   "clarify_builder":clarify_builder_run,
   "safety_redactor":safety_redactor_run,
 }
@@ -284,3 +302,4 @@ def run_tool_safely(name,args,ctx):
     fn=TOOLS_EXEC.get(name)
     try: return fn(args,ctx)
     except Exception as e: return {"error":str(e)}
+

@@ -1,5 +1,3 @@
-# app/main.py
-
 # 개발중에만 사용할 환경변수 로드
 # 배포/운영시에는 컨테이너 실행시 환경변수 직접 로드할 것
 from dotenv import load_dotenv
@@ -26,7 +24,7 @@ from sentence_transformers import SentenceTransformer
 from sqlalchemy import create_engine
 
 # === 에이전트 툴 스펙/레지스트리 ===
-from app.agents.tools import TOOLS_SPEC, run_tool_safely
+from app.agents.tools import TOOLS_SPEC, TOOLS_EXEC, run_tool_safely
 
 # -------------------------
 # 환경변수/설정
@@ -174,6 +172,27 @@ def _warmup():
     except Exception as e:
         print(f"[RAG warmup] skip or warn: {e}")
 
+    # OPENAI Vector store 준비
+    # OpenAI 클라이언트 생성/저장
+    try:
+        app.state.openai = OpenAI(api_key=OPENAI_API_KEY)
+        print("[OPENAI] client ready")
+    except Exception as e:
+        app.state.openai = None
+        print(f"[OPENAI] init failed: {e}")
+    
+    # vector store 확인
+    try:
+        vs_ids = [s.strip() for s in os.getenv("VECTOR_STORE_ID", "").split(",") if s.strip()]
+        if vs_ids:
+            for vid in vs_ids:
+                meta = app.state.openai.vector_stores.retrieve(vid)
+                print(f"[FS] vector_store {vid} status={getattr(meta, 'status', None)}")
+        else:
+            print("[FS] VECTOR_STORE_ID not set")
+    except Exception as e:
+        print(f"[FS] vector_store retrieve failed: {e}")
+
     # DB 엔진 준비
     # DB서버 미작동 등 오류 발생시에도 일단 서비스는 실행
     try:
@@ -188,10 +207,6 @@ def _warmup():
     except Exception as e:
         app.state.engine = None
         print(f"[DB] engine init failed: {e}")
-
-    # OPENAI API key 로드
-    app.state.openai = OpenAI(api_key=OPENAI_API_KEY)
-
 
 # healthcheck
 # RAG 인덱스와 DB 준비상태 확인
@@ -215,88 +230,150 @@ async def run_agent_loop(
     max_steps: int = 3,
 ):
     """
-    Responses API 기반 에이전트 루프(최대 3스텝).
-    tools=TOOLS_SPEC 를 전달하고, 모델이 tool_call을 내면 실행 후 tool 메시지를 이어붙여 재호출합니다.
+    Responses API 기반 에이전트 루프.
+    - 빌트인 툴(file_search/web_search 등)은 OpenAI가 내부 처리 → 실행하지 않고 '기록만'
+    - 함수 툴(sql_answer 등)만 run_tool_safely로 실행 후 tool 메시지를 이어붙여 재호출
+    반환값: (reply_text, usage, tools_used, tool_results, llm_ms, llm_calls)
     """
     messages = list(base_messages)
-    tools_used, tool_results = [], []
+    tools_used: List[str] = []
+    tool_results: List[Dict[str, Any]] = []
     llm_ms = 0
     llm_calls = 0
 
-    tool_choice = (
-        {"type": "allowed_tools", "mode": "auto",
-         "tools": [{"type": "function", "name": n} for n in ALLOWED_TOOLS]}
-        if ALLOWED_TOOLS else "auto"
-    )
+    # ctx에서 tool_choice 주입
+    tool_choice = "auto"
+
+    # 함수 툴 이름 집합(TOOLS_SPEC에서 type == "function"인 항목들)
+    function_tool_names = {t.get("name") for t in TOOLS_SPEC if t.get("type") == "function"}
 
     for _ in range(max_steps):
-        _t = time.perf_counter()
+        t0 = time.perf_counter()
+        # API 호출 전에 tool 역할 메시지 필터링
+        filtered_messages = [m for m in messages if m.get("role") != "tool"]
         resp = client.responses.create(
             model=OPENAI_MODEL,
-            input=messages,  # chat 메시지 배열 그대로 전달 가능
-            tools=TOOLS_SPEC,  # 기존 function tool 스펙 그대로 사용
-            tool_choice=tool_choice,  # 필요시 auto/allowed_tools/required로 제약 가능
+            input=filtered_messages,
+            tools=TOOLS_SPEC,           # functions + built-in tools(file_search 등)
+            tool_choice=tool_choice,    # required/allowed_tools/auto 등 외부에서 결정
             max_output_tokens=800,
             reasoning={"effort": REASONING_EFFORT},
             text={"verbosity": VERBOSITY},
         )
-        llm_ms += int((time.perf_counter() - _t) * 1000)
+
+        # 디버깅: 응답 전체를 짧게라도 덤프
+        try:
+            print("[DEBUG] raw response head]",
+                  (resp.model_dump_json(indent=2)[:3000] if hasattr(resp, "model_dump_json") else str(resp)))
+        except Exception as e:
+            print("[DEBUG] dump fail:", e)
+
+        # 기존처럼 tool_call만 보지 말고 전체 아이템도 살짝 훑기
+        for it in (getattr(resp, "output", []) or []):
+            print("  - item.type:", getattr(it, "type", None),
+                  "name:", getattr(it, "name", None),
+                  "role:", getattr(it, "role", None))
+
+        llm_ms += int((time.perf_counter() - t0) * 1000)
         llm_calls += 1
 
-        # 1) 최종 답변 텍스트
         out_text = getattr(resp, "output_text", None)
-        tool_calls = []
+        output_items = getattr(resp, "output", []) or []
+        tool_calls = [it for it in output_items if (getattr(it, "type", None) or "").endswith("_call")]
 
-        # 2) tool call 추출(Responses API는 output 리스트에 tool_call 아이템이 섞여 올 수 있음)
-        for item in getattr(resp, "output", []) or []:
-            if getattr(item, "type", None) == "tool_call":
-                tool_calls.append(item)
 
-        # tool call이 없으면 최종 답변 반환
-        if not tool_calls and out_text:
-            return (
-                out_text,
-                getattr(resp, "usage", None),
-                tools_used,
-                tool_results,
-                llm_ms,
-                llm_calls,
-            )
+        # 툴콜이 전혀 없으면(모델이 바로 답함) 즉시 반환
+        if not tool_calls:
+            if out_text:
+                return (
+                    out_text,
+                    getattr(resp, "usage", None),
+                    tools_used,
+                    tool_results,
+                    llm_ms,
+                    llm_calls,
+                )
+            # 텍스트도 없으면 루프 종료 → 아래 finalize로
+            break
 
-        # 각 tool 호출 실행 → 결과 message에 붙이기
-        for tc in tool_calls:
+        # 빌트인/함수 툴 분리
+        func_calls = [tc for tc in tool_calls if getattr(tc, "name", None) in function_tool_names]
+        builtin_calls = [tc for tc in tool_calls if getattr(tc, "name", None) not in function_tool_names]
+
+        # 빌트인 툴 호출은 기록만 (OpenAI가 내부 실행)
+        for tc in builtin_calls:
+            tools_used.append(getattr(tc, "name", None) or "built_in_tool")
+
+        # 실행할 함수 툴이 하나도 없고, 이미 모델의 텍스트가 있다면 그걸로 종료
+        if not func_calls:
+            if out_text:
+                return (
+                    out_text,
+                    getattr(resp, "usage", None),
+                    tools_used,
+                    tool_results,
+                    llm_ms,
+                    llm_calls,
+                )
+            else:
+                # 텍스트가 없으면 한 번 더 finalize 호출하여 마무리
+                t1 = time.perf_counter()
+                final = client.responses.create(
+                    model=OPENAI_MODEL,
+                    input=messages,
+                    max_output_tokens=800,
+                    tool_choice="none",
+                    reasoning={"effort": REASONING_EFFORT},
+                    text={"verbosity": VERBOSITY},
+                )
+                llm_ms += int((time.perf_counter() - t1) * 1000)
+                llm_calls += 1
+                return (
+                    final.output_text,
+                    getattr(final, "usage", None),
+                    tools_used,
+                    tool_results,
+                    llm_ms,
+                    llm_calls,
+                )
+
+        # 함수 툴 실행 → tool 메시지 붙이기
+        for tc in func_calls:
             name = getattr(tc, "name", None)
             raw_args = getattr(tc, "arguments", {}) or {}
             try:
                 args = raw_args if isinstance(raw_args, dict) else json.loads(raw_args)
             except Exception:
                 args = {}
+
             result = run_tool_safely(name, args, ctx)
             tools_used.append(name)
-            # 디버그 프리뷰(키 이름만 가볍게)
             tool_results.append({"name": name, "keys": list(result.keys())[:8]})
-            messages.append(
-                {
-                    "role": "tool",
-                    "tool_call_id": getattr(tc, "id", None),
-                    "name": name,
-                    "content": json.dumps(result, ensure_ascii=False),
-                }
-            )
 
-    # 스텝 초과 → 마지막 응답 생성 시도
-    _t = time.perf_counter()
+            messages.append({
+                "role": "tool",
+                "tool_call_id": getattr(tc, "id", None),
+                "content": json.dumps(result, ensure_ascii=False),
+            })
+
+        # 다음 스텝에서 툴 결과를 반영한 재호출
+
+    # 스텝 초과 또는 조기 종료 케이스 → 최종 생성 한 번
+    t2 = time.perf_counter()
+    # 최종 응답 생성 시에는 tool 역할 메시지 제외 (API 규격)
+    final_messages = [m for m in messages if m.get("role") != "tool"]
     final = client.responses.create(
         model=OPENAI_MODEL,
-        input=messages,
+        input=final_messages,
         max_output_tokens=800,
         tool_choice="none",
         reasoning={"effort": REASONING_EFFORT},
         text={"verbosity": VERBOSITY},
-
     )
-    llm_ms += int((time.perf_counter() - _t) * 1000)
+    llm_ms += int((time.perf_counter() - t2) * 1000)
     llm_calls += 1
+
+    print("[DEBUG] final response]", (final.model_dump_json(indent=2) if hasattr(final, "model_dump_json") else str(final)))
 
     return (
         final.output_text,
@@ -328,25 +405,8 @@ async def chat(payload: ChatRequest):
     # 식문화 관련해서 context에 추가할 내용이 있는 언어는 프롬프트 추가하는 코드 구현 예정
     lang = (payload.language or "ko").strip()
 
-    # 1) RAG 컨텍스트(있으면 활용)
-    context_text = ""
-    rag_sources: List[Dict[str, Any]] = []
-    try:
-        hits = search_topk(payload.message, TOP_K)
-        context_text = format_context(hits, MAX_CONTEXT_CHARS) if hits else ""
-        rag_sources = [
-            {
-                "title": h["meta"].get("title"),
-                "chunk_id": h["meta"].get("chunk_id"),
-                "score": h["score"],
-            }
-            for h in hits
-        ]
-    except Exception:
-        # 인덱스 없거나 로딩 실패해도 대화는 진행
-        pass
 
-    # 2) DB schemas
+    # DB schemas
     schema_hints = '''
 CREATE TABLE `ai_service` (
   `session_id` int NOT NULL AUTO_INCREMENT,
@@ -510,35 +570,52 @@ CREATE TABLE `university` (
 '''
 
     # 3) 프롬프트 구성
-    system_prompt = (
-        "You are the campus assistant for '헤이영 캠퍼스'.\n"
-        "Tool policy:\n"
-        "- Use `sql_answer` for menus, prices, cafeterias, hours, or anything in the DB schema.\n"
-        "- Use `rag_lookup` for policies, events, user guides, or anything not in the DB.\n"
-        "- If neither can answer, say you don't know.\n"
-        f"- Always answer strictly in the user's language: '{lang}'.\n"
-        "\n"
-        "Output rules (IMPORTANT):\n"
-        "1) Present ONLY the final result the user asked for.\n"
-        "2) DO NOT mention SQL, queries, databases, schemas, tools, or how you executed them.\n"
-        "3) NO prefaces like '쿼리 실행했습니다', '데이터베이스에서 찾았습니다', '결과를 보여드릴게요'.\n"
-        "4) Be concise. If it's a list, return a clean list; if it's a single value, return just the value with minimal wording.\n"
-        "5) If quantities/units matter (e.g., prices, kcal), include them succinctly.\n"
-        "\n"
-        "Good:\n"
-        "- '된장찌개, 비빔밥, 불고기'\n"
-        "- '가격 6,000원'\n"
-        "Bad:\n"
-        "- '쿼리를 실행했습니다. 결과는 다음과 같습니다: …'\n"
-        "- '데이터베이스에서 조회한 결과 …'\n"
-        "\n"
-        "DB schema (for deciding/constructing sql_answer only):\n"
-        f"{schema_hints}"
-    )
+    system_prompt =f"""
+    당신은 캠퍼스 학식/교내 식당·결제 도우미 에이전트입니다.
+    주 업무: 메뉴·영양·가격·알레르기·교내 매장 정보·결제/포인트 질의 응답을 담당합니다.
+
+    [도구 사용 원칙]
+    - offtopic_router: 질문이 학식/교내 도메인과 무관하면 먼저 호출
+    - clarify_builder: 날짜·식당·캠퍼스 정보가 모호하면 짧고 구체적인 재질문 생성
+    - safety_redactor: 개인정보(전화·이메일·학번·계좌)가 있으면 마스킹. 정책이 reject면 거절
+    - sql_answer: 메뉴/가격/영양/결제 등 DB 기반 질문일 때 SELECT 쿼리로 조회
+      * 반드시 SELECT만 허용, DML/DDL 금지
+      * LIMIT 누락 시 강제로 추가
+      * 허용된 테이블만 사용
+    - file_search/RAG 컨텍스트가 제공되면 환각보다 우선 사용
+
+    [답변 스타일]
+    - 사용자의 언어로 답변 (기본 한국어)
+    - 간결·친절·정확. 핵심 먼저, 필요 시 세부사항 추가
+    - 숫자/가격/시간은 정확한 단위(₩, kcal, YYYY-MM-DD)
+    - SQL 결과가 없으면 "데이터 없음"을 알리고 대안 제시
+
+    [포맷 규칙]
+    - 필요 시 목록/표 활용 (과도하게 복잡 X)
+    - 알레르기/원산지는 ⚠️ 등 간단한 경고 기호 사용 가능
+    - RAG 문맥 사용 시 간단히 출처명 표기
+
+    [안전·정합성]
+    - 개인정보는 반드시 마스킹
+    - 확신이 없으면 "확인 불가"라고 답하고, 다음 행동(예: 날짜 지정) 제안
+    - 정책/영업시간/가격 등은 반드시 DB/컨텍스트 기반
+
+    [SQL 세부 규칙]
+    - 한 번에 하나의 SELECT만
+    - 스키마 제약 준수, LIMIT 내에서 요약
+    - 결과가 필요할 때는 SQL만 출력 (코드블록/주석 없이)
+
+    [멀티턴 맥락]
+    - 같은 세션에서 이전에 받은 날짜/식당/캠퍼스를 재사용
+    - 사용자가 수정하면 최신 발화를 우선
+
+    [DB SCHEMA HINTS]
+    {schema_hints}
+    """
+
 
     user_prompt = (
         f"[lang={lang}] {payload.message}\n\n"
-        f"---\nContext:\n{context_text if context_text else '(no context)'}"
     )
 
     messages = [{"role": "system", "content": system_prompt}]
@@ -580,8 +657,9 @@ CREATE TABLE `university` (
             completion = client.responses.create(
                 model=OPENAI_MODEL,
                 input=messages,
+                tools=TOOLS_SPEC,
                 max_output_tokens=800,
-                tool_choice="none",
+                tool_choice="auto",
                 reasoning={"effort": REASONING_EFFORT},
                 text={"verbosity": VERBOSITY},
             )
@@ -608,8 +686,6 @@ CREATE TABLE `university` (
         meta={
             "user_id": payload.user_id,
             "language": lang,
-            "rag_used": bool(context_text),
-            "rag_sources": rag_sources,  # 프론트 출처 노출용
             "tools_used": tools_used,  # 사용한 tool
             "tool_results_preview": tool_results,
             # 응답속도 관련 지표
