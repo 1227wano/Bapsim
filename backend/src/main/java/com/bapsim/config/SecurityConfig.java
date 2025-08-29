@@ -1,4 +1,4 @@
-package com.bapsim.config; // 본인의 패키지 경로에 맞게 수정하세요.
+package com.bapsim.config; // 본인의 패지 경로에 맞게 수정하세요.
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-//@EnableWebSecurity
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
@@ -21,6 +21,7 @@ public class SecurityConfig {
                         // 아래 경로들은 인증 없이 누구나 접근할 수 있도록 허용합니다.
                         .mvcMatchers(
                                 "/",
+                                "/api/members/**",       // 로그인, 회원가입 등 회원 관련 API
                                 "/swagger-ui/**",       // Swagger UI 페이지
                                 "/v3/api-docs/**",      // OpenAPI 3.0 문서
                                 "/swagger-resources/**" // Swagger 리소스
