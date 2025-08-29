@@ -1,20 +1,40 @@
 package com.bapsim.controller;
 
+import com.bapsim.dto.LoginRequestDto;
+import com.bapsim.dto.LoginResponseDto;
 import com.bapsim.entity.Member;
 import com.bapsim.repository.MemberRepository;
+import com.bapsim.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/members") // "/api/users" -> "/api/members"로 변경
-@CrossOrigin(origins = "*")
 public class MemberController { // UserController -> MemberController로 변경
 
     @Autowired
     private MemberRepository memberRepository; // UserRepository -> MemberRepository
+
+    @Autowired
+    private MemberService memberService;
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginRequestDto loginRequestDto) {
+        Optional<Member> memberOptional = memberService.login(loginRequestDto.getUserId(), loginRequestDto.getUserPass());
+
+        if (memberOptional.isPresent()) {
+            Member member = memberOptional.get();
+            LoginResponseDto responseDto = new LoginResponseDto(member.getUserName());
+            return ResponseEntity.ok(responseDto);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+    }
 
     @GetMapping
     public List<Member> getAllMembers() { // getAllUsers -> getAllMembers
