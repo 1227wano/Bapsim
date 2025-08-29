@@ -38,6 +38,8 @@ public class Restaurants {
     @Column(name = "VISITOR", nullable = false)
     private Long visitor;
     
+    // 식권 관련 복잡한 필드들 제거 (단순화)
+    
     @Column(name = "CREATED_ID", length = 100, nullable = false)
     private String createdId;
     
@@ -129,7 +131,7 @@ public class Restaurants {
     public void setVisitor(Long visitor) {
         this.visitor = visitor;
     }
-    
+        
     public String getCreatedId() {
         return createdId;
     }

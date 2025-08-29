@@ -4,7 +4,8 @@ import com.bapsim.dto.*;
 import com.bapsim.entity.*;
 import com.bapsim.repository.*;
 import com.bapsim.util.SsafyApiHeaderGenerator;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,10 +16,11 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-@Slf4j
 @Service
 @Transactional
 public class PaymentService {
+    
+    private static final Logger log = LoggerFactory.getLogger(PaymentService.class);
     
     @Autowired
     private PaymentRepository paymentRepository;
@@ -37,6 +39,9 @@ public class PaymentService {
     
     @Autowired
     private SsafyApiHeaderGenerator headerGenerator;
+    
+    @Autowired
+    private MealTicketService mealTicketService;
     
     /**
      * 결제 전 검증
@@ -339,14 +344,24 @@ public class PaymentService {
                 return PaymentResponseDto.failure("SSAFY_API_ERROR", "SSAFY 출금 API 호출에 실패했습니다");
             }
             
-            // 5. 결제 완료 처리
-            payment.setSsafyTransactionId(ssafyTransactionId);
-            payment.setPaymentStatus(Payment.PaymentStatus.COMPLETED);
-            payment.setPinVerified(true);
-            payment.setUpdatedAt(LocalDateTime.now());
-            payment.setUpdatedId("system");
-            
-            Payment savedPayment = paymentRepository.save(payment);
+                         // 5. 결제 완료 처리
+             payment.setSsafyTransactionId(ssafyTransactionId);
+             payment.setPaymentStatus(Payment.PaymentStatus.COMPLETED);
+             payment.setPinVerified(true);
+             payment.setUpdatedAt(LocalDateTime.now());
+             payment.setUpdatedId("system");
+             
+             Payment savedPayment = paymentRepository.save(payment);
+             
+             // 6. 식권 자동 발행
+             try {
+                 log.info("결제 완료 후 식권 발행 시작: paymentId={}", savedPayment.getPaymentId());
+                 mealTicketService.issueTicketAfterPayment(savedPayment.getPaymentId());
+                 log.info("식권 발행 완료: paymentId={}", savedPayment.getPaymentId());
+             } catch (Exception e) {
+                 log.error("식권 발행 중 오류 발생: paymentId={}", savedPayment.getPaymentId(), e);
+                 // 식권 발행 실패는 결제 성공에 영향을 주지 않음
+             }
             
                          // 6. 성공 응답 생성
              // menuName은 MenuPrice 테이블의 mealType을 사용
