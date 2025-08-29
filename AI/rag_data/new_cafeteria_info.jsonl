@@ -1,150 +1,30 @@
-{"id": "faq_100", "title": "FAQ #100", "text": "Q: 학생증이 없으면 할인을 받을 수 없나요?\nA: 네, 학생 할인은 학생증을 제시해야만 가능합니다.", "meta": {"type": "faq", "category": "discount", "lang": "ko", "date": "2025-08-26"}}
 {"id": "notice_101", "title": "학식 운영 공지 #101", "text": "방학 중에는 제2학생회관 식당만 운영합니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-08-26"}}
-{"id": "guide_102", "title": "이용 가이드 #102", "text": "식권 발매기 위치는 각 식당 입구에 있습니다.", "meta": {"type": "guide", "category": "location", "lang": "ko", "date": "2025-08-26"}}
 {"id": "faq_103", "title": "FAQ #103", "text": "Q: 외부인도 학식을 이용할 수 있나요?\nA: 네, 가능합니다. 다만 교직원/학생 할인은 적용되지 않습니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-08-27"}}
-{"id": "notice_104", "title": "신메뉴 출시 #104", "text": "이번 주부터 제1학생회관 식당에서 마라탕을 판매합니다.", "meta": {"type": "notice", "category": "menu", "lang": "ko", "date": "2025-08-27"}}
-{"id": "guide_105", "title": "이용 가이드 #105", "text": "배식대 위생을 위해 대화 및 휴대폰 사용을 자제해주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-08-27"}}
-{"id": "faq_106", "title": "FAQ #106", "text": "Q: 식단 정보는 어디서 확인할 수 있나요?\nA: 학교 앱 또는 각 식당 입구의 메뉴판에서 확인 가능합니다.", "meta": {"type": "faq", "category": "menu", "lang": "ko", "date": "2025-08-28"}}
-{"id": "notice_107", "title": "학식 운영 공지 #107", "text": "정기 위생 점검으로 인해 9월 1일은 1시간 단축 운영합니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-08-28"}}
-{"id": "guide_108", "title": "이용 가이드 #108", "text": "퇴식구에 식기를 반납할 때 잔반을 최소화해주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-08-28"}}
-{"id": "faq_109", "title": "FAQ #109", "text": "Q: 채식 메뉴가 있나요?\nA: 네, 제2학생회관 식당 샐러드 코너에서 비건 메뉴를 제공합니다.", "meta": {"type": "faq", "category": "menu", "lang": "ko", "date": "2025-08-29"}}
-{"id": "notice_110", "title": "가격 인상 안내 #110", "text": "물가 상승으로 인해 9월 15일부터 일부 메뉴 가격이 500원 인상됩니다.", "meta": {"type": "notice", "category": "price", "lang": "ko", "date": "2025-08-29"}}
+{"id": "notice_107", "title": "학식 운영 공지 #107", "text": "정기 위생 점검으로 인해 9월 4일은 1시간 단축 운영합니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-08-28"}}
 {"id": "guide_111", "title": "이용 가이드 #111", "text": "학생회관 식당은 주말 및 공휴일에는 운영하지 않습니다.", "meta": {"type": "guide", "category": "hours", "lang": "ko", "date": "2025-08-29"}}
-{"id": "faq_112", "title": "FAQ #112", "text": "Q: 남은 음식을 포장해 갈 수 있나요?\nA: 위생 문제로 인해 남은 음식 포장은 불가능합니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-08-30"}}
-{"id": "notice_113", "title": "학식 만족도 조사 #113", "text": "9월 한 달간 학식 만족도 조사를 진행합니다. 참여자에게는 포인트 100P를 드립니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-08-30"}}
-{"id": "guide_114", "title": "이용 가이드 #114", "text": "알레르기 유발 물질 정보는 메뉴판 하단에 기재되어 있습니다.", "meta": {"type": "guide", "category": "health", "lang": "ko", "date": "2025-08-30"}}
-{"id": "faq_115", "title": "FAQ #115", "text": "Q: 식권 대량 구매 시 할인이 있나요?\nA: 100장 이상 구매 시 5% 할인 혜택을 제공합니다. 학생지원팀에 문의하세요.", "meta": {"type": "faq", "category": "discount", "lang": "ko", "date": "2025-09-01"}}
-{"id": "notice_116", "title": "운영 중단 안내 #116", "text": "교내 행사로 인해 9월 5일 저녁 학식 운영이 중단됩니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-09-01"}}
+{"id": "faq_115", "title": "FAQ #115", "text": "Q: 식권 대량 구매 시 할인이 있나요?\nA: 100장 구매 시 5% 할인 혜택을 제공합니다..", "meta": {"type": "faq", "category": "discount", "lang": "ko", "date": "2025-09-01"}}
 {"id": "guide_117", "title": "이용 가이드 #117", "text": "제1학생회관 식당은 350석, 제2학생회관 식당은 500석 규모입니다.", "meta": {"type": "guide", "category": "location", "lang": "ko", "date": "2025-09-01"}}
-{"id": "faq_118", "title": "FAQ #118", "text": "Q: 모바일 학생증으로도 할인이 가능한가요?\nA: 네, 모바일 학생증 앱의 QR 코드를 제시하면 동일한 할인이 적용됩니다.", "meta": {"type": "faq", "category": "discount", "lang": "ko", "date": "2025-09-02"}}
-{"id": "notice_119", "title": "잔반 줄이기 캠페인 #119", "text": "잔반을 남기지 않은 학생에게 매주 추첨을 통해 1000P를 지급합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-09-02"}}
-{"id": "guide_120", "title": "이용 가이드 #120", "text": "학기 중 평일 점심 운영 시간은 11:00부터 14:30까지로 연장됩니다.", "meta": {"type": "guide", "category": "hours", "lang": "ko", "date": "2025-09-02"}}
 {"id": "faq_121", "title": "FAQ #121", "text": "Q: 식당 내 분실물은 어디서 찾을 수 있나요?\nA: 각 식당 퇴식구 옆 분실물 보관함을 확인하시거나 학생지원팀에 문의하세요.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-09-03"}}
 {"id": "notice_122", "title": "추석 연휴 운영 안내 #122", "text": "추석 연휴 기간(9/13-9/15) 동안 모든 학식당은 운영하지 않습니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-09-03"}}
 {"id": "guide_123", "title": "이용 가이드 #123", "text": "교직원 식당은 제3교수회관 2층에 위치해 있습니다.", "meta": {"type": "guide", "category": "location", "lang": "ko", "date": "2025-09-03"}}
-{"id": "faq_124", "title": "FAQ #124", "text": "Q: 포인트 유효기간은 어떻게 되나요?\nA: 적립된 포인트는 다음 학년도 말까지 유효합니다.", "meta": {"type": "faq", "category": "points", "lang": "ko", "date": "2025-09-04"}}
-{"id": "notice_125", "title": "신규 결제 수단 추가 #125", "text": "이제부터 카카오페이로도 학식 결제가 가능합니다.", "meta": {"type": "notice", "category": "payment", "lang": "ko", "date": "2025-09-04"}}
-{"id": "guide_126", "title": "이용 가이드 #126", "text": "모든 메뉴의 칼로리 정보는 학교 앱 '오늘의 학식' 코너에서 제공됩니다.", "meta": {"type": "guide", "category": "health", "lang": "ko", "date": "2025-09-04"}}
 {"id": "faq_127", "title": "FAQ #127", "text": "Q: 식권 환불은 어떻게 하나요?\nA: 구매 당일, 사용하지 않은 식권에 한해 식권 발매기에서 환불 가능합니다.", "meta": {"type": "faq", "category": "payment", "lang": "ko", "date": "2025-09-05"}}
-{"id": "notice_128", "title": "특별 메뉴 제공 #128", "text": "개교기념일(10/15)에는 모든 학생에게 특식(스테이크)을 5000원에 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-09-05"}}
 {"id": "guide_129", "title": "이용 가이드 #129", "text": "제2학생회관 식당에는 혼밥 좌석이 마련되어 있습니다.", "meta": {"type": "guide", "category": "location", "lang": "ko", "date": "2025-09-05"}}
 {"id": "faq_130", "title": "FAQ #130", "text": "Q: 학식 관련 건의사항은 어디에 접수하나요?\nA: 각 식당에 비치된 고객의 소리함을 이용하거나, 학생지원팀 홈페이지에 글을 남겨주세요.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-09-06"}}
-{"id": "notice_131", "title": "라면 코너 리뉴얼 #131", "text": "제1학생회관 분식 코너의 라면 기계가 신형으로 교체되었습니다.", "meta": {"type": "notice", "category": "location", "lang": "ko", "date": "2025-09-06"}}
-{"id": "guide_132", "title": "이용 가이드 #132", "text": "식당 내 정수기는 자유롭게 이용 가능합니다.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-06"}}
-{"id": "faq_133", "title": "FAQ #133", "text": "Q: 졸업생도 학식을 이용할 수 있나요?\nA: 네, 가능합니다. 다만 재학생 할인은 적용되지 않습니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-09-08"}}
-{"id": "notice_134", "title": "글루텐 프리 메뉴 도입 #134", "text": "학생들의 요청에 따라 10월부터 글루텐 프리 파스타를 제공합니다.", "meta": {"type": "notice", "category": "menu", "lang": "ko", "date": "2025-09-08"}}
-{"id": "guide_135", "title": "이용 가이드 #135", "text": "식당 내 Wi-Fi는 'Campus-Free'를 이용하시면 됩니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-09-08"}}
-{"id": "faq_136", "title": "FAQ #136", "text": "Q: 식당 예약이 가능한가요?\nA: 단체(20인 이상)의 경우, 학생지원팀을 통해 사전 예약 시 좌석을 마련해 드립니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-09-09"}}
-{"id": "notice_137", "title": "동절기 운영 시간 변경 #137", "text": "11월부터 동절기 기간 동안 저녁 학식 운영이 30분 단축됩니다. (17:00-18:30)", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-09-09"}}
 {"id": "guide_138", "title": "이용 가이드 #138", "text": "제2학생회관 식당에서는 매일 아침 8시부터 9시까지 1000원짜리 '천원의 아침밥'을 제공합니다.", "meta": {"type": "guide", "category": "menu", "lang": "ko", "date": "2025-09-09"}}
-{"id": "faq_139", "title": "FAQ #139", "text": "Q: '천원의 아침밥'은 누가 이용할 수 있나요?\nA: 재학생이라면 누구나 이용 가능합니다. 1일 1회 한정입니다.", "meta": {"type": "faq", "category": "menu", "lang": "ko", "date": "2025-09-10"}}
-{"id": "notice_140", "title": "위생등급 AAA 획득 #140", "text": "우리 학교 모든 식당이 식품의약품안전처 위생등급 평가에서 '매우 우수' 등급을 받았습니다.", "meta": {"type": "notice", "category": "health", "lang": "ko", "date": "2025-09-10"}}
-{"id": "guide_141", "title": "이용 가이드 #141", "text": "식당 내 모든 음식물은 당일 소진을 원칙으로 합니다.", "meta": {"type": "guide", "category": "health", "lang": "ko", "date": "2025-09-10"}}
-{"id": "faq_142", "title": "FAQ #142", "text": "Q: 현금 결제는 정말 불가능한가요?\nA: 네, 교내 무현금 정책에 따라 모든 식당에서 현금 결제가 불가능합니다. 식권 발매기 옆에 위치한 충전기에서 교통카드를 충전하여 사용하실 수 있습니다.", "meta": {"type": "faq", "category": "payment", "lang": "ko", "date": "2025-09-11"}}
-{"id": "notice_143", "title": "테이크아웃 전용 메뉴 출시 #143", "text": "바쁜 학생들을 위해 테이크아웃 전용 컵밥 3종이 출시되었습니다.", "meta": {"type": "notice", "category": "menu", "lang": "ko", "date": "2025-09-11"}}
-{"id": "guide_144", "title": "이용 가이드 #144", "text": "식당 내 CCTV는 방범 및 안전 목적으로만 촬영됩니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-09-11"}}
+{"id": "faq_139", "title": "FAQ #139", "text": "Q: '천원의 아침밥'은 누가 이용할 수 있나요?\nA: 재학생이라면 누구나 이용 가능합니다. ", "meta": {"type": "faq", "category": "menu", "lang": "ko", "date": "2025-09-10"}}
+{"id": "faq_142", "title": "FAQ #142", "text": "Q: 현금 결제는 정말 불가능한가요?\nA: 네, 교내 무현금 정책에 따라 모든 식당에서 현금 결제가 불가능합니다.", "meta": {"type": "faq", "category": "payment", "lang": "ko", "date": "2025-09-11"}}
 {"id": "faq_145", "title": "FAQ #145", "text": "Q: 교직원 식당 메뉴는 학생도 먹을 수 있나요?\nA: 아니요, 교직원 식당은 교직원 전용으로 운영됩니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-09-12"}}
-{"id": "notice_146", "title": "학부모 방문 주간 운영 #146", "text": "축제 기간(10/20-10/24)은 학부모 방문 주간으로, 학부모님들께 학식 무료 체험 기회를 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-09-12"}}
-{"id": "guide_147", "title": "이용 가이드 #147", "text": "식당 내에서는 정치, 종교 등 논란이 될 수 있는 대화는 삼가주시기 바랍니다.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-12"}}
 {"id": "faq_148", "title": "FAQ #148", "text": "Q: 포인트는 현금으로 교환할 수 있나요?\nA: 아니요, 포인트는 학식 및 교내 제휴 매장에서만 사용 가능하며 현금으로 교환할 수 없습니다.", "meta": {"type": "faq", "category": "points", "lang": "ko", "date": "2025-09-15"}}
 {"id": "notice_149", "title": "외국인 학생 대상 메뉴 추가 #149", "text": "할랄 푸드 코너가 신설되었습니다. 제2학생회관 식당에서 만나보세요.", "meta": {"type": "notice", "category": "menu", "lang": "ko", "date": "2025-09-15"}}
-{"id": "guide_150", "title": "이용 가이드 #150", "text": "식당 내 의자와 테이블은 자유롭게 이동하여 사용할 수 있으나, 사용 후에는 제자리에 놓아주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-15"}}
-{"id": "faq_151", "title": "FAQ #151", "text": "Q: 식당 내에서 개인 텀블러 사용이 가능한가요?\nA: 네, 가능합니다. 카페 코너에서 텀블러 이용 시 300원 할인을 제공합니다.", "meta": {"type": "faq", "category": "discount", "lang": "ko", "date": "2025-09-16"}}
-{"id": "notice_152", "title": "배달 서비스 시범 운영 #152", "text": "교내 기숙사에 한해 학식 배달 서비스를 시범 운영합니다. (배달료 1000원)", "meta": {"type": "notice", "category": "general", "lang": "ko", "date": "2025-09-16"}}
-{"id": "guide_153", "title": "이용 가이드 #153", "text": "식당 내 모든 구역은 금연입니다.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-16"}}
 {"id": "faq_154", "title": "FAQ #154", "text": "Q: 아침 식사 메뉴는 무엇인가요?\nA: '천원의 아침밥'은 백반, 빵, 시리얼 등 매일 다른 메뉴로 제공됩니다.", "meta": {"type": "faq", "category": "menu", "lang": "ko", "date": "2025-09-17"}}
-{"id": "notice_155", "title": "김치 원산지 안내 #155", "text": "우리 식당에서 사용하는 모든 김치는 국내산 재료로 직접 담근 것입니다.", "meta": {"type": "notice", "category": "health", "lang": "ko", "date": "2025-09-17"}}
-{"id": "guide_156", "title": "이용 가이드 #156", "text": "점심시간 피크(12:00-13:00)를 피해 방문하시면 더 쾌적하게 식사할 수 있습니다.", "meta": {"type": "guide", "category": "hours", "lang": "ko", "date": "2025-09-17"}}
-{"id": "faq_157", "title": "FAQ #157", "text": "Q: 식당 와이파이 비밀번호는 무엇인가요?\nA: 'Campus-Free' 와이파이는 별도의 비밀번호 없이 접속 가능합니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-09-18"}}
-{"id": "notice_158", "title": "쌀밥데이 운영 #158", "text": "매월 마지막 주 수요일은 '쌀밥데이'로, 모든 메뉴에 쌀로 만든 디저트가 함께 제공됩니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-09-18"}}
-{"id": "guide_159", "title": "이용 가이드 #159", "text": "학식당은 학생 여러분의 소중한 등록금으로 운영됩니다. 시설을 아껴 사용해주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-18"}}
-{"id": "faq_160", "title": "FAQ #160", "text": "Q: 제휴 매장에서는 포인트 사용이 어떻게 되나요?\nA: 교내 카페, 서점, 편의점에서 결제 시 포인트를 사용할 수 있습니다. (1000P 단위)", "meta": {"type": "faq", "category": "points", "lang": "ko", "date": "2025-09-19"}}
-{"id": "notice_161", "title": "영양사와의 대화 시간 #161", "text": "매월 첫째 주 월요일 점심시간에 영양사님이 식당에 상주하며 의견을 청취합니다.", "meta": {"type": "notice", "category": "general", "lang": "ko", "date": "2025-09-19"}}
-{"id": "guide_162", "title": "이용 가이드 #162", "text": "외부 음식 반입은 다른 학생들의 식사에 방해가 될 수 있으니 자제 부탁드립니다.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-19"}}
 {"id": "faq_163", "title": "FAQ #163", "text": "Q: 식당에 상비약이 있나요?\nA: 간단한 소화제, 반창고 등은 각 식당 배식대에 구비되어 있습니다.", "meta": {"type": "faq", "category": "health", "lang": "ko", "date": "2025-09-22"}}
-{"id": "notice_164", "title": "시험 기간 간식 행사 #164", "text": "중간/기말고사 기간 저녁, 선착순 100명에게 무료 간식(빵, 음료)을 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-09-22"}}
-{"id": "guide_165", "title": "이용 가이드 #165", "text": "제1학생회관 식당은 좌석이 협소하니, 식사 후 다음 사람을 위해 자리를 비워주는 센스를 보여주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-22"}}
-{"id": "faq_166", "title": "FAQ #166", "text": "Q: 식권 자판기가 고장나면 어떻게 하나요?\nA: 가까운 배식대 직원에게 문의하시면 즉시 조치해 드립니다.", "meta": {"type": "faq", "category": "payment", "lang": "ko", "date": "2025-09-23"}}
-{"id": "notice_167", "title": "가격 할인 이벤트 #167", "text": "개교 50주년 기념, 10월 한 달간 모든 메뉴 10% 할인 이벤트를 진행합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-09-23"}}
-{"id": "guide_168", "title": "이용 가이드 #168", "text": "학생증을 타인에게 빌려주어 부정 사용하는 경우, 한 학기 동안 학식 할인이 제한될 수 있습니다.", "meta": {"type": "guide", "category": "discount", "lang": "ko", "date": "2025-09-23"}}
-{"id": "faq_169", "title": "FAQ #169", "text": "Q: 식당 내에서 노트북 사용이 가능한가요?\nA: 식사 시간에는 다른 학생들을 위해 노트북 사용을 자제해 주시고, 비교적 한가한 시간대에 이용 부탁드립니다.", "meta": {"type": "faq", "category": "etiquette", "lang": "ko", "date": "2025-09-24"}}
-{"id": "notice_170", "title": "조리원 충원 #170", "text": "원활한 배식을 위해 조리원 2명을 신규 채용했습니다. 더 나은 서비스로 보답하겠습니다.", "meta": {"type": "notice", "category": "general", "lang": "ko", "date": "2025-09-24"}}
-{"id": "guide_171", "title": "이용 가이드 #171", "text": "제2학생회관 식당의 '프리미엄' 코너에서는 매일 새로운 특선 메뉴를 맛볼 수 있습니다.", "meta": {"type": "guide", "category": "menu", "lang": "ko", "date": "2025-09-24"}}
-{"id": "faq_172", "title": "FAQ #172", "text": "Q: '프리미엄' 코너 가격은 얼마인가요?\nA: 메뉴에 따라 6,000원 ~ 8,000원 사이로 책정됩니다.", "meta": {"type": "faq", "category": "price", "lang": "ko", "date": "2025-09-25"}}
-{"id": "notice_173", "title": "수저류 교체 안내 #173", "text": "모든 식당의 수저, 포크, 나이프를 위생적인 새 제품으로 전면 교체했습니다.", "meta": {"type": "notice", "category": "health", "lang": "ko", "date": "2025-09-25"}}
-{"id": "guide_174", "title": "이용 가이드 #174", "text": "음수대에서는 식기 세척을 절대 금지합니다.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-25"}}
-{"id": "faq_175", "title": "FAQ #175", "text": "Q: 휴학생도 학식 할인을 받을 수 있나요?\nA: 아니요, 할인은 재학생에게만 적용됩니다. 휴학생은 일반인 가격으로 이용 가능합니다.", "meta": {"type": "faq", "category": "discount", "lang": "ko", "date": "2025-09-26"}}
-{"id": "notice_176", "title": "고객의 소리함 답변 #176", "text": "'음식이 너무 짜다'는 의견을 반영하여 전체적인 염도를 낮추었습니다. 앞으로도 많은 의견 부탁드립니다.", "meta": {"type": "notice", "category": "general", "lang": "ko", "date": "2025-09-26"}}
 {"id": "guide_177", "title": "이용 가이드 #177", "text": "분실물은 1개월간 보관 후 주인이 나타나지 않으면 학생지원팀으로 인계됩니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-09-26"}}
-{"id": "faq_178", "title": "FAQ #178", "text": "Q: 포인트 적립 내역은 어디서 확인하나요?\nA: 학교 앱 '마이페이지' > '포인트 내역'에서 확인 가능합니다.", "meta": {"type": "faq", "category": "points", "lang": "ko", "date": "2025-09-29"}}
-{"id": "notice_179", "title": "원산지 표시 강화 #179", "text": "모든 메뉴의 주요 식재료 원산지를 메뉴판에 상세히 기재하도록 변경되었습니다.", "meta": {"type": "notice", "category": "health", "lang": "ko", "date": "2025-09-29"}}
 {"id": "guide_180", "title": "이용 가이드 #180", "text": "교내 식당 관련 모든 공지사항은 학교 홈페이지 공지사항 게시판에서도 확인할 수 있습니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-09-29"}}
-{"id": "faq_181", "title": "FAQ #181", "text": "Q: 식당에서 아르바이트를 하고 싶습니다.\nA: 방학 기간에 학생지원팀 홈페이지를 통해 근로장학생을 모집하니, 공고를 확인해주세요.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-09-30"}}
-{"id": "notice_182", "title": "해썹(HACCP) 인증 #182", "text": "제2학생회관 식당이 식품안전관리인증기준(HACCP)을 획득했습니다.", "meta": {"type": "notice", "category": "health", "lang": "ko", "date": "2025-09-30"}}
-{"id": "guide_183", "title": "이용 가이드 #183", "text": "퇴식구에 그릇을 종류별로 나누어 놓아주시면 정리에 큰 도움이 됩니다.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-09-30"}}
-{"id": "faq_184", "title": "FAQ #184", "text": "Q: 밥이나 반찬을 더 먹고 싶으면 어떻게 하나요?\nA: 배식대 직원에게 요청하시면 무료로 추가 제공해 드립니다. (단, 메인 메뉴 제외)", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-10-01"}}
-{"id": "notice_185", "title": "가을맞이 특선 메뉴 #185", "text": "10월 한 달간 가을 제철 재료를 이용한 특선 메뉴(전어구이, 대하소금구이 등)를 선보입니다.", "meta": {"type": "notice", "category": "menu", "lang": "ko", "date": "2025-10-01"}}
-{"id": "guide_186", "title": "이용 가이드 #186", "text": "학식당은 학생 여러분의 건강하고 즐거운 대학 생활을 응원합니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-01"}}
-{"id": "faq_187", "title": "FAQ #187", "text": "Q: 식당 내에 콘센트가 있나요?\nA: 일부 벽쪽에 콘센트가 마련되어 있으나, 전력 사용량이 많은 기기 사용은 자제해주세요.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-10-02"}}
-{"id": "notice_188", "title": "SNS 후기 이벤트 #188", "text": "학식 사진과 후기를 SNS에 올리고 #우리학교학식 해시태그를 달면 추첨을 통해 식사권을 드립니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-02"}}
-{"id": "guide_189", "title": "이용 가이드 #189", "text": "국물이 있는 메뉴를 들고 이동할 때는 미끄러지지 않도록 각별히 주의해주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-10-02"}}
-{"id": "faq_190", "title": "FAQ #190", "text": "Q: 카드 결제 시 영수증을 받을 수 있나요?\nA: 네, 결제 후 직원에게 요청하시면 영수증을 발급해 드립니다.", "meta": {"type": "faq", "category": "payment", "lang": "ko", "date": "2025-10-06"}}
-{"id": "notice_191", "title": "겨울방학 중 운영 안내 #191", "text": "겨울방학 기간에는 제1학생회관 식당만 단축 운영합니다. (11:30-13:30)", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-10-06"}}
-{"id": "guide_192", "title": "이용 가이드 #192", "text": "식당 내에서 뛰거나 큰 소리로 떠들지 말아주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-10-06"}}
-{"id": "faq_193", "title": "FAQ #193", "text": "Q: 식당 메뉴 선정은 어떻게 이루어지나요?\nA: 학생들의 선호도 조사 결과와 영양사님의 의견을 종합하여 매주 메뉴를 구성합니다.", "meta": {"type": "faq", "category": "menu", "lang": "ko", "date": "2025-10-07"}}
-{"id": "notice_194", "title": "새해맞이 이벤트 #194", "text": "1월 1일, 2일 방문 학생들에게는 선착순으로 떡국을 무료 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-07"}}
-{"id": "guide_195", "title": "이용 가이드 #195", "text": "제1학생회관 식당은 한식, 분식 위주 / 제2학생회관 식당은 양식, 중식 위주로 운영됩니다.", "meta": {"type": "guide", "category": "menu", "lang": "ko", "date": "2025-10-07"}}
-{"id": "faq_196", "title": "FAQ #196", "text": "Q: 포인트 적립률은 항상 동일한가요?\nA: 기본 적립률은 2%이며, 이벤트에 따라 추가 적립이 가능합니다.", "meta": {"type": "faq", "category": "points", "lang": "ko", "date": "2025-10-08"}}
-{"id": "notice_197", "title": "식기세척기 교체 #197", "text": "제1학생회관 식당의 노후된 식기세척기를 최신 모델로 교체하여 위생을 강화했습니다.", "meta": {"type": "notice", "category": "health", "lang": "ko", "date": "2025-10-08"}}
-{"id": "guide_198", "title": "이용 가이드 #198", "text": "테이블 위생을 위해 식사 후에는 휴지로 테이블을 한 번 닦아주는 센스를 보여주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-10-08"}}
+{"id": "guide_195", "title": "이용 가이드 #195", "text": "제1학생회관 식당은 한식, 분식 위주 / 제2학생회관 식당은 양식, 건강식 위주로 운영됩니다.", "meta": {"type": "guide", "category": "menu", "lang": "ko", "date": "2025-10-07"}}
 {"id": "faq_199", "title": "FAQ #199", "text": "Q: 학식에 대한 불만사항은 어떻게 처리되나요?\nA: 접수된 불만사항은 운영위원회에 상정되어 개선 방안을 논의하고, 결과를 공지합니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-10-10"}}
 {"id": "notice_200", "title": "신입생 환영 이벤트 #200", "text": "3월 첫째 주, 신입생에게는 모든 학식 메뉴 50% 할인 쿠폰을 드립니다. (학생증 지참)", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-10"}}
-{"id": "guide_201", "title": "이용 가이드 #201", "text": "교내 식당은 영리 목적이 아닌, 학생 복지를 위해 운영되는 시설입니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-10"}}
-{"id": "faq_202", "title": "FAQ #202", "text": "Q: 식당에서 판매하는 음료수 종류는 무엇이 있나요?\nA: 탄산음료, 과일주스, 생수 등 다양한 음료가 준비되어 있습니다.", "meta": {"type": "faq", "category": "menu", "lang": "ko", "date": "2025-10-13"}}
-{"id": "notice_203", "title": "정전으로 인한 운영 중단 #203", "text": "10월 20일 12시부터 1시까지, 건물 전체 정전으로 인해 학식 운영이 일시 중단됩니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-10-13"}}
-{"id": "guide_204", "title": "이용 가이드 #204", "text": "식당 내에서 개인적인 용무로 다른 사람의 자리를 맡아두는 행위는 삼가주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-10-13"}}
 {"id": "faq_205", "title": "FAQ #205", "text": "Q: 식권 유효기간이 지났는데 사용할 수 없나요?\nA: 유효기간이 지난 식권은 사용할 수 없으며, 환불도 불가능합니다.", "meta": {"type": "faq", "category": "payment", "lang": "ko", "date": "2025-10-14"}}
-{"id": "notice_206", "title": "복날 이벤트 #206", "text": "초복, 중복, 말복에는 삼계탕을 특별 메뉴로 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-14"}}
-{"id": "guide_207", "title": "이용 가이드 #207", "text": "식당 이용에 불편한 점이 있다면 언제든지 직원에게 말씀해주세요.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-14"}}
-{"id": "faq_208", "title": "FAQ #208", "text": "Q: 1일 영양 권장량 정보를 알 수 있나요?\nA: 각 메뉴의 영양성분표는 학교 앱과 식당 입구 게시판에서 확인할 수 있습니다.", "meta": {"type": "faq", "category": "health", "lang": "ko", "date": "2025-10-15"}}
-{"id": "notice_209", "title": "환경의 날 이벤트 #209", "text": "6월 5일 환경의 날, 텀블러 또는 개인 식기를 가져오는 학생에게 500P를 추가 적립해드립니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-15"}}
-{"id": "guide_210", "title": "이용 가이드 #210", "text": "여러분이 남기지 않은 잔반은 환경을 보호하고, 처리 비용을 줄여 더 나은 학식으로 돌아옵니다.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-10-15"}}
-{"id": "faq_211", "title": "FAQ #211", "text": "Q: 식당에서 흘린 음식은 어떻게 해야 하나요?\nA: 당황하지 마시고 가까운 직원에게 알려주시면, 신속하게 처리해 드리겠습니다.", "meta": {"type": "faq", "category": "etiquette", "lang": "ko", "date": "2025-10-16"}}
-{"id": "notice_212", "title": "메뉴 아이디어 공모전 #212", "text": "학생들이 직접 제안하는 학식 메뉴 아이디어 공모전을 개최합니다. 1등에게는 10만 포인트 지급!", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-16"}}
-{"id": "guide_213", "title": "이용 가이드 #213", "text": "제2학생회관 식당은 휠체어 이용 학생을 위한 전용 좌석과 경사로를 갖추고 있습니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-16"}}
-{"id": "faq_214", "title": "FAQ #214", "text": "Q: 식당 내에서 그룹 스터디를 해도 되나요?\nA: 식사 시간을 제외한 비교적 한가한 시간에는 가능하지만, 다른 이용객에게 방해가 되지 않도록 주의해주세요.", "meta": {"type": "faq", "category": "etiquette", "lang": "ko", "date": "2025-10-17"}}
-{"id": "notice_215", "title": "식당 이름 공모 #215", "text": "새롭게 리모델링하는 제1학생회관 식당의 이름을 공모합니다. 선정된 이름은 실제 식당 이름으로 사용됩니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-17"}}
-{"id": "guide_216", "title": "이용 가이드 #216", "text": "식당 내 모든 직원은 정기적으로 위생 및 서비스 교육을 받고 있습니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-17"}}
-{"id": "faq_217", "title": "FAQ #217", "text": "Q: 포인트 사용 시에도 현금영수증 발급이 되나요?\nA: 아니요, 포인트 사용분은 현금영수증 발급 대상에서 제외됩니다.", "meta": {"type": "faq", "category": "points", "lang": "ko", "date": "2025-10-20"}}
-{"id": "notice_218", "title": "크리스마스 이벤트 #218", "text": "12월 24일, 25일에는 크리스마스 특선 메뉴와 함께 작은 선물을 드립니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-20"}}
-{"id": "guide_219", "title": "이용 가이드 #219", "text": "학기 말에는 남은 포인트를 모두 사용하도록 권장하는 안내 문자가 발송됩니다.", "meta": {"type": "guide", "category": "points", "lang": "ko", "date": "2025-10-20"}}
-{"id": "faq_220", "title": "FAQ #220", "text": "Q: 식당에 없는 메뉴를 먹고 싶을 땐 어떻게 하나요?\nA: '고객의 소리함'이나 '메뉴 아이디어 공모전'을 통해 의견을 제안해주시면, 긍정적으로 검토하겠습니다.", "meta": {"type": "faq", "category": "menu", "lang": "ko", "date": "2025-10-21"}}
+{"id": "notice_209", "title": "환경의 날 이벤트 #209", "text": "6월 5일 환경의 날, 학식 내 카페에 텀블러를 가져오는 학생에게 500P를 추가 적립해드립니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-15"}}
+{"id": "guide_213", "title": "이용 가이드 #213", "text": "교내 모든 학생 식당은 휠체어 이용 학생을 위한 전용 좌석과 경사로를 갖추고 있습니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-16"}}
 {"id": "notice_221", "title": "방학 중 교직원 식당 운영 안내 #221", "text": "방학 중에는 교직원 식당도 일반 학생에게 개방됩니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-10-21"}}
-{"id": "guide_222", "title": "이용 가이드 #222", "text": "식당에서 제공하는 물은 정수 처리된 깨끗한 물입니다. 안심하고 드세요.", "meta": {"type": "guide", "category": "health", "lang": "ko", "date": "2025-10-21"}}
-{"id": "faq_223", "title": "FAQ #223", "text": "Q: 식당에서 컵라면을 먹어도 되나요?\nA: 외부 음식 반입은 원칙적으로 금지되어 있습니다. 특히 냄새가 강한 음식은 삼가주세요.", "meta": {"type": "faq", "category": "etiquette", "lang": "ko", "date": "2025-10-22"}}
-{"id": "notice_224", "title": "식목일 이벤트 #224", "text": "4월 5일 식목일, 식사 후 퇴식구에 잔반을 남기지 않은 학생에게 작은 화분을 선물로 드립니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-22"}}
-{"id": "guide_225", "title": "이용 가이드 #225", "text": "학식은 단순한 식사가 아닌, 동료 학생들과 교류하고 소통하는 공간이기도 합니다.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-22"}}
-{"id": "faq_226", "title": "FAQ #226", "text": "Q: 식당에서 사용하는 계란은 안전한가요?\nA: 네, 저희는 식용란 살충제 검사를 통과한 안전한 계란만 사용합니다.", "meta": {"type": "faq", "category": "health", "lang": "ko", "date": "2025-10-23"}}
-{"id": "notice_227", "title": "만우절 이벤트 #227", "text": "4월 1일, 학생과 교직원 메뉴를 서로 바꿔서 제공하는 특별 이벤트를 진행합니다!", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-23"}}
-{"id": "guide_228", "title": "이용 가이드 #228", "text": "식당 내에서 발생한 모든 쓰레기는 지정된 분리수거함에 버려주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-10-23"}}
-{"id": "faq_229", "title": "FAQ #229", "text": "Q: 식당에서 전화로 미리 주문할 수 있나요?\nA: 아니요, 전화 주문 서비스는 제공하지 않습니다. 방문하여 주문해주세요.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-10-24"}}
-{"id": "notice_230", "title": "개교기념일 휴무 안내 #230", "text": "10월 15일 개교기념일에는 모든 학식당이 휴무입니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-10-24"}}
-{"id": "guide_231", "title": "이용 가이드 #231", "text": "학식 포인트는 타인에게 양도할 수 없습니다.", "meta": {"type": "guide", "category": "points", "lang": "ko", "date": "2025-10-24"}}
-{"id": "faq_232", "title": "FAQ #232", "text": "Q: 식당에서 잃어버린 우산은 어디서 찾나요?\nA: 퇴식구 옆 분실물 보관함을 확인해보세요. 1주일이 지나면 학생지원팀으로 인계됩니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-10-27"}}
 {"id": "notice_233", "title": "근로자의 날 운영 안내 #233", "text": "5월 1일 근로자의 날, 조리원들의 휴식을 위해 저녁 학식은 운영하지 않습니다.", "meta": {"type": "notice", "category": "hours", "lang": "ko", "date": "2025-10-27"}}
-{"id": "guide_234", "title": "이용 가이드 #234", "text": "알레르기가 심한 학생은 배식 전 직원에게 미리 알려주시면, 최대한 조심해서 배식해 드립니다.", "meta": {"type": "guide", "category": "health", "lang": "ko", "date": "2025-10-27"}}
-{"id": "faq_235", "title": "FAQ #235", "text": "Q: 식당에서 사용하는 식용유는 무엇인가요?\nA: 튀김 요리에는 신선한 카놀라유를 사용하고 있으며, 매일 교체하고 있습니다.", "meta": {"type": "faq", "category": "health", "lang": "ko", "date": "2025-10-28"}}
-{"id": "notice_236", "title": "어린이날 이벤트 #236", "text": "5월 5일, 교내 부속 유치원 어린이들을 초청하여 특별 점심을 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-28"}}
-{"id": "guide_237", "title": "이용 가이드 #237", "text": "식당 내에서 휴대폰 충전은 가능하지만, 분실 위험이 있으니 자리를 비울 때는 주의해주세요.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-28"}}
-{"id": "faq_238", "title": "FAQ #238", "text": "Q: 식당에 불만이 있을 때, 바로 해결할 수 있는 방법은 없나요?\nA: 각 식당의 책임자(점장)에게 직접 말씀해주시면, 즉시 해결 가능한 부분은 바로 조치해 드립니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-10-29"}}
-{"id": "notice_239", "title": "어버이날 이벤트 #239", "text": "5월 8일, 교직원 부모님을 모시고 오시면 식사를 무료로 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-29"}}
-{"id": "guide_240", "title": "이용 가이드 #240", "text": "학식은 여러분의, 여러분에 의한, 여러분을 위한 공간입니다. 아끼고 사랑해주세요.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-10-29"}}
-{"id": "faq_241", "title": "FAQ #241", "text": "Q: 식당에서 나오는 노래는 누가 선정하나요?\nA: 학생회에서 매주 플레이리스트를 받아와서 재생하고 있습니다. 듣고 싶은 노래가 있다면 학생회에 신청해주세요.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-10-30"}}
-{"id": "notice_242", "title": "스승의날 이벤트 #242", "text": "5월 15일, 교수님과 함께 방문하는 학생 테이블에는 무료 음료를 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-30"}}
-{"id": "guide_243", "title": "이용 가이드 #243", "text": "식당 내에서 과도한 애정 행각은 다른 사람들에게 불편함을 줄 수 있으니 자제해주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-10-30"}}
-{"id": "faq_244", "title": "FAQ #244", "text": "Q: 식당에서 단체 행사를 위한 음식(케이터링) 주문이 가능한가요?\nA: 네, 가능합니다. 최소 1주일 전 학생지원팀에 문의하시면 메뉴 및 가격 협의 후 진행해 드립니다.", "meta": {"type": "faq", "category": "general", "lang": "ko", "date": "2025-10-31"}}
-{"id": "notice_245", "title": "세계인의 날 기념 #245", "text": "5월 20일, 세계 각국의 대표 음식을 맛볼 수 있는 '월드 푸드 페스티벌'을 개최합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-10-31"}}
-{"id": "guide_246", "title": "이용 가이드 #246", "text": "식당 이용 후에는 다음 사람을 위해 의자를 책상 밑으로 넣어주세요.", "meta": {"type": "guide", "category": "etiquette", "lang": "ko", "date": "2025-10-31"}}
-{"id": "faq_247", "title": "FAQ #247", "text": "Q: 식당에서 사용하는 쌀의 품종은 무엇인가요?\nA: 저희는 맛과 영양이 뛰어난 100% 국내산 신동진쌀만 사용합니다.", "meta": {"type": "faq", "category": "health", "lang": "ko", "date": "2025-11-03"}}
-{"id": "notice_248", "title": "부처님 오신 날 기념 #248", "text": "석가탄신일에는 모든 학생들에게 비빔밥을 특식으로 제공합니다.", "meta": {"type": "notice", "category": "event", "lang": "ko", "date": "2025-11-03"}}
-{"id": "guide_249", "title": "이용 가이드 #249", "text": "여러분의 소중한 의견 하나하나가 더 나은 학식을 만듭니다. 주저하지 말고 의견을 들려주세요.", "meta": {"type": "guide", "category": "general", "lang": "ko", "date": "2025-11-03"}}

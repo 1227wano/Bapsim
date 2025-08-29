@@ -3,7 +3,7 @@
 --out_dir 옵션으로 지정한 디렉토리 하위(out/index-v0)에 faiss.index와 meta.json이 함께 생성됩니다.
 
 - 사용법
-python .\make_embedding.py --out_dir .\out\index-v4 --scan_dir .
+python .\make_embedding.py --out_dir .\out\index-v5 --scan_dir .
 index-v 뒤에 숫자만 올려가며 버전 관리
 '''
 
@@ -86,7 +86,7 @@ def read_jsonl(path: Path):
                     except Exception as e:
                         print(f"[warn] JSONL decode error @ {path}: {e}")
     except OSError as e:
-        # 파일 오픈 자체가 실패했을 때는 조용히 스킵(혹은 경고)
+        # 파일 오픈 실패했을 때 경고 출력
         print(f"[warn] JSONL open error @ {path}: {e}")
     return items
 

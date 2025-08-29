@@ -2,21 +2,10 @@
 
 - 0.1.0
 
-  - 임베딩화 관련 모듈 전부 포함
-  - 임베딩 기반 context 생성, context 포함하여 LLM 질의
-  - .env
-    - OPENAI_API_KEY=
-    - OPENAI_MODEL=
-    - EMBED_MODEL_NAME=
-    - RAG_TOP_K=
-    - RAG_MAX_CONTEXT_CHARS=
-    - RAG_INDEX_DIR=
-    
+  - RAG-based LLM 챗봇 서버 구현
+    - 임베딩화 관련 모듈 전부 포함
+    - 임베딩 기반 context 생성, context 포함하여 LLM 질의
   - 로컬 및 컨테이너 서버 테스트 완료
-  
-    ```cmd
-    curl -sS -X POST http://3.39.192.187:8000/chat -H "Content-Type: application/json" -d "{\"user_id\":\"u1\",\"message\":\"오늘 학식 뭐 있어?\",\"context\":{\"locale\":\"ko\"}}"
-    ```
   
   - 이미지 크기 5.83GB
 
@@ -40,6 +29,25 @@
   - 에이전트 루프 기반으로 필요한 tool 선택 -> 실행 반복 후 최종 반환
   - 이미지 크기 5.86GB
 
+
+
+- 0.3.0
+
+  - 호출하는 API GPT-5 계열로 변경
+    - GPT-5계열 사용시 make_embeddings.py를 통한 임베딩 생성 불필요
+      - RAG tool 주석처리 및 OpenAI가 제공하는 Vectorstore 활용
+      - make_openai_vectorstore.py를 통해 OpenAI 서버에 임베딩을 저장
+      - 저장소 id를 환경변수로 주입하여 서버에서 로드
+  - 추가질문 생성 tool 삭제, 프롬프트로 기능 이동
+    - tool 호출이 너무 자주 일어나는 문제가 있어 프롬프트를 통해 유연하게 대응하도록 함
+  - 이미지 크기 2.15GB
+    - pytorch cpu 전용 버전으로 설치하여 이미지 경량화
+  - 아직 참조한 데이터 원문 위주로 답하는 경향이 있어 프롬프트 수정 필요
+
+  
+
+   
+
 ## 로컬 서버 실행 코드
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
@@ -48,7 +56,7 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ## 컨테이너 실행 코드
 
 ```bash
-docker run -d -p 8000:8000 --name bmpm_ai -v /home/ubuntu/rag_data:/app/rag_data --env-file /home/ubuntu/.env srogsrogi/bmpm_ai_0.1.1
+docker run -d -p 8000:8000 --name bmpm_ai -v /home/ubuntu/rag_data:/app/rag_data --env-file /home/ubuntu/.env srogsrogi/bmpm_ai_0.3.0
 ```
 
 
@@ -56,7 +64,7 @@ docker run -d -p 8000:8000 --name bmpm_ai -v /home/ubuntu/rag_data:/app/rag_data
 ## Healthcheck 코드
 
 ```cmd
-curl -sS http://3.34.126.173:8000/healthz
+curl -sS http://3.39.192.187:8000/healthz
 ```
 
 
