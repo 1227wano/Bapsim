@@ -112,6 +112,7 @@ export const styles = StyleSheet.create({
   dateContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#fff',
     paddingHorizontal: 20,
     paddingVertical: 15,
@@ -133,6 +134,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#333',
+    marginRight: 10,
     marginLeft: 10,
   },
 
@@ -248,6 +250,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
   },
+  placeNameContainer: {
+    alignItems: 'center',
+    flex: 1,
+  },
   dishName: {
     fontSize: 16,
     color: '#333',
@@ -327,6 +333,16 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#1BB1E7',
   },
+  totalCaloriesLabelSmall: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#333',
+  },
+  totalCaloriesValueSmall: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#1BB1E7',
+  },
   calorieProgressBar: {
     marginBottom: 10,
   },
@@ -385,6 +401,17 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
   },
 
+  // 계좌 정보 부분
+  accountItem: {
+    marginTop: 12, 
+    marginLeft: 26,
+    borderWidth: 1, 
+    borderColor: '#ddd', 
+    borderRadius: 8, 
+    padding: 12,
+
+  },
+
   // ===== 액션 버튼 스타일 =====
   actionButtons: {
     flexDirection: 'row',
@@ -397,6 +424,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 20,
     borderRadius: 15,
+    marginTop: 50,
     alignItems: 'center',
     ...Platform.select({
       ios: {
@@ -417,3 +445,5 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
   },
 });
+
+
