@@ -45,8 +45,8 @@ ssafy:
     headers:
       institutionCode: "00100"
       fintechAppNo: "001"
-      apiKey: "57daf5afceac4eb0a0ac387f5175c8fc"
-      userKey: "3e349104-295e-4226-a87c-d8c1542e8110"
+      apiKey: ${SSAFY_API_KEY}
+      userKey: ${SSAFY_USER_KEY}
     endpoints:
       balanceInquiry: demandDeposit/inquireDemandDepositAccountBalance
       withdrawal: demandDeposit/updateDemandDepositAccountWithdrawal
