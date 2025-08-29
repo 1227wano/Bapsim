@@ -50,13 +50,16 @@ def create_vector_store_with_files(client: OpenAI, name: str, file_paths: List[s
     print("vector_store_id:", vs.id)
     return vs.id
 
-if __name__ == "__main__":
+from pathlib import Path
 
+if __name__ == "__main__":
+    # 스크립트의 현재 위치를 기준으로 데이터 파일 경로를 동적으로 설정
+    script_dir = Path(__file__).parent
     paths = [
-        "C:\\Users\\SSAFY\\Desktop\\workspaces\\Bapsim\\AI\\rag_data\\Cafeteria_Handbook_KO.pdf",
-        "C:\\Users\\SSAFY\\Desktop\\workspaces\\Bapsim\\AI\\rag_data\\new_events.txt",
-        "C:\\Users\\SSAFY\\Desktop\\workspaces\\Bapsim\\AI\\rag_data\\new_policies.txt",
-        "C:\\Users\\SSAFY\\Desktop\\workspaces\\Bapsim\\AI\\rag_data\\new_user_guides.txt"
+        str(script_dir / "Cafeteria_Handbook_KO.pdf"),
+        str(script_dir / "new_events.txt"),
+        str(script_dir / "new_policies.txt"),
+        str(script_dir / "new_user_guides.txt"),
     ]
 
-    vs_id = create_vector_store_with_files(client, "my-knowledge-base", paths)
+    vs_id = create_vector_store_with_files(client, "heyoung-embedding-base", paths)
