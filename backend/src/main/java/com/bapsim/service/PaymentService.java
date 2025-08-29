@@ -115,23 +115,57 @@ public class PaymentService {
         // 5. 잔액 확인 (실제 잔액은 SSAFY API에서 조회해야 함)
         Integer userBalance = getCurrentBalance(member.getUserNo());
         
-        // 6. 잔액 충분성 검증
-        if (userBalance < actualPrice) {
-            // menuName은 MenuPrice 테이블의 mealType을 사용
+        // 6. 포인트 사용 여부에 따른 검증
+        if (requestDto.getUsePoints() != null && requestDto.getUsePoints()) {
+            // 포인트 사용 시
+            Integer pointBalance = pointService.getPointBalance(requestDto.getUserNo());
+            Integer pointAmount = requestDto.getPointAmount() != null ? requestDto.getPointAmount() : 0;
+            
+            // 포인트 잔액 확인
+            if (pointBalance < pointAmount) {
+                String menuName = menuPrice.getMealType() != null ? 
+                    menuPrice.getMealType() : "메뉴 타입 " + requestDto.getMenuType();
+                
+                return PaymentValidationDto.insufficientPoints(requestDto.getUserNo(), requestDto.getMenuId(), 
+                        requestDto.getMenuType(), menuName, actualPrice, pointBalance, pointAmount);
+            }
+            
+            // 포인트 차감 후 최종 결제 금액 계산
+            Integer finalAmount = Math.max(0, actualPrice - pointAmount);
+            
+            // 최종 결제 금액에 대한 잔액 확인
+            if (userBalance < finalAmount) {
+                String menuName = menuPrice.getMealType() != null ? 
+                    menuPrice.getMealType() : "메뉴 타입 " + requestDto.getMenuType();
+                
+                return PaymentValidationDto.insufficientBalance(requestDto.getUserNo(), requestDto.getMenuId(), 
+                        requestDto.getMenuType(), menuName, finalAmount, userBalance);
+            }
+            
+            // 검증 성공 (포인트 사용)
             String menuName = menuPrice.getMealType() != null ? 
                 menuPrice.getMealType() : "메뉴 타입 " + requestDto.getMenuType();
             
-            return PaymentValidationDto.insufficientBalance(requestDto.getUserNo(), requestDto.getMenuId(), 
+            return PaymentValidationDto.successWithPoints(requestDto.getUserNo(), requestDto.getMenuId(), 
+                    requestDto.getMenuType(), menuName, actualPrice, userBalance, 
+                    pointAmount, finalAmount, pointBalance);
+        } else {
+            // 기존 로직 (포인트 미사용)
+            if (userBalance < actualPrice) {
+                String menuName = menuPrice.getMealType() != null ? 
+                    menuPrice.getMealType() : "메뉴 타입 " + requestDto.getMenuType();
+                
+                return PaymentValidationDto.insufficientBalance(requestDto.getUserNo(), requestDto.getMenuId(), 
+                        requestDto.getMenuType(), menuName, actualPrice, userBalance);
+            }
+            
+            // 검증 성공 (포인트 미사용)
+            String menuName = menuPrice.getMealType() != null ? 
+                menuPrice.getMealType() : "메뉴 타입 " + requestDto.getMenuType();
+            
+            return PaymentValidationDto.success(requestDto.getUserNo(), requestDto.getMenuId(), 
                     requestDto.getMenuType(), menuName, actualPrice, userBalance);
         }
-        
-        // 7. 검증 성공 (실제 메뉴 가격으로 응답)
-        // menuName은 MenuPrice 테이블의 mealType을 사용
-        String menuName = menuPrice.getMealType() != null ? 
-            menuPrice.getMealType() : "메뉴 타입 " + requestDto.getMenuType();
-        
-        return PaymentValidationDto.success(requestDto.getUserNo(), requestDto.getMenuId(), 
-                requestDto.getMenuType(), menuName, actualPrice, userBalance);
     }
     
     /**
@@ -336,10 +370,26 @@ public class PaymentService {
                 return PaymentResponseDto.pinVerificationFailed();
             }
             
-            // 3. 결제 엔티티 생성
-            Payment payment = createPaymentEntity(requestDto);
+            // 3. 포인트 사용 시 포인트 차감
+            if (requestDto.getUsePoints() != null && requestDto.getUsePoints() && 
+                requestDto.getPointAmount() != null && requestDto.getPointAmount() > 0) {
+                try {
+                    pointService.usePoints(requestDto.getUserNo(), requestDto.getPointAmount(), 
+                        "식권 구매", String.format("메뉴 타입 %s 구매 시 포인트 차감", requestDto.getMenuType()));
+                    log.info("포인트 차감 완료: userNo={}, pointAmount={}", requestDto.getUserNo(), requestDto.getPointAmount());
+                } catch (Exception e) {
+                    log.error("포인트 차감 중 오류 발생: userNo={}, pointAmount={}", requestDto.getUserNo(), requestDto.getPointAmount(), e);
+                    return PaymentResponseDto.failure("POINT_DEDUCTION_ERROR", "포인트 차감 중 오류가 발생했습니다");
+                }
+            }
             
-            // 4. SSAFY 출금 API 호출
+            // 4. 결제 엔티티 생성 (최종 결제 금액으로)
+            Payment payment = createPaymentEntity(requestDto);
+            if (validation.getFinalAmount() != null) {
+                payment.setAmount(validation.getFinalAmount());
+            }
+            
+            // 5. SSAFY 출금 API 호출
             String ssafyTransactionId = callSsafyWithdrawalApi(requestDto);
             if (ssafyTransactionId == null) {
                 payment.setPaymentStatus(Payment.PaymentStatus.FAILED);
@@ -347,7 +397,7 @@ public class PaymentService {
                 return PaymentResponseDto.failure("SSAFY_API_ERROR", "SSAFY 출금 API 호출에 실패했습니다");
             }
             
-                         // 5. 결제 완료 처리
+                         // 6. 결제 완료 처리
              payment.setSsafyTransactionId(ssafyTransactionId);
              payment.setPaymentStatus(Payment.PaymentStatus.COMPLETED);
              payment.setPinVerified(true);
@@ -356,7 +406,7 @@ public class PaymentService {
              
              Payment savedPayment = paymentRepository.save(payment);
              
-                // 6. 포인트 적립 (결제 금액의 2%)
+                // 7. 포인트 적립 (최종 결제 금액의 2%)
                 try {
                     log.info("결제 완료 후 포인트 적립 시작: paymentId={}, amount={}", savedPayment.getPaymentId(), savedPayment.getAmount());
                     Integer earnedPoints = pointService.earnPointsFromPayment(savedPayment.getUserNo(), savedPayment.getPaymentId(), savedPayment.getAmount());
@@ -366,7 +416,7 @@ public class PaymentService {
                     // 포인트 적립 실패는 결제 성공에 영향을 주지 않음
                 }
                 
-                // 7. 식권 자동 발행
+                // 8. 식권 자동 발행
                 try {
                     log.info("결제 완료 후 식권 발행 시작: paymentId={}", savedPayment.getPaymentId());
                     MealTicket ticket = mealTicketService.issueTicketAfterPayment(savedPayment.getPaymentId());
@@ -376,25 +426,44 @@ public class PaymentService {
                     // 식권 발행 실패는 결제 성공에 영향을 주지 않음
                 }
             
-                         // 6. 성공 응답 생성
+                         // 9. 성공 응답 생성
              // menuName은 MenuPrice 테이블의 mealType을 사용
              String menuName = getMenuNameFromMenuPrice(savedPayment.getMenuType());
              if (menuName == null || menuName.isEmpty()) {
                  menuName = "메뉴 타입 " + savedPayment.getMenuType();
              }
              
-             return PaymentResponseDto.success(
-                 savedPayment.getPaymentId(),
-                 savedPayment.getUserNo(),
-                 savedPayment.getMenuId(),
-                 savedPayment.getMenuType(),
-                 menuName,
-                 savedPayment.getAmount(),
-                 savedPayment.getPaymentStatus(),
-                 savedPayment.getPaymentMethod(),
-                 savedPayment.getTransactionId(),
-                 savedPayment.getSsafyTransactionId()
-             );
+             // 포인트 사용 여부에 따른 응답 생성
+             if (requestDto.getUsePoints() != null && requestDto.getUsePoints() && 
+                 requestDto.getPointAmount() != null && requestDto.getPointAmount() > 0) {
+                 return PaymentResponseDto.successWithPoints(
+                     savedPayment.getPaymentId(),
+                     savedPayment.getUserNo(),
+                     savedPayment.getMenuId(),
+                     savedPayment.getMenuType(),
+                     menuName,
+                     validation.getMenuPrice(), // 원래 메뉴 가격
+                     savedPayment.getAmount(),   // 최종 결제 금액
+                     savedPayment.getPaymentStatus(),
+                     savedPayment.getPaymentMethod(),
+                     savedPayment.getTransactionId(),
+                     savedPayment.getSsafyTransactionId(),
+                     requestDto.getPointAmount()
+                 );
+             } else {
+                 return PaymentResponseDto.success(
+                     savedPayment.getPaymentId(),
+                     savedPayment.getUserNo(),
+                     savedPayment.getMenuId(),
+                     savedPayment.getMenuType(),
+                     menuName,
+                     savedPayment.getAmount(),
+                     savedPayment.getPaymentStatus(),
+                     savedPayment.getPaymentMethod(),
+                     savedPayment.getTransactionId(),
+                     savedPayment.getSsafyTransactionId()
+                 );
+             }
             
         } catch (Exception e) {
             return PaymentResponseDto.failure("PAYMENT_PROCESS_ERROR", "결제 처리 중 오류가 발생했습니다: " + e.getMessage());
@@ -481,6 +550,11 @@ public class PaymentService {
         Integer actualPrice = getMenuPriceByType(requestDto.getMenuType());
         payment.setAmount(actualPrice != null ? actualPrice : requestDto.getAmount());
         
+        // 포인트 사용 정보 설정
+        payment.setUsePoints(requestDto.getUsePoints() != null ? requestDto.getUsePoints() : false);
+        payment.setPointAmount(requestDto.getPointAmount() != null ? requestDto.getPointAmount() : 0);
+        payment.setOriginalPrice(actualPrice != null ? actualPrice : requestDto.getAmount());
+        
         payment.setPaymentMethod(requestDto.getPaymentMethod());
         payment.setPinVerified(false);
         payment.setTransactionId(generateTransactionId());
@@ -503,9 +577,18 @@ public class PaymentService {
                 return null;
             }
             
-            // 실제 메뉴 가격 사용 (사용자 입력 금액이 아닌)
-            Integer actualAmount = requestDto.getAmount() != null ? 
-                requestDto.getAmount() : getMenuPriceByType(requestDto.getMenuType());
+            // 포인트 사용 여부에 따른 최종 결제 금액 계산
+            Integer actualAmount;
+            if (requestDto.getUsePoints() != null && requestDto.getUsePoints() && 
+                requestDto.getPointAmount() != null && requestDto.getPointAmount() > 0) {
+                // 포인트 사용 시: 원래 가격 - 포인트 금액
+                Integer originalPrice = getMenuPriceByType(requestDto.getMenuType());
+                actualAmount = Math.max(0, originalPrice - requestDto.getPointAmount());
+            } else {
+                // 포인트 미사용 시: 원래 가격
+                actualAmount = requestDto.getAmount() != null ? 
+                    requestDto.getAmount() : getMenuPriceByType(requestDto.getMenuType());
+            }
             
             if (actualAmount == null) {
                 log.error("메뉴 타입 {}에 대한 가격을 찾을 수 없습니다: userNo={}", 

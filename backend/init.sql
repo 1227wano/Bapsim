@@ -18,5 +18,10 @@ GRANT ALL PRIVILEGES ON bapsim_local.* TO 'bapsim_user'@'localhost';
 -- 권한 적용
 FLUSH PRIVILEGES;
 
+-- Payment 테이블에 포인트 사용 관련 컬럼 추가
+ALTER TABLE Payment ADD COLUMN USE_POINTS BOOLEAN DEFAULT FALSE;
+ALTER TABLE Payment ADD COLUMN POINT_AMOUNT INTEGER DEFAULT 0;
+ALTER TABLE Payment ADD COLUMN ORIGINAL_PRICE INTEGER;
+
 -- 데이터베이스 상태 확인
 SELECT 'Database initialized successfully' as status;
