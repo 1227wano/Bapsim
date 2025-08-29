@@ -65,6 +65,8 @@ public class Payment {
     @OneToMany(mappedBy = "payment")
     private List<PointHistory> pointHistories;
     
+    // MealTicket과의 연관관계는 제거 (단순화)
+    
     // Payment Status Enum
     public enum PaymentStatus {
         PENDING,    // 결제 대기
@@ -224,6 +226,8 @@ public class Payment {
     public void setPointHistories(List<PointHistory> pointHistories) {
         this.pointHistories = pointHistories;
     }
+    
+        // MealTicket getter/setter 제거 (단순화)
     
     // Business Methods
     @PrePersist
