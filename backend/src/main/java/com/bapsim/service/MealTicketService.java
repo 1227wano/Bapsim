@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Propagation;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -219,4 +220,13 @@ public class MealTicketService {
     }
     
     // 통계 기능 제거 (단순화)
+    
+    /**
+     * 별도 트랜잭션으로 식권 발행 처리
+     * 결제 트랜잭션과 분리하여 처리
+     */
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public MealTicket issueTicketAfterPaymentInNewTransaction(Long paymentId) {
+        return issueTicketAfterPayment(paymentId);
+    }
 }
