@@ -4,6 +4,10 @@ from pydantic import BaseModel
 import re, unicodedata
 from rapidfuzz import fuzz, process
 from unidecode import unidecode
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ===== 공통 유틸리티 =====
 # 문장 전처리 함수
@@ -119,6 +123,7 @@ def guard_sql(sql: str, allow_tables=None, force_limit=200):
     if " limit " not in low: s+=f" LIMIT {force_limit}"
     return True, s+";", ""
 
+
 # ====== Tool #1: 오프토픽 ======
 class OfftopicInput(BaseModel):
     question: str
@@ -131,12 +136,13 @@ def offtopic_router_run(args, ctx):
 # ====== Tool #2: SQL ======
 class SQLAnswerInput(BaseModel):
     question: str
-    schema_ddl: str
     known_filters: Optional[Dict[str,Any]]=None
     proposed_sql: Optional[str]=None
 
 def sql_answer_run(args, ctx):
     from sqlalchemy import text
+    import re
+
     eng = ctx.get("engine")
     client = ctx.get("openai")   # main.py에서 넣어줘야 함
     if not eng:
@@ -147,28 +153,51 @@ def sql_answer_run(args, ctx):
     if not sql:
         schema_ddl = args.get("schema_ddl") or ctx.get("schema_hints", "")
         q = args.get("question", "")
-        prompt = f"""
-        You are a SQL generator. Based on the schema:
+        mdl = ctx.get("sql_llm_model", "gpt-5-mini")
+        sql_max_limit = int(ctx.get("sql_max_limit", 200) or 200)
 
-        {schema_ddl}
+        # 프롬프트
+        system_msg = (
+            "You are a SQL generator. "
+            "Return exactly ONE safe SELECT SQL statement. "
+            "No explanations, no comments, no markdown fences. "
+            "Always ensure the query is read-only. "
+            f"If there is no LIMIT clause, add 'LIMIT {sql_max_limit}'.\n\n"
+            "Example:\n"
+            "User question: 한식 메뉴 뭐 있는지 알려줘\n"
+            f"""SQL: SELECT DISTINCT f.menu_name 
+            FROM menus m JOIN food f ON m.menu_id=f.menu_id 
+            WHERE f.category='한식' LIMIT {sql_max_limit};"""
+        )
+        user_msg = (
+            f"Schema:\n{schema_ddl}\n\n"
+            f"User question: {q}\n"
+            "SQL:"
+        )
 
-        Generate ONE safe SELECT SQL query (no explanation, no comments).
-        User question: {q}
-        """
-        mdl = ctx.get("sql_llm_model", "gpt-4o-mini")
         try:
-            resp = client.chat.completions.create(
+            resp = client.responses.create(
                 model=mdl,
-                messages=[
-                    {"role":"system","content":"You generate a single SELECT SQL only."},
-                    {"role":"user","content": prompt}
+                input=[
+                    {"role": "system", "content": system_msg},
+                    {"role": "user", "content": user_msg},
                 ],
-                temperature=0.0,
-                max_tokens=300,
+                max_output_tokens=300,
+                reasoning={"effort": "minimal"}, # 최소 수준 추론
+                text={"verbosity": "low"}, # sql query는 짧고 간결하게 답변
             )
-            sql = resp.choices[0].message.content.strip()
+            sql = (resp.output_text or "").strip()
         except Exception as e:
             return {"error": "LLM_SQL_ERROR", "detail": str(e)}
+
+        # 후처리
+        sql = re.sub(r"^```(?:sql)?|```$", "", sql.strip(), flags=re.IGNORECASE | re.MULTILINE).strip()
+        if ";" in sql:
+            sql = sql.split(";", 1)[0].strip() + ";"
+        if re.search(r"\blimit\b", sql, flags=re.IGNORECASE) is None:
+            sql = sql.rstrip(";") + f" LIMIT {sql_max_limit};"
+        if not re.match(r"^\s*select\b", sql, flags=re.IGNORECASE):
+            return {"error": "BAD_SQL_FORMAT", "detail": sql}
 
     # 2) 안전성 검사
     ok, safe, reason = guard_sql(sql, ctx.get("allow_tables"), ctx.get("sql_max_limit",200))
@@ -188,16 +217,19 @@ def sql_answer_run(args, ctx):
         return {"error":"SQL_EXEC_ERROR","detail":str(e)[:200], "sql":safe}
 
     # 4) 결과 반환 → 다음 루프에서 LLM이 자연어 답변 생성
-    return {"safe_sql": safe, "cols": cols, "rows": rows}
+    # rows를 dict의 list로 변환
+    results = [dict(zip(cols, row)) for row in rows]
+    return {"results": results}
+
 
 # ====== Tool #3: RAG ======
-class RAGLookupInput(BaseModel):
-    query: str; filters: Optional[Dict[str,Any]]=None; top_k:int=6
-def rag_lookup_run(args, ctx):
-    f=ctx.get("rag_search");
-    if not f: return {"error":"RAG_NOT_READY"}
-    hits=f(_normalize(args["query"]),args.get("top_k",6),args.get("filters") or {})
-    return {"context":"\n".join(h["text"] for h in hits),"sources":[h.get("meta",{}) for h in hits]}
+# class RAGLookupInput(BaseModel):
+#     query: str; filters: Optional[Dict[str,Any]]=None; top_k:int=6
+# def rag_lookup_run(args, ctx):
+#     f=ctx.get("rag_search");
+#     if not f: return {"error":"RAG_NOT_READY"}
+#     hits=f(_normalize(args["query"]),args.get("top_k",6),args.get("filters") or {})
+#     return {"context":"\n".join(h["text"] for h in hits),"sources":[h.get("meta",{}) for h in hits]}
 
 # ====== Tool #4: Clarify ======
 class ClarifyInput(BaseModel):
@@ -208,24 +240,61 @@ def clarify_builder_run(args, ctx):
 
 # ====== Tool #5: PII ======
 class SafetyRedactorInput(BaseModel):
-    text: str; policy: Optional[str]="mask"
+    text: str; policy: Optional[str]="mask" # default policy는 mask
 def safety_redactor_run(args, ctx):
     red,hit,kinds=redact_pii(args["text"])
     if args.get("policy")=="reject" and hit: return {"rejected":True,"found":kinds}
     return {"rejected":False,"text_redacted":red,"pii_detected":hit,"found":kinds}
 
 # ===== Registry =====
-TOOLS_SPEC=[
-  {"type":"function","function":{"name":"offtopic_router","description":"비관련 질문 필터","parameters":OfftopicInput.model_json_schema()}},
-  {"type":"function","function":{"name":"sql_answer","description":"DB 조회 및 SQL 실행","parameters":SQLAnswerInput.model_json_schema()}},
-  {"type":"function","function":{"name":"rag_lookup","description":"임베딩 검색","parameters":RAGLookupInput.model_json_schema()}},
-  {"type":"function","function":{"name":"clarify_builder","description":"모호 질문 재질문","parameters":ClarifyInput.model_json_schema()}},
-  {"type":"function","function":{"name":"safety_redactor","description":"PII 마스킹/차단","parameters":SafetyRedactorInput.model_json_schema()}}
+TOOLS_SPEC = [
+  {
+    "type": "function",
+    "name": "offtopic_router",
+    "description": "비관련 질문 필터",
+    "parameters": OfftopicInput.model_json_schema(),
+  },
+  {
+    "type": "function",
+    "name": "sql_answer",
+    "description": "DB 조회 및 SQL 실행",
+    "parameters": {
+        "type": "object",
+        "properties": {
+          "question": {"type": "string"},
+          "known_filters": {"type": "object", "nullable": True},
+          "proposed_sql": {"type": "string", "nullable": True}
+        },
+        "required": ["question"]
+      },
+  },
+  # {
+  #   "type": "function",
+  #   "name": "rag_lookup",
+  #   "description": "임베딩 검색",
+  #   "parameters": RAGLookupInput.model_json_schema(),
+  # },
+    {
+    "type": "file_search",
+    "vector_store_ids": [os.getenv("VECTOR_STORE_ID")] # 리스트로 전달
+    },
+  {
+    "type": "function",
+    "name": "clarify_builder",
+    "description": "모호 질문 재질문",
+    "parameters": ClarifyInput.model_json_schema(),
+  },
+  {
+    "type": "function",
+    "name": "safety_redactor",
+    "description": "PII 마스킹/차단",
+    "parameters": SafetyRedactorInput.model_json_schema(),
+  },
 ]
 TOOLS_EXEC={
   "offtopic_router":offtopic_router_run,
   "sql_answer":sql_answer_run,
-  "rag_lookup":rag_lookup_run,
+  # "rag_lookup":rag_lookup_run,
   "clarify_builder":clarify_builder_run,
   "safety_redactor":safety_redactor_run,
 }
@@ -233,3 +302,4 @@ def run_tool_safely(name,args,ctx):
     fn=TOOLS_EXEC.get(name)
     try: return fn(args,ctx)
     except Exception as e: return {"error":str(e)}
+

@@ -3,7 +3,7 @@
 --out_dir 옵션으로 지정한 디렉토리 하위(out/index-v0)에 faiss.index와 meta.json이 함께 생성됩니다.
 
 - 사용법
-python .\make_embedding.py --out_dir .\out\index-v1 --scan_dir .
+python .\make_embedding.py --out_dir .\out\index-v4 --scan_dir .
 index-v 뒤에 숫자만 올려가며 버전 관리
 '''
 
@@ -41,29 +41,38 @@ def to_long_path(p: Path) -> str:
                 return "\\\\?\\" + s
     return s
 
-def chunk_text(t: str, max_chars=1000, overlap=0.15):
-    # 정규화
-    t = normalize(t)
-    # 파일에 내용이 없는 경우 처리
-    if not t:
+
+_SENT_BOUNDARY_RX = re.compile(
+    r'(?<=[\.!\?。…])\s+|(?<=\.)\n+|(?<=\?)\n+|(?<=!)\n+', re.UNICODE
+)
+
+def split_sentences(text: str):
+    t = normalize(text)
+    parts = _SENT_BOUNDARY_RX.split(t)
+    parts = [p.strip() for p in parts if p and p.strip()]
+    return parts if parts else ([t] if t else [])
+
+def chunk_text(text: str, max_chars=1000, overlap=0.15):
+    # 문장 기반 그리디 패킹
+    sents = split_sentences(text)
+    if not sents:
         return []
-    out, s = [], 0 # out : chunking 결과 / s : 시작 위치
-    ov = int(max_chars * overlap) # chunk 사이 겹치는 부분(overlap)의 크기
-    while s < len(t):
-        e = min(len(t), s + max_chars)
-        # 되도록 문장 단위로 chunk하기 위해 . 탐색
-        # .이 마침표 외의 역할을 할 경우 의도하지 않은 chunking이 일어날 수 있어 데이터 특성에 따라 로직 수정 필요할 듯
-        cut = t.rfind(". ", s, e)
-        # 구간내 .이 없는 경우 chunk의 길이가 너무 길어지지 않도록 끊어줌
-        if cut == -1 or cut < s + 0.6 * max_chars:
-            cut = e
-        # chunk 저장
-        out.append(t[s:cut].strip())
-        # 다음 시작위치 지정. 이전 chunk의 끝부분에서 overlap만큼 앞으로 이동하여 다시 청킹 시작
-        s = max(cut - ov, s + 1)
-    # chunk 길이가 너무 짧은 경우는 버리고 반환
-    # 매우 짧은 단어 또는 문장이 가진 의미가 중요한 데이터가 있다면 조건식 빼줘야 할 듯
-    return [c for c in out if len(c) >= 10]
+    ov = int(max_chars * overlap)
+    chunks, buf = [], ""
+    for s in sents:
+        if len(buf) + len(s) + 1 <= max_chars:
+            buf = (buf + " " + s).strip() if buf else s
+        else:
+            if buf:
+                chunks.append(buf)
+            if ov > 0 and chunks:
+                tail = chunks[-1][-ov:]
+                buf = (tail + " " + s).strip()
+            else:
+                buf = s
+    if buf:
+        chunks.append(buf)
+    return [c for c in chunks if len(c) >= 15]
 
 # jsonl 읽기
 def read_jsonl(path: Path):
@@ -189,6 +198,37 @@ def build_and_save_index(chunks, metas, model_name, batch_size, out_dir):
     print(f"[save] {meta_path}")
     return out
 
+import hashlib
+import numpy as np
+
+def dedup_exact(chunks, metas):
+    seen, out_c, out_m = set(), [], []
+    for c, m in zip(chunks, metas):
+        h = hashlib.sha1(" ".join(c.split()).encode("utf-8")).hexdigest()
+        if h in seen:
+            continue
+        seen.add(h)
+        out_c.append(c); out_m.append(m)
+    return out_c, out_m
+
+def dedup_near(chunks, metas, model, thr=0.96, batch_size=256, is_e5=True):
+    # 임베딩 기반 근접 중복 제거 (선택)
+    texts = [f"passage: {c}" for c in chunks] if is_e5 else chunks
+    V = model.encode(texts, batch_size=batch_size, normalize_embeddings=True, show_progress_bar=False)
+    keep_idx = []
+    kept = np.empty((0, V.shape[1]), dtype="float32")
+    for i, v in enumerate(V):
+        if kept.size == 0:
+            kept = v[None, :]
+            keep_idx.append(i)
+            continue
+        sims = kept @ v
+        if sims.max() < thr:
+            kept = np.vstack([kept, v])
+            keep_idx.append(i)
+    return [chunks[i] for i in keep_idx], [metas[i] for i in keep_idx]
+
+
 def main():
 
     # 함수 실행시 옵션 정의
@@ -245,6 +285,14 @@ def main():
                  "doc_id": d["id"], # 문서 id
                  "title": d["title"], # 문서 제목
                  "chunk_id": i}) # 문서 내 chunk의 id
+
+    # 1) 완전 중복 제거
+    chunks, metas = dedup_exact(chunks, metas)
+
+    # 2) (선택) 임베딩 근접 중복 제거
+    model_for_dedup = SentenceTransformer(args.model)  # 이미 로드했다면 재사용
+    is_e5 = "e5" in args.model.lower()
+    chunks, metas = dedup_near(chunks, metas, model_for_dedup, thr=0.985, is_e5=is_e5)
 
     # chunk 수 출력
     print(f"[chunk] chunks={len(chunks)}")
