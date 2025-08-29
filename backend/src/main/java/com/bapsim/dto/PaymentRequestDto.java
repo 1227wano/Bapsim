@@ -44,4 +44,8 @@ public class PaymentRequestDto {
     // SSAFY API 연동을 위한 필드
     @NotNull(message = "계좌번호는 필수입니다")
     private String accountNo; // 계좌번호 (SSAFY API 필수)
+    
+    // 포인트 사용 관련 필드 추가
+    private Boolean usePoints = false; // 포인트 사용 여부
+    private Integer pointAmount = 0;   // 사용할 포인트 금액
 }
