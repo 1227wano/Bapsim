@@ -1,10 +1,26 @@
 package com.bapsim.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+/**
+ * 포인트 내역 엔티티
+ * 포인트 적립, 사용, 만료 등의 내역을 기록
+ */
 @Entity
 @Table(name = "Point_history")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class PointHistory {
     
     @Id
@@ -18,15 +34,29 @@ public class PointHistory {
     @Column(name = "PAYMENT_ID")
     private Long paymentId;
     
-    @Column(name = "POINT_CHANGED")
-    private Integer pointChanged;
+    @Column(name = "POINT_TYPE", nullable = false, length = 20)
+    private String pointType; // EARN(적립), USE(사용), EXPIRE(만료)
     
-    @Column(name = "REASON", length = 50)
-    private String reason;
+    @Column(name = "POINTS", nullable = false)
+    private Integer points; // 포인트 수량 (양수: 적립, 음수: 사용/만료)
     
-    @Column(name = "CREATED_AT", nullable = false)
+    @Column(name = "BALANCE_AFTER", nullable = false)
+    private Integer balanceAfter; // 포인트 변경 후 잔액
+    
+    @Column(name = "REASON", length = 100)
+    private String reason; // 포인트 변경 사유
+    
+    @Column(name = "DESCRIPTION", length = 200)
+    private String description; // 상세 설명
+    
+    @CreatedDate
+    @Column(name = "CREATED_AT", nullable = false, updatable = false)
     private LocalDateTime createdAt;
     
+    @Column(name = "CREATED_ID", length = 50)
+    private String createdId;
+    
+    // 연관관계 매핑
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_NO", insertable = false, updatable = false)
     private Member user;
@@ -35,71 +65,61 @@ public class PointHistory {
     @JoinColumn(name = "PAYMENT_ID", insertable = false, updatable = false)
     private Payment payment;
     
-    // Constructors
-    public PointHistory() {}
-    
-    // Getters and Setters
-    public Long getPointId() {
-        return pointId;
+    /**
+     * 포인트 타입 상수
+     */
+    public static class PointType {
+        public static final String EARN = "EARN";      // 적립
+        public static final String USE = "USE";        // 사용
+        public static final String EXPIRE = "EXPIRE";  // 만료
     }
     
-    public void setPointId(Long pointId) {
-        this.pointId = pointId;
+    /**
+     * 포인트 적립 내역 생성
+     */
+    public static PointHistory earnPoints(Long userNo, Long paymentId, Integer points, 
+                                        Integer balanceAfter, String reason, String description) {
+        return PointHistory.builder()
+                .userNo(userNo)
+                .paymentId(paymentId)
+                .pointType(PointType.EARN)
+                .points(points)
+                .balanceAfter(balanceAfter)
+                .reason(reason)
+                .description(description)
+                .createdId("system")
+                .build();
     }
     
-    public Long getUserNo() {
-        return userNo;
+    /**
+     * 포인트 사용 내역 생성
+     */
+    public static PointHistory usePoints(Long userNo, Integer points, 
+                                       Integer balanceAfter, String reason, String description) {
+        return PointHistory.builder()
+                .userNo(userNo)
+                .pointType(PointType.USE)
+                .points(-points) // 음수로 기록
+                .balanceAfter(balanceAfter)
+                .reason(reason)
+                .description(description)
+                .createdId("system")
+                .build();
     }
     
-    public void setUserNo(Long userNo) {
-        this.userNo = userNo;
-    }
-    
-    public Long getPaymentId() {
-        return paymentId;
-    }
-    
-    public void setPaymentId(Long paymentId) {
-        this.paymentId = paymentId;
-    }
-    
-    public Integer getPointChanged() {
-        return pointChanged;
-    }
-    
-    public void setPointChanged(Integer pointChanged) {
-        this.pointChanged = pointChanged;
-    }
-    
-    public String getReason() {
-        return reason;
-    }
-    
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-    
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-    
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-    
-    public Member getUser() {
-        return user;
-    }
-    
-    public void setUser(Member user) {
-        this.user = user;
-    }
-    
-    public Payment getPayment() {
-        return payment;
-    }
-    
-    public void setPayment(Payment payment) {
-        this.payment = payment;
+    /**
+     * 포인트 만료 내역 생성
+     */
+    public static PointHistory expirePoints(Long userNo, Integer points, 
+                                          Integer balanceAfter, String reason) {
+        return PointHistory.builder()
+                .userNo(userNo)
+                .pointType(PointType.EXPIRE)
+                .points(-points) // 음수로 기록
+                .balanceAfter(balanceAfter)
+                .reason(reason)
+                .description("포인트 만료")
+                .createdId("system")
+                .build();
     }
 }

@@ -43,6 +43,9 @@ public class PaymentService {
     @Autowired
     private MealTicketService mealTicketService;
     
+    @Autowired
+    private PointService pointService;
+    
     /**
      * 결제 전 검증
      */
@@ -353,15 +356,25 @@ public class PaymentService {
              
              Payment savedPayment = paymentRepository.save(payment);
              
-             // 6. 식권 자동 발행
-             try {
-                 log.info("결제 완료 후 식권 발행 시작: paymentId={}", savedPayment.getPaymentId());
-                 mealTicketService.issueTicketAfterPayment(savedPayment.getPaymentId());
-                 log.info("식권 발행 완료: paymentId={}", savedPayment.getPaymentId());
-             } catch (Exception e) {
-                 log.error("식권 발행 중 오류 발생: paymentId={}", savedPayment.getPaymentId(), e);
-                 // 식권 발행 실패는 결제 성공에 영향을 주지 않음
-             }
+                // 6. 포인트 적립 (결제 금액의 2%)
+                try {
+                    log.info("결제 완료 후 포인트 적립 시작: paymentId={}, amount={}", savedPayment.getPaymentId(), savedPayment.getAmount());
+                    Integer earnedPoints = pointService.earnPointsFromPayment(savedPayment.getUserNo(), savedPayment.getPaymentId(), savedPayment.getAmount());
+                    log.info("포인트 적립 완료: paymentId={}, earnedPoints={}", savedPayment.getPaymentId(), earnedPoints);
+                } catch (Exception e) {
+                    log.error("포인트 적립 중 오류 발생: paymentId={}", savedPayment.getPaymentId(), e);
+                    // 포인트 적립 실패는 결제 성공에 영향을 주지 않음
+                }
+                
+                // 7. 식권 자동 발행
+                try {
+                    log.info("결제 완료 후 식권 발행 시작: paymentId={}", savedPayment.getPaymentId());
+                    MealTicket ticket = mealTicketService.issueTicketAfterPayment(savedPayment.getPaymentId());
+                    log.info("식권 발행 완료: paymentId={}, ticketId={}", savedPayment.getPaymentId(), ticket != null ? ticket.getTicketId() : "null");
+                } catch (Exception e) {
+                    log.error("식권 발행 중 오류 발생: paymentId={}", savedPayment.getPaymentId(), e);
+                    // 식권 발행 실패는 결제 성공에 영향을 주지 않음
+                }
             
                          // 6. 성공 응답 생성
              // menuName은 MenuPrice 테이블의 mealType을 사용

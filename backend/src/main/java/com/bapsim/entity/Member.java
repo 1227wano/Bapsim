@@ -39,6 +39,9 @@ public class Member {
     @Column(name = "USER_PIN", length = 4, nullable = false)
     private String userPin;
     
+    @Column(name = "POINT_BALANCE", nullable = false)
+    private Integer pointBalance = 0; // 포인트 잔액 (기본값 0)
+    
     @Column(name = "CREATED_ID", length = 100, nullable = false)
     private String createdId;
     
@@ -185,6 +188,14 @@ public class Member {
     
     public void setUserPin(String userPin) {
         this.userPin = userPin;
+    }
+    
+    public Integer getPointBalance() {
+        return pointBalance;
+    }
+    
+    public void setPointBalance(Integer pointBalance) {
+        this.pointBalance = pointBalance;
     }
     
     public String getCreatedId() {
