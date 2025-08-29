@@ -62,8 +62,8 @@ const MyMenuScreen = () => {
     if (menuName === '밥먹뽀먹') {
       // Expo Router를 사용해서 오늘의 메뉴 페이지로 이동
       router.push('/today-menu');
-    } else {
-      Alert.alert(menuName, `${menuName} 메뉴를 선택했습니다.`);
+    } else if (menuName === '식권조회') {
+      router.push('/tickets');
     }
   };
 
@@ -117,21 +117,23 @@ const MyMenuScreen = () => {
                 <Ionicons name="person" size={36} color="#1BB1E7" />
               </View>
               <View style={styles.studentTexts}>
-                <Text style={styles.studentDeptMajor}>산업시스템공학과</Text>
-                <Text style={styles.studentId}>2018213824</Text>
-                <Text style={styles.studentName}>현광수</Text>
+                <Text style={styles.studentId}>1443254</Text>
+                <Text style={styles.studentName}>김싸피</Text>
               </View>
             </View>
             <View style={styles.studentBadgeRow}>
               <TouchableOpacity style={styles.studentBadge} activeOpacity={0.7}>
-                <Ionicons name="bluetooth" size={18} color="#fff" />
+                <Ionicons name="bluetooth" size={20} color="#fff" />
                 <Text style={styles.studentBadgeText}>BT</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.studentBadge} activeOpacity={0.7}>
-                <Ionicons name="qr-code-outline" size={18} color="#fff" />
+                <Ionicons name="qr-code-outline" size={20} color="#fff" />
                 <Text style={styles.studentBadgeText}>QR</Text>
               </TouchableOpacity>
             </View>
+          </View>
+          <View style={styles.studentPoint}>
+            <Text style={styles.pointName}>보유포인트</Text>
           </View>
         </View>
         <Text style={styles.headerTitle}>MY메뉴</Text>
@@ -147,14 +149,14 @@ const MyMenuScreen = () => {
               onPress={() => handleMenuPress('밥먹뽀먹')}
             />
             <MenuButton
+              title="식권조회"
+              iconImage={cuponIconImage}
+              onPress={() => handleMenuPress('식권조회')}
+            />
+            <MenuButton
               title="홈페이지"
               iconImage={homepageIconImage}
               onPress={() => handleMenuPress('홈페이지')}
-            />
-            <MenuButton
-              title="고객센터"
-              iconImage={customerIconImage}
-              onPress={() => handleMenuPress('고객센터')}
             />
             <MenuButton
               title="학교공지사항"
@@ -193,9 +195,9 @@ const MyMenuScreen = () => {
           {/* 세 번째 줄 메뉴 - 밥먹뽀먹 추가 */}
           <View style={styles.menuRow}>
             <MenuButton
-              title="쿠폰함"
-              iconImage={cuponIconImage}
-              onPress={() => handleMenuPress('쿠폰함')}
+              title="고객센터"
+              iconImage={customerIconImage}
+              onPress={() => handleMenuPress('고객센터')}
             />
             <MenuButton
               title="떙겨요"
