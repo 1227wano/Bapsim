@@ -7,16 +7,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "Food")
 public class Food {
 
-    // 변경점 1: Food 테이블의 독립적인 PK (foodNo) 추가
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "FOOD_NO")
     private Long foodNo;
-
-    // 변경점 2: menuId 필드 제거. 아래 Menus와의 관계로 대체됩니다.
-    // @Id
-    // @Column(name = "MENU_ID", length = 100, nullable = false)
-    // private String menuId;
 
     @Column(name = "MENU_NAME", length = 100, nullable = false)
     private String menuName;
@@ -39,18 +33,16 @@ public class Food {
     @Column(name = "ALLERGY_INFO", length = 500)
     private String allergyInfo;
 
-    // 변경점 3: Menus와의 관계 수정 (OneToOne).
-    // 이제 Food 테이블이 관계의 주인이 되어 'MENU_NO'라는 FK를 가집니다.
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "MENU_NO", referencedColumnName = "MENU_NO")
-    @JsonIgnoreProperties({"food", "hibernateLazyInitializer"})
+    // Food:Menus = N:1
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "MENU_NO")
+    @JsonIgnoreProperties({"foods", "hibernateLazyInitializer"})
     private Menus menu;
 
     // Constructors
     public Food() {}
 
     // Getters and Setters
-    // 변경점 4: 새로 추가된 foodNo의 Getter, Setter
     public Long getFoodNo() {
         return foodNo;
     }
@@ -58,8 +50,6 @@ public class Food {
     public void setFoodNo(Long foodNo) {
         this.foodNo = foodNo;
     }
-
-    // menuId의 Getter, Setter 제거
 
     public String getMenuName() {
         return menuName;

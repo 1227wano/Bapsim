@@ -1,7 +1,6 @@
 package com.bapsim.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties; // 변경점: 임포트 추가
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -14,7 +13,6 @@ public class MenuPrice {
     @Column(name = "PRICE_NO")
     private Long priceNo;
 
-    // ... (기존 필드들은 변경 없음)
     @Column(name = "KIND", length = 1, nullable = false)
     private String kind;
 
@@ -48,12 +46,10 @@ public class MenuPrice {
     @Column(name = "UPDATED_AT", nullable = false)
     private java.time.LocalDateTime updatedAt;
 
-    // 변경점 1: Menus와의 관계 추가 (ManyToOne)
-    // 여러 가격 정보가 하나의 메뉴에 연결될 수 있습니다.
-    // Menu_Price 테이블에 'MENU_NO'라는 FK가 생성됩니다.
-    @ManyToOne(fetch = FetchType.LAZY)
+    // MenuPrice:Menus = 1:1
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MENU_NO")
-    @JsonIgnoreProperties({"menuPrices", "hibernateLazyInitializer"})
+    @JsonIgnoreProperties({"menuPrice", "hibernateLazyInitializer"})
     private Menus menu;
 
 
@@ -61,7 +57,6 @@ public class MenuPrice {
     public MenuPrice() {}
 
     // Getters and Setters
-    // ... (기존 Getter, Setter들은 변경 없음)
     public Long getPriceNo() {
         return priceNo;
     }
@@ -158,7 +153,6 @@ public class MenuPrice {
         this.updatedAt = updatedAt;
     }
 
-    // 변경점 2: menu에 대한 Getter, Setter 추가
     public Menus getMenu() {
         return menu;
     }
