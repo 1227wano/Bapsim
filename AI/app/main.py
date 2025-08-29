@@ -410,157 +410,164 @@ async def chat(payload: ChatRequest):
 
     # context에 추가할 DB schema 구조
     schema_hints = '''
+CREATE TABLE `account` (
+  `user_no` bigint NOT NULL,
+  `account_no` bigint NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`user_no`),
+  CONSTRAINT `FK_account_member` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`)
+);
+
 CREATE TABLE `ai_service` (
   `session_id` int NOT NULL AUTO_INCREMENT,
-  `assistant_message` varchar(500) DEFAULT NULL,
-  `language` varchar(5) DEFAULT NULL,
-  `llm_latency_ms` int DEFAULT NULL,
-  `rag_used` bit(1) DEFAULT NULL,
-  `total_latency_ms` int DEFAULT NULL,
-  `usage_completion_token` int DEFAULT NULL,
-  `usage_prompt_token` int DEFAULT NULL,
-  `usage_total_tokens` int DEFAULT NULL,
-  `user_message` varchar(500) NOT NULL,
   `user_no` bigint NOT NULL,
+  `user_message` varchar(500) NOT NULL,
+  `assistant_message` varchar(500) DEFAULT NULL,
+  `usage_prompt_token` int DEFAULT NULL,
+  `usage_completion_token` int DEFAULT NULL,
+  `usage_total_tokens` int DEFAULT NULL,
+  `llm_latency_ms` int DEFAULT NULL,
+  `total_latency_ms` int DEFAULT NULL,
+  `rag_used` bit(1) DEFAULT NULL,
+  `language` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`session_id`),
-  KEY `FKkuddcm60ngkv7nwgh4jq06byw` (`user_no`),
-  CONSTRAINT `FKkuddcm60ngkv7nwgh4jq06byw` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`)
+  KEY `FK_aiservice_member` (`user_no`),
+  CONSTRAINT `FK_aiservice_member` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`)
 );
 
 CREATE TABLE `cafeterias` (
   `cafe_no` bigint NOT NULL AUTO_INCREMENT,
-  `build_name` varchar(100) NOT NULL,
-  `close_time` datetime(6) NOT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `created_id` varchar(100) NOT NULL,
-  `del_yn` varchar(1) NOT NULL,
-  `open_time` datetime(6) NOT NULL,
-  `phone_no` bigint NOT NULL,
-  `run_yn` varchar(1) NOT NULL,
   `uni_id` int NOT NULL,
-  `updated_at` datetime(6) NOT NULL,
-  `updated_id` varchar(100) NOT NULL,
+  `build_name` varchar(100) NOT NULL,
+  `phone_no` bigint NOT NULL,
+  `open_time` datetime(6) NOT NULL,
+  `close_time` datetime(6) NOT NULL,
+  `run_yn` varchar(1) NOT NULL,
+  `del_yn` varchar(1) NOT NULL,
   `visitor` bigint NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_id` varchar(100) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`cafe_no`),
-  KEY `FK45m3c5v2k3lgru6pf5qi16fsd` (`uni_id`),
-  CONSTRAINT `FK45m3c5v2k3lgru6pf5qi16fsd` FOREIGN KEY (`uni_id`) REFERENCES `university` (`uni_id`)
+  KEY `FK_cafeterias_university` (`uni_id`),
+  CONSTRAINT `FK_cafeterias_university` FOREIGN KEY (`uni_id`) REFERENCES `university` (`uni_id`)
 );
 
 CREATE TABLE `food` (
-  `menu_id` varchar(100) NOT NULL,
+  `food_no` bigint NOT NULL AUTO_INCREMENT,
+  `menu_name` varchar(100) NOT NULL,
+  `kcal` bigint NOT NULL,
   `allergy` bigint NOT NULL,
-  `allergy_info` varchar(500) DEFAULT NULL,
   `category` varchar(10) NOT NULL,
   `content` varchar(500) DEFAULT NULL,
-  `kcal` bigint NOT NULL,
-  `menu_name` varchar(100) NOT NULL,
   `photo_path` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`menu_id`)
+  `allergy_info` varchar(500) DEFAULT NULL,
+  `menu_no` bigint DEFAULT NULL,
+  PRIMARY KEY (`food_no`),
+  KEY `FK_food_menus` (`menu_no`),
+  CONSTRAINT `FK_food_menus` FOREIGN KEY (`menu_no`) REFERENCES `menus` (`menu_no`)
 );
 
 CREATE TABLE `member` (
   `user_no` bigint NOT NULL AUTO_INCREMENT,
-  `created_at` datetime(6) NOT NULL,
-  `created_id` varchar(100) NOT NULL,
   `uni_id` int NOT NULL,
-  `updated_at` datetime(6) NOT NULL,
-  `updated_id` varchar(100) NOT NULL,
-  `user_email` varchar(100) DEFAULT NULL,
   `user_id` varchar(100) NOT NULL,
-  `user_name` varchar(100) NOT NULL,
   `user_pass` varchar(500) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `user_email` varchar(100) DEFAULT NULL,
   `user_phone` varchar(20) DEFAULT NULL,
-  `user_status` varchar(20) NOT NULL,
   `user_type` varchar(20) NOT NULL,
+  `user_status` varchar(20) NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_id` varchar(100) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`user_no`),
-  KEY `FK9q5d146oedfylqq10ynsw2rad` (`uni_id`),
-  CONSTRAINT `FK9q5d146oedfylqq10ynsw2rad` FOREIGN KEY (`uni_id`) REFERENCES `university` (`uni_id`)
+  KEY `FK_member_university` (`uni_id`),
+  CONSTRAINT `FK_member_university` FOREIGN KEY (`uni_id`) REFERENCES `university` (`uni_id`)
 );
 
 CREATE TABLE `menu_price` (
   `price_no` bigint NOT NULL AUTO_INCREMENT,
-  `created_at` datetime(6) NOT NULL,
-  `created_id` varchar(100) NOT NULL,
+  `kind` varchar(1) NOT NULL,
+  `meal_type` varchar(100) NOT NULL,
+  `price` bigint NOT NULL,
   `description` varchar(500) DEFAULT NULL,
   `effective_date` date NOT NULL,
   `expiry_date` date DEFAULT NULL,
   `is_active` bit(1) NOT NULL,
-  `kind` varchar(1) NOT NULL,
-  `meal_type` varchar(100) NOT NULL,
-  `price` bigint NOT NULL,
-  `updated_at` datetime(6) NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
   `updated_id` varchar(100) NOT NULL,
-  PRIMARY KEY (`price_no`)
+  `updated_at` datetime(6) NOT NULL,
+  `menu_no` bigint DEFAULT NULL,
+  PRIMARY KEY (`price_no`),
+  KEY `FK_menuprice_menus` (`menu_no`),
+  CONSTRAINT `FK_menuprice_menus` FOREIGN KEY (`menu_no`) REFERENCES `menus` (`menu_no`)
 );
 
 CREATE TABLE `menus` (
   `menu_no` bigint NOT NULL AUTO_INCREMENT,
-  `cafe_no` bigint DEFAULT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `created_id` varchar(100) NOT NULL,
-  `is_signature` bit(1) NOT NULL,
   `kind` varchar(1) NOT NULL,
   `meal_type` varchar(100) NOT NULL,
-  `menu_date` date DEFAULT NULL,
-  `menu_id` varchar(100) NOT NULL,
-  `res_no` bigint DEFAULT NULL,
-  `sold_out` bit(1) NOT NULL,
-  `updated_at` datetime(6) NOT NULL,
+  `is_signature` bit(1) NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
   `updated_id` varchar(100) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  `sold_out` bit(1) NOT NULL,
+  `cafe_no` bigint DEFAULT NULL,
+  `res_no` bigint DEFAULT NULL,
+  `menu_date` date DEFAULT NULL,
   PRIMARY KEY (`menu_no`),
-  KEY `FKnykch7bxg7bj2jild7whax77q` (`cafe_no`),
-  KEY `FKddapuc09wj3277ktku7kvsogc` (`menu_id`),
-  KEY `FKnnvxcvyycmv9i1wk0xa5jgqm7` (`res_no`),
-  CONSTRAINT `FKddapuc09wj3277ktku7kvsogc` FOREIGN KEY (`menu_id`) REFERENCES `food` (`menu_id`),
-  CONSTRAINT `FKnnvxcvyycmv9i1wk0xa5jgqm7` FOREIGN KEY (`res_no`) REFERENCES `restaurants` (`res_no`),
-  CONSTRAINT `FKnykch7bxg7bj2jild7whax77q` FOREIGN KEY (`cafe_no`) REFERENCES `cafeterias` (`cafe_no`)
+  KEY `FK_menus_cafeterias` (`cafe_no`),
+  KEY `FK_menus_restaurants` (`res_no`),
+  CONSTRAINT `FK_menus_cafeterias` FOREIGN KEY (`cafe_no`) REFERENCES `cafeterias` (`cafe_no`),
+  CONSTRAINT `FK_menus_restaurants` FOREIGN KEY (`res_no`) REFERENCES `restaurants` (`res_no`)
 );
 
 CREATE TABLE `payment` (
   `payment_id` bigint NOT NULL AUTO_INCREMENT,
-  `amount` int NOT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `transaction_id` varchar(100) NOT NULL,
   `user_no` bigint NOT NULL,
+  `amount` int NOT NULL,
+  `transaction_id` varchar(100) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
   PRIMARY KEY (`payment_id`),
-  KEY `FKq00swcd16wo3krqt988obcrpf` (`user_no`),
-  CONSTRAINT `FKq00swcd16wo3krqt988obcrpf` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`)
+  KEY `FK_payment_member` (`user_no`),
+  CONSTRAINT `FK_payment_member` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`)
 );
 
 CREATE TABLE `point_history` (
   `point_id` bigint NOT NULL AUTO_INCREMENT,
-  `created_at` datetime(6) NOT NULL,
+  `user_no` bigint NOT NULL,
   `payment_id` bigint DEFAULT NULL,
   `point_changed` int DEFAULT NULL,
   `reason` varchar(50) DEFAULT NULL,
-  `user_no` bigint NOT NULL,
+  `created_at` datetime(6) NOT NULL,
   PRIMARY KEY (`point_id`),
-  KEY `FKkq2exxev3tsehlgb2eg06csb3` (`payment_id`),
-  KEY `FKa8d7aw32854b8cye192tnd3t5` (`user_no`),
-  CONSTRAINT `FKa8d7aw32854b8cye192tnd3t5` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`),
-  CONSTRAINT `FKkq2exxev3tsehlgb2eg06csb3` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`payment_id`)
-);
-
-CREATE TABLE `price` (
-  `menu_no` bigint NOT NULL,
-  `price` bigint NOT NULL,
-  PRIMARY KEY (`menu_no`)
+  KEY `FK_pointhistory_member` (`user_no`),
+  KEY `FK_pointhistory_payment` (`payment_id`),
+  CONSTRAINT `FK_pointhistory_member` FOREIGN KEY (`user_no`) REFERENCES `member` (`user_no`),
+  CONSTRAINT `FK_pointhistory_payment` FOREIGN KEY (`payment_id`) REFERENCES `payment` (`payment_id`)
 );
 
 CREATE TABLE `restaurants` (
   `res_no` bigint NOT NULL AUTO_INCREMENT,
-  `address` varchar(2000) NOT NULL,
-  `close_time` datetime(6) NOT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `created_id` varchar(100) NOT NULL,
-  `del_yn` varchar(1) NOT NULL,
-  `open_time` datetime(6) NOT NULL,
-  `phone_no` bigint NOT NULL,
   `res_name` varchar(100) NOT NULL,
+  `address` varchar(2000) NOT NULL,
+  `phone_no` bigint NOT NULL,
+  `open_time` datetime(6) NOT NULL,
+  `close_time` datetime(6) NOT NULL,
   `run_yn` varchar(1) NOT NULL,
-  `updated_at` datetime(6) NOT NULL,
-  `updated_id` varchar(100) NOT NULL,
+  `del_yn` varchar(1) NOT NULL,
   `visitor` bigint NOT NULL,
+  `created_id` varchar(100) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_id` varchar(100) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
   PRIMARY KEY (`res_no`)
 );
 
@@ -582,13 +589,13 @@ CREATE TABLE `university` (
     
     [도구 사용 원칙]
     - offtopic_router: 질문이 학식/교내 도메인과 무관하면 먼저 호출
-    - clarify_builder: 질문이 모호해서 RAG나 SQL tool을 사용하기 어려우면 구체적인 재질문 생성
     - safety_redactor: 개인정보(전화·이메일·학번·계좌)가 있으면 policy에 따라 masking 또는 reject 처리
     - sql_answer: 메뉴/가격/영양/알러지 등 DB 기반 질문일 때 SELECT 쿼리로 조회
       * 반드시 SELECT만 허용, DML/DDL 금지
       * LIMIT 누락 시 강제로 추가
       * 허용된 테이블만 사용
-    - file_search/RAG: 질문이 이벤트, 공지사항, 규칙, 정책 등에 관련된 경우 호출
+    - file_search/RAG: 질문이 운영시간, 이벤트, 공지사항, 규칙, 정책 등에 관련된 경우 호출
+    - 질문에 장소, 시간 등 필수 정보가 누락되어 명확한 답변이 어려우면, 다른 도구를 사용하기 전에 먼저 사용자에게 되물어 명확히 하세요.
 
     [답변 스타일]
     - 사용자의 언어로 답변 (기본 한국어)
@@ -602,7 +609,7 @@ CREATE TABLE `university` (
     [안전·정합성]
     - 개인정보는 반드시 마스킹
     - 확신이 없으면 "확인 불가"라고 답하고, 다음 행동 제안
-    - 영업시간/가격/영양 및 알러지 정보 등은 반드시 DB 기반으로 대답
+    - 가격/영양 및 알러지 정보 등은 반드시 DB 기반으로 대답
 
     [SQL 세부 규칙]
     - 한 번에 하나의 SELECT만
