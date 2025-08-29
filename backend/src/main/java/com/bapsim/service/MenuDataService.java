@@ -78,14 +78,14 @@ public class MenuDataService {
                 Map<String, Object> foodData = (Map<String, Object>) menuData.get("food");
                 Food food = createFoodFromData(foodData, getStringValue(menuData, "menuId"));
                 savedFood = foodRepository.save(food);
-                logger.debug("음식 데이터 저장 완료: {}", savedFood.getMenuId());
+                logger.debug("음식 데이터 저장 완료: {}", savedFood.getFoodNo());
             }
             
             // 메뉴 기본 정보 저장
             Menus menu = createMenuFromData(menuData);
             Menus savedMenu = menuRepository.save(menu);
             
-            logger.debug("메뉴 저장 완료: {}", savedMenu.getMenuId());
+            logger.debug("메뉴 저장 완료: {}", savedMenu.getMenuNo());
             
         } catch (Exception e) {
             logger.error("메뉴 데이터 저장 실패: {}", menuData, e);
@@ -99,7 +99,6 @@ public class MenuDataService {
         Menus menu = new Menus();
         
         // 기본 필드 설정
-        menu.setMenuId(getStringValue(menuData, "menuId"));
         menu.setKind(getStringValue(menuData, "kind", "A"));
         menu.setMealType(getStringValue(menuData, "mealType", "점심"));
         menu.setIsSignature(getBooleanValue(menuData, "isSignature", false));
@@ -140,7 +139,6 @@ public class MenuDataService {
     private Food createFoodFromData(Map<String, Object> foodData, String menuId) {
         Food food = new Food();
         
-        food.setMenuId(menuId);
         food.setMenuName(getStringValue(foodData, "menuName"));
         food.setKcal(getLongValue(foodData, "kcal", 0L));
         food.setAllergy(getLongValue(foodData, "allergy", 0L));

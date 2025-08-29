@@ -11,7 +11,7 @@ COPY build.gradle .
 COPY src src
 
 # 직접 Gradle을 사용하여 빌드
-RUN gradle build -x test --no-daemon
+RUN gradle clean build -x test --no-daemon --refresh-dependencies
 
 # 실행 단계
 FROM eclipse-temurin:17-jre

@@ -11,7 +11,6 @@ import java.util.List;
 
 @Repository
 public interface MenuRepository extends JpaRepository<Menus, Long> {
-    Menus findByMenuId(String menuId);
     
     @Query("SELECT m FROM Menus m LEFT JOIN FETCH m.food LEFT JOIN FETCH m.cafeteria LEFT JOIN FETCH m.restaurant WHERE m.cafeNo = :cafeNo")
     List<Menus> findByCafeNo(@Param("cafeNo") Long cafeNo);
