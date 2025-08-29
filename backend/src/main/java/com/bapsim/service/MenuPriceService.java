@@ -22,10 +22,10 @@ public class MenuPriceService {
     private MenuPriceRepository menuPriceRepository;
     
     /**
-     * 특정 종류와 식사 타입의 현재 유효한 가격 조회
+     * 특정 종류의 현재 유효한 가격 조회 (mealType 무관)
      */
-    public Optional<MenuPrice> getCurrentPrice(String kind, String mealType, LocalDate date) {
-        return menuPriceRepository.findCurrentPrice(kind, mealType, date);
+    public Optional<MenuPrice> getCurrentPrice(String kind, LocalDate date) {
+        return menuPriceRepository.findCurrentPrice(kind, date);
     }
     
     /**
@@ -132,7 +132,7 @@ public class MenuPriceService {
     
     private void createMenuPriceIfNotExists(String kind, String mealType, Long price, 
                                           String description, LocalDate effectiveDate) {
-        Optional<MenuPrice> existingPrice = getCurrentPrice(kind, mealType, effectiveDate);
+        Optional<MenuPrice> existingPrice = getCurrentPrice(kind, effectiveDate);
         if (existingPrice.isEmpty()) {
             MenuPrice newPrice = new MenuPrice();
             newPrice.setKind(kind);
