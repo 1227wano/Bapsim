@@ -221,7 +221,7 @@ def sql_answer_run(args, ctx):
     results = [dict(zip(cols, row)) for row in rows]
     return {"results": results}
 
-
+# gpt-4 계열 모델 사용시 주석 해제
 # ====== Tool #3: RAG ======
 # class RAGLookupInput(BaseModel):
 #     query: str; filters: Optional[Dict[str,Any]]=None; top_k:int=6
@@ -268,6 +268,7 @@ TOOLS_SPEC = [
         "required": ["question"]
       },
   },
+  # gpt-4 계열 모델 사용시 주석 해제
   # {
   #   "type": "function",
   #   "name": "rag_lookup",
@@ -281,7 +282,7 @@ TOOLS_SPEC = [
   {
     "type": "function",
     "name": "clarify_builder",
-    "description": "모호 질문 재질문",
+    "description": "모호한 질문 재질문",
     "parameters": ClarifyInput.model_json_schema(),
   },
   {
@@ -294,7 +295,7 @@ TOOLS_SPEC = [
 TOOLS_EXEC={
   "offtopic_router":offtopic_router_run,
   "sql_answer":sql_answer_run,
-  # "rag_lookup":rag_lookup_run,
+  # "rag_lookup":rag_lookup_run, # gpt-4 계열 모델 사용시 주석 해제
   "clarify_builder":clarify_builder_run,
   "safety_redactor":safety_redactor_run,
 }
