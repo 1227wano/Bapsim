@@ -68,7 +68,7 @@ curl -sS http://3.34.126.173:8000/healthz
 ### 기본 테스트 코드
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u1"",""message"":""오늘 학식 뭐 나와?""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u1\", \"message\": \"오늘 학식 뭐 나와?\" }"
 ```
 
 
@@ -76,7 +76,7 @@ curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "
 ### 영어
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u2"",""language"":""en-US"",""message"":""What is for lunch today?""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u2\", \"language\": \"en-US\", \"message\": \"What is for lunch today?\" }"
 ```
 
 
@@ -84,7 +84,7 @@ curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "
 ### 일본어
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u3"",""language"":""ja"",""message"":""今日の学食メニューは？""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u3\", \"language\": \"ja\", \"message\": \"今日の学食メニューは？\" }"
 ```
 
 
@@ -92,7 +92,7 @@ curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "
 ### 멀티턴 대화 동작 확인
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u3"",""language"":""ko"",""history"":[{""role"":""assistant"",""content"":""어느 캠퍼스/식당/날짜가 궁금한가요?""}],""message"":""오늘 제2학식 메뉴 알려줘""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u3\", \"language\": \"ko\", \"history\": [ { \"role\": \"assistant\", \"content\": \"어느 캠퍼스/식당/날짜가 궁금한가요?\" } ], \"message\": \"오늘 제2학식 메뉴 알려줘\" }"
 ```
 
 
@@ -100,7 +100,7 @@ curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "
 ### RAG tool 호출
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u4"",""language"":""ko"",""message"":""할인 이벤트 하고 있는 거 있어?""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u4\", \"language\": \"ko\", \"message\": \"할인 이벤트 하고 있는 거 있어?\" }"
 ```
 
 
@@ -108,7 +108,7 @@ curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "
 ### SQL tool 호출
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u5"",""language"":""ko"",""message"":""김치찌개 알러지 정보 알려줘""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u5\", \"language\": \"ko\", \"message\": \"김치찌개 알러지 정보 알려줘\" }"
 ```
 
 
@@ -116,7 +116,7 @@ curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "
 ## off-topic tool 호출
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u6"",""language"":""ko"",""message"":""오늘 날씨 어때?""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u6\", \"language\": \"ko\", \"message\": \"오늘 날씨 어때?\" }"
 ```
 
 
@@ -124,7 +124,7 @@ curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "
 ### PII tool 호출
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u7"",""language"":""ko"",""message"":""나는 김민수야. 전화번호는 01012123789야.""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u7\", \"language\": \"ko\", \"message\": \"나는 김민수야. 전화번호는 01012123789야.\" }"
 ```
 
 
@@ -132,6 +132,13 @@ curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "
 ### Clarify tool 호출
 
 ```cmd
-curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{""user_id"":""u7"",""language"":""ko"",""message"":""그 식당 어딘지 알아?""}"
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"u7\", \"language\": \"ko\", \"message\": \"그 식당 어딘지 알아?\" }"
 ```
 
+
+
+### 전체 파라미터 포함 API 호출 예시
+
+```bash
+curl -X POST http://localhost:8000/chat -H "Content-Type: application/json" -d "{ \"user_id\": \"test_user_123\", \"message\": \"그거 얼만데?\", \"language\": \"ko\", \"history\": [ { \"role\": \"user\", \"content\": \"오늘 제2학식 한식 메뉴 알려줘\" }, { \"role\": \"assistant\", \"content\": \"오늘 학식 메뉴는 제육덮밥입니다.\" } ] }"
+```

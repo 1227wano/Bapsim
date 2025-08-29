@@ -24,6 +24,7 @@ rapidfuzz==3.13.0
 
 # sql
 sqlalchemy==2.0.43
+pymysql==1.1.2
 
 # 초기 사용 라이브러리
 # fastapi==0.111.0
