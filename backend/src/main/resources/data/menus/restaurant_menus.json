@@ -1,12 +1,15 @@
 [
   {
-    "menuId": "20250825_A_1",
     "kind": "A",
     "mealType": "한식",
     "isSignature": true,
     "soldOut": false,
     "resNo": 1,
     "menuDate": "2025-08-25",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
       "menuName": "우렁이바지락된장찌개",
       "kcal": 200,
@@ -17,13 +20,16 @@
     }
   },
   {
-    "menuId": "20250825_A_2",
     "kind": "A",
     "mealType": "한식",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
     "menuDate": "2025-08-25",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
       "menuName": "흑미밥/쌀밥",
       "kcal": 320,
@@ -34,863 +40,196 @@
     }
   },
   {
-    "menuId": "20250825_A_3",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "언양식바싹불고기",
-      "kcal": 450,
-      "allergy": 14,
-      "allergyInfo": "쇠고기",
-      "category": "한식",
-      "content": "언양식으로 만든 바싹불고기"
-    }
-  },
-  {
-    "menuId": "20250825_A_4",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "죽봉어묵볶음",
-      "kcal": 180,
-      "allergy": 2,
-      "allergyInfo": "밀(어묵)",
-      "category": "한식",
-      "content": "죽봉어묵을 볶은 반찬"
-    }
-  },
-  {
-    "menuId": "20250825_A_5",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "콩나물매운무침",
-      "kcal": 50,
-      "allergy": 1,
-      "allergyInfo": "대두(콩나물)",
-      "category": "한식",
-      "content": "매콤하게 무친 콩나물"
-    }
-  },
-  {
-    "menuId": "20250825_A_6",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "콩자반/김치",
-      "kcal": 60,
-      "allergy": 1,
-      "allergyInfo": "대두(콩)",
-      "category": "한식",
-      "content": "콩자반과 김치"
-    }
-  },
-  {
-    "menuId": "20250825_B_1",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": true,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "김치나베돈가스",
-      "kcal": 600,
-      "allergy": 13,
-      "allergyInfo": "돼지고기(돈가스), 밀",
-      "category": "일품",
-      "content": "얼큰한 김치국물에 돈가스를 넣은 일품요리"
-    }
-  },
-  {
-    "menuId": "20250825_B_2",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "쌀밥+후리카게",
-      "kcal": 350,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "후리가케를 뿌린 쌀밥"
-    }
-  },
-  {
-    "menuId": "20250825_B_3",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "으깬단호박샐러드",
-      "kcal": 180,
-      "allergy": 4,
-      "allergyInfo": "우유",
-      "category": "일품",
-      "content": "으깬 단호박으로 만든 샐러드"
-    }
-  },
-  {
-    "menuId": "20250825_B_4",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "양배추콘샐러드",
-      "kcal": 120,
-      "allergy": 3,
-      "allergyInfo": "계란(마요네즈)",
-      "category": "일품",
-      "content": "양배추와 옥수수를 버무린 샐러드"
-    }
-  },
-  {
-    "menuId": "20250825_B_5",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-25",
-    "food": {
-      "menuName": "오복지무침/락교",
-      "kcal": 40,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "오복지무침과 락교"
-    }
-  },
-  {
-    "menuId": "20250826_A_1",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": true,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "비빔밥",
-      "kcal": 550,
-      "allergy": 1,
-      "allergyInfo": "대두",
-      "category": "한식",
-      "content": "다양한 채소와 고기가 들어간 비빔밥"
-    }
-  },
-  {
-    "menuId": "20250826_A_2",
     "kind": "A",
     "mealType": "한식",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
     "menuDate": "2025-08-26",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
-      "menuName": "멸치육수",
-      "kcal": 20,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "멸치로 우려낸 육수"
-    }
-  },
-  {
-    "menuId": "20250826_A_3",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "새우감자고로케+케첩",
+      "menuName": "김치찌개",
       "kcal": 250,
-      "allergy": 7,
-      "allergyInfo": "새우, 밀",
+      "allergy": 9,
+      "allergyInfo": "돼지고기, 대두(두부)",
       "category": "한식",
-      "content": "새우와 감자로 만든 고로케"
+      "content": "돼지고기 김치찌개"
     }
   },
   {
-    "menuId": "20250826_A_4",
     "kind": "A",
     "mealType": "한식",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
-    "menuDate": "2025-08-26",
+    "menuDate": "2025-08-27",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
-      "menuName": "도토리묵+양념장",
-      "kcal": 70,
+      "menuName": "순두부찌개",
+      "kcal": 220,
       "allergy": 1,
-      "allergyInfo": "대두(양념장)",
+      "allergyInfo": "대두(순두부), 난류",
       "category": "한식",
-      "content": "도토리묵과 양념장"
+      "content": "얼큰한 순두부찌개"
     }
   },
   {
-    "menuId": "20250826_A_5",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "쥐어채볶음",
-      "kcal": 150,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "쥐어채를 볶은 반찬"
-    }
-  },
-  {
-    "menuId": "20250826_A_6",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "김치",
-      "kcal": 25,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "김치"
-    }
-  },
-  {
-    "menuId": "20250826_B_1",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": true,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "가락국수/김가루양념장",
-      "kcal": 400,
-      "allergy": 2,
-      "allergyInfo": "밀(가락국수)",
-      "category": "일품",
-      "content": "가락국수와 김가루 양념장"
-    }
-  },
-  {
-    "menuId": "20250826_B_2",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "팝만두튀김+채소무침",
-      "kcal": 350,
-      "allergy": 13,
-      "allergyInfo": "돼지고기(만두), 밀",
-      "category": "일품",
-      "content": "팝만두 튀김과 채소무침"
-    }
-  },
-  {
-    "menuId": "20250826_B_3",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "멕시칸샐러드",
-      "kcal": 200,
-      "allergy": 4,
-      "allergyInfo": "우유",
-      "category": "일품",
-      "content": "멕시칸 스타일의 샐러드"
-    }
-  },
-  {
-    "menuId": "20250826_B_4",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "쥐어채볶음",
-      "kcal": 150,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "쥐어채를 볶은 반찬"
-    }
-  },
-  {
-    "menuId": "20250826_B_5",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-26",
-    "food": {
-      "menuName": "단무지무침",
-      "kcal": 40,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "단무지무침"
-    }
-  },
-  {
-    "menuId": "20250827_A_1",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": true,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "사골우거지탕",
-      "kcal": 350,
-      "allergy": 14,
-      "allergyInfo": "쇠고기",
-      "category": "한식",
-      "content": "진한 사골육수로 끓인 우거지탕"
-    }
-  },
-  {
-    "menuId": "20250827_A_2",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "수수밥/쌀밥",
-      "kcal": 320,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "수수밥 또는 쌀밥"
-    }
-  },
-  {
-    "menuId": "20250827_A_3",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "순대볶음",
-      "kcal": 500,
-      "allergy": 13,
-      "allergyInfo": "돼지고기(순대)",
-      "category": "한식",
-      "content": "매콤하게 볶은 순대"
-    }
-  },
-  {
-    "menuId": "20250827_A_4",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "계란찜",
-      "kcal": 100,
-      "allergy": 3,
-      "allergyInfo": "계란",
-      "category": "한식",
-      "content": "부드러운 계란찜"
-    }
-  },
-  {
-    "menuId": "20250827_A_5",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "부추생채/깍두기",
-      "kcal": 30,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "부추생채와 깍두기"
-    }
-  },
-  {
-    "menuId": "20250827_B_1",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "새우튀김카레라이스",
-      "kcal": 650,
-      "allergy": 7,
-      "allergyInfo": "새우, 밀",
-      "category": "일품",
-      "content": "새우튀김이 올라간 카레라이스"
-    }
-  },
-  {
-    "menuId": "20250827_B_2",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "유부장국",
-      "kcal": 50,
-      "allergy": 1,
-      "allergyInfo": "대두",
-      "category": "일품",
-      "content": "유부가 들어간 맑은 장국"
-    }
-  },
-  {
-    "menuId": "20250827_B_3",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "푸실리샐러드",
-      "kcal": 200,
-      "allergy": 2,
-      "allergyInfo": "밀(푸실리)",
-      "category": "일품",
-      "content": "푸실리 파스타로 만든 샐러드"
-    }
-  },
-  {
-    "menuId": "20250827_B_4",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "게맛살냉채",
-      "kcal": 100,
-      "allergy": 8,
-      "allergyInfo": "게",
-      "category": "일품",
-      "content": "게맛살을 넣은 냉채"
-    }
-  },
-  {
-    "menuId": "20250827_B_5",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "일식양배추샐러드",
-      "kcal": 80,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "일식 스타일의 양배추 샐러드"
-    }
-  },
-  {
-    "menuId": "20250827_B_6",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-27",
-    "food": {
-      "menuName": "배추김치",
-      "kcal": 25,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "배추김치"
-    }
-  },
-  {
-    "menuId": "20250828_A_1",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": true,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "제육고추장볶음",
-      "kcal": 550,
-      "allergy": 13,
-      "allergyInfo": "돼지고기",
-      "category": "한식",
-      "content": "고추장 양념에 볶은 제육볶음"
-    }
-  },
-  {
-    "menuId": "20250828_A_2",
     "kind": "A",
     "mealType": "한식",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
     "menuDate": "2025-08-28",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
-      "menuName": "혼합잡곡밥/쌀밥",
-      "kcal": 330,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "혼합잡곡밥 또는 쌀밥"
-    }
-  },
-  {
-    "menuId": "20250828_A_3",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "미역국",
-      "kcal": 60,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "미역국"
-    }
-  },
-  {
-    "menuId": "20250828_A_4",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "호박채전",
-      "kcal": 150,
-      "allergy": 3,
-      "allergyInfo": "계란, 밀",
-      "category": "한식",
-      "content": "호박을 채 썰어 부친 전"
-    }
-  },
-  {
-    "menuId": "20250828_A_5",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "미트볼케찹조림",
-      "kcal": 200,
-      "allergy": 13,
-      "allergyInfo": "돼지고기, 쇠고기",
-      "category": "한식",
-      "content": "미트볼을 케첩에 조린 반찬"
-    }
-  },
-  {
-    "menuId": "20250828_A_6",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "배추김치",
-      "kcal": 25,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "배추김치"
-    }
-  },
-  {
-    "menuId": "20250828_B_1",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": true,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "영양닭죽",
-      "kcal": 400,
-      "allergy": 12,
-      "allergyInfo": "닭고기",
-      "category": "일품",
-      "content": "영양 가득한 닭죽"
-    }
-  },
-  {
-    "menuId": "20250828_B_2",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "나박물김치",
-      "kcal": 30,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "나박나박 썬 무와 배추로 담근 물김치"
-    }
-  },
-  {
-    "menuId": "20250828_B_3",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "떡갈비피망조림",
-      "kcal": 350,
-      "allergy": 14,
-      "allergyInfo": "쇠고기",
-      "category": "일품",
-      "content": "떡갈비와 피망을 함께 조린 요리"
-    }
-  },
-  {
-    "menuId": "20250828_B_4",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "메추리알곤약조림",
-      "kcal": 100,
-      "allergy": 3,
-      "allergyInfo": "계란(메추리알)",
-      "category": "일품",
-      "content": "메추리알과 곤약을 간장에 조린 반찬"
-    }
-  },
-  {
-    "menuId": "20250828_B_5",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "무말랭이무침",
-      "kcal": 50,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "무말랭이를 매콤하게 무친 반찬"
-    }
-  },
-  {
-    "menuId": "20250828_B_6",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-28",
-    "food": {
-      "menuName": "배추겉절이",
-      "kcal": 40,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "갓 담은 배추겉절이"
-    }
-  },
-  {
-    "menuId": "20250829_A_1",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": true,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-29",
-    "food": {
-      "menuName": "장조림버터밥",
-      "kcal": 500,
-      "allergy": 14,
-      "allergyInfo": "쇠고기, 우유(버터)",
-      "category": "한식",
-      "content": "장조림과 버터를 비벼먹는 밥"
-    }
-  },
-  {
-    "menuId": "20250829_A_2",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-29",
-    "food": {
-      "menuName": "미니냉소바",
-      "kcal": 250,
-      "allergy": 15,
-      "allergyInfo": "메밀",
-      "category": "한식",
-      "content": "시원한 미니 냉소바"
-    }
-  },
-  {
-    "menuId": "20250829_A_3",
-    "kind": "A",
-    "mealType": "한식",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-29",
-    "food": {
-      "menuName": "오징어링튀김+타르타르소스",
+      "menuName": "부대찌개",
       "kcal": 300,
-      "allergy": 10,
-      "allergyInfo": "오징어, 계란",
+      "allergy": 9,
+      "allergyInfo": "돼지고기, 대두",
       "category": "한식",
-      "content": "오징어링튀김과 타르타르소스"
+      "content": "햄과 소시지가 들어간 부대찌개"
     }
   },
   {
-    "menuId": "20250829_A_4",
     "kind": "A",
     "mealType": "한식",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
     "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
-      "menuName": "핫도그+케찹",
-      "kcal": 280,
-      "allergy": 13,
-      "allergyInfo": "돼지고기(소시지), 밀",
+      "menuName": "소고기미역국",
+      "kcal": 180,
+      "allergy": 16,
+      "allergyInfo": "쇠고기",
       "category": "한식",
-      "content": "핫도그와 케찹"
+      "content": "진한 소고기 미역국"
     }
   },
   {
-    "menuId": "20250829_A_5",
-    "kind": "A",
-    "mealType": "한식",
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": true,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-25",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "돈까스",
+      "kcal": 600,
+      "allergy": 1,
+      "allergyInfo": "돼지고기, 밀, 난류",
+      "category": "일품",
+      "content": "수제 돈까스"
+    }
+  },
+  {
+    "kind": "B",
+    "mealType": "일품",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
-    "menuDate": "2025-08-29",
+    "menuDate": "2025-08-26",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
-      "menuName": "샐러드+드레싱",
-      "kcal": 120,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "신선한 샐러드와 드레싱"
+      "menuName": "오므라이스",
+      "kcal": 550,
+      "allergy": 1,
+      "allergyInfo": "난류(계란)",
+      "category": "일품",
+      "content": "오므라이스"
     }
   },
   {
-    "menuId": "20250829_A_6",
-    "kind": "A",
-    "mealType": "한식",
+    "kind": "B",
+    "mealType": "일품",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
-    "menuDate": "2025-08-29",
+    "menuDate": "2025-08-27",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
-      "menuName": "배추김치",
-      "kcal": 25,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "한식",
-      "content": "배추김치"
+      "menuName": "카레라이스",
+      "kcal": 530,
+      "allergy": 2,
+      "allergyInfo": "돼지고기",
+      "category": "일품",
+      "content": "진한 카레라이스"
     }
   },
   {
-    "menuId": "20250829_B_1",
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-28",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "짜장면",
+      "kcal": 620,
+      "allergy": 2,
+      "allergyInfo": "밀(면), 돼지고기",
+      "category": "일품",
+      "content": "짜장면"
+    }
+  },
+  {
     "kind": "B",
     "mealType": "일품",
     "isSignature": true,
     "soldOut": false,
     "resNo": 1,
     "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
-      "menuName": "차이나스파게티",
-      "kcal": 600,
-      "allergy": 1,
-      "allergyInfo": "대두",
+      "menuName": "사천식마파스파게티",
+      "kcal": 580,
+      "allergy": 2,
+      "allergyInfo": "밀(면), 돼지고기",
       "category": "일품",
       "content": "중국식 재료를 활용한 스파게티"
     }
   },
   {
-    "menuId": "20250829_B_2",
     "kind": "B",
     "mealType": "일품",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
     "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
       "menuName": "수제마늘빵",
       "kcal": 200,
@@ -901,54 +240,23 @@
     }
   },
   {
-    "menuId": "20250829_B_3",
     "kind": "B",
     "mealType": "일품",
     "isSignature": false,
     "soldOut": false,
     "resNo": 1,
     "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
     "food": {
       "menuName": "해쉬브라운+케찹",
       "kcal": 250,
       "allergy": 2,
       "allergyInfo": "밀",
       "category": "일품",
-      "content": "바삭한 해쉬브라운과 케첩"
-    }
-  },
-  {
-    "menuId": "20250829_B_4",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-29",
-    "food": {
-      "menuName": "수제피클",
-      "kcal": 20,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "직접 담근 수제피클"
-    }
-  },
-  {
-    "menuId": "20250829_B_5",
-    "kind": "B",
-    "mealType": "일품",
-    "isSignature": false,
-    "soldOut": false,
-    "resNo": 1,
-    "menuDate": "2025-08-29",
-    "food": {
-      "menuName": "샐러드+드레싱",
-      "kcal": 120,
-      "allergy": null,
-      "allergyInfo": null,
-      "category": "일품",
-      "content": "신선한 샐러드와 드레싱"
+      "content": "바삭한 해쉬브라운"
     }
   }
 ]

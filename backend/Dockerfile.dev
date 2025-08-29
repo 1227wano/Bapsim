@@ -1,0 +1,17 @@
+# Development Dockerfile for Backend
+FROM gradle:8.5-jdk17
+
+WORKDIR /app
+
+# Gradle 파일들 복사
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+
+# 소스 코드는 볼륨 마운트로 처리 (docker-compose에서 설정)
+
+# 포트 노출
+EXPOSE 8080
+
+# 개발 모드로 실행 (소스 코드 변경 시 자동 재시작)
+CMD ["gradle", "bootRun", "--no-daemon"]

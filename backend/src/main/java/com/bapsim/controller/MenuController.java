@@ -50,17 +50,7 @@ public class MenuController {
                   .orElse(ResponseEntity.notFound().build());
     }
     
-    /**
-     * 메뉴 ID로 메뉴 조회
-     */
-    @GetMapping("/id/{menuId}")
-    public ResponseEntity<Menus> getMenuById(@PathVariable String menuId) {
-        Menus menu = menuRepository.findByMenuId(menuId);
-        if (menu != null) {
-            return ResponseEntity.ok(menu);
-        }
-        return ResponseEntity.notFound().build();
-    }
+    
     
     /**
      * 카페테리아 메뉴 조회
@@ -83,11 +73,14 @@ public class MenuController {
     /**
      * 음식 상세 정보 조회
      */
-    @GetMapping("/{menuId}/food")
-    public ResponseEntity<Food> getFoodInfo(@PathVariable String menuId) {
-        Food food = foodRepository.findByMenuId(menuId);
-        if (food != null) {
-            return ResponseEntity.ok(food);
+    @GetMapping("/{menuNo}/food")
+    public ResponseEntity<Food> getFoodInfo(@PathVariable Long menuNo) {
+        Optional<Menus> menuOptional = menuRepository.findById(menuNo);
+        if (menuOptional.isPresent()) {
+            Food food = menuOptional.get().getFood();
+            if (food != null) {
+                return ResponseEntity.ok(food);
+            }
         }
         return ResponseEntity.notFound().build();
     }
