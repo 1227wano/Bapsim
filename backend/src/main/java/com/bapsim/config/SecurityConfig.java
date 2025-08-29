@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-//@EnableWebSecurity
+@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
@@ -23,7 +23,8 @@ public class SecurityConfig {
                                 "/",
                                 "/swagger-ui/**",       // Swagger UI 페이지
                                 "/v3/api-docs/**",      // OpenAPI 3.0 문서
-                                "/swagger-resources/**" // Swagger 리소스
+                                "/swagger-resources/**", // Swagger 리소스
+                                "/api/ssafy/**"         // SSAFY API 엔드포인트 허용
                         ).permitAll()
                         // 위에서 지정한 경로 외의 모든 요청은 반드시 인증을 받아야 합니다.
                         .anyRequest().authenticated()

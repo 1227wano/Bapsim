@@ -37,3 +37,20 @@ management:
   endpoint:
     health:
       show-details: always
+
+# SSAFY API 공통 설정
+ssafy:
+  api:
+    baseUrl: https://finopenapi.ssafy.io/ssafy/api/v1/edu
+    headers:
+      institutionCode: "00100"
+      fintechAppNo: "001"
+      apiKey: ${ssafy.api.key}
+      userKey: ${ssafy.api.userKey}
+    endpoints:
+      balanceInquiry: demandDeposit/inquireDemandDepositAccountBalance
+      withdrawal: demandDeposit/updateDemandDepositAccountWithdrawal
+      transactionHistory: demandDeposit/inquireTransactionHistoryList
+    timeout:
+      connect: 5000
+      read: 10000
