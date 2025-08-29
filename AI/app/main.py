@@ -60,7 +60,7 @@ class ChatMessage(BaseModel):
 class ChatRequest(BaseModel):
     user_id: str
     message: str
-    context: Optional[Dict[str, Any]] = None
+    context: Optional[Dict[str, Any]] = None # 이건 일단 안 보내줘도 될 듯
     history: Optional[List[ChatMessage]] = None
     language: Optional[str] = None          # ← 백엔드에서 감지해서 넣어줌
 
@@ -441,6 +441,9 @@ CREATE TABLE `university` (
   PRIMARY KEY (`uni_id`)
 );
 '''
+
+
+    today = time.strftime("%Y-%m-%d")  # 2025-01-01
 
     # 3) 프롬프트 구성
     system_prompt = (

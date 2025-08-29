@@ -240,7 +240,7 @@ def clarify_builder_run(args, ctx):
 
 # ====== Tool #5: PII ======
 class SafetyRedactorInput(BaseModel):
-    text: str; policy: Optional[str]="mask"
+    text: str; policy: Optional[str]="mask" # default policy는 mask
 def safety_redactor_run(args, ctx):
     red,hit,kinds=redact_pii(args["text"])
     if args.get("policy")=="reject" and hit: return {"rejected":True,"found":kinds}
