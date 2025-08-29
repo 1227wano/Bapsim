@@ -15,9 +15,6 @@ public class Menus {
     @Column(name = "MENU_NO")
     private Long menuNo;
 
-    // 변경점 1: menuId 필드 제거. PK인 menuNo를 기준으로 관계를 맺음
-    // @Column(name = "MENU_ID", length = 100, nullable = false)
-    // private String menuId;
 
     @Column(name = "KIND", length = 1, nullable = false)
     private String kind;
