@@ -40,7 +40,7 @@ DOMAIN_SYNONYMS = {
         "pago","puntos","cupon","recompensa",
     ],
     "campus": [
-        "캠퍼스","교내","학교","학내","후생관",
+        "캠퍼스","교내","학교","학내",
         "campus","student center","on campus",
         "校内","校园",
         "campus universitario",
@@ -100,14 +100,6 @@ def _is_domain_by_fuzzy(text: str, min_ratio: int = 80, min_hits: int = 1) -> bo
 def is_offtopic(text: str) -> bool:
     # 퍼지 매칭으로 온/오프 판정 (True면 오프토픽)
     return not _is_domain_by_fuzzy(text, min_ratio=80, min_hits=1)
-
-# --- Clarify 슬롯 체크 ---
-def need_clarify(text: str, known=None):
-    lo = _normalize(text).lower(); ks = known or {}; need=[]
-    if not (ks.get("date") or any(k in lo for k in ["오늘","내일","202","월","일"])): need.append("날짜")
-    if not (ks.get("place") or any(k in lo for k in ["학생식당","교내식당","후생관","푸드코트","학식"])): need.append("식당/매장")
-    if not (ks.get("campus") or any(k in lo for k in ["캠퍼스","학교","서강대","연세대","동국대","서울대"])): need.append("캠퍼스/학교")
-    return None if not need else f"정확히 안내하려면 {'·'.join(need)}가 필요해요. 어떤 {'·'.join(need)}인가요?"
 
 # --- SQL Guard ---
 # SELECT 외 쿼리는 거부
@@ -221,7 +213,7 @@ def sql_answer_run(args, ctx):
     results = [dict(zip(cols, row)) for row in rows]
     return {"results": results}
 
-
+# gpt-4 계열 모델 사용시 주석 해제
 # ====== Tool #3: RAG ======
 # class RAGLookupInput(BaseModel):
 #     query: str; filters: Optional[Dict[str,Any]]=None; top_k:int=6
@@ -231,12 +223,7 @@ def sql_answer_run(args, ctx):
 #     hits=f(_normalize(args["query"]),args.get("top_k",6),args.get("filters") or {})
 #     return {"context":"\n".join(h["text"] for h in hits),"sources":[h.get("meta",{}) for h in hits]}
 
-# ====== Tool #4: Clarify ======
-class ClarifyInput(BaseModel):
-    question: str; known_slots: Optional[Dict[str,Any]]=None
-def clarify_builder_run(args, ctx):
-    q=args["question"]; known=args.get("known_slots") or {}
-    s=need_clarify(q,known); return {"need_clarify":bool(s),"short_question":s or ""}
+
 
 # ====== Tool #5: PII ======
 class SafetyRedactorInput(BaseModel):
@@ -268,6 +255,7 @@ TOOLS_SPEC = [
         "required": ["question"]
       },
   },
+  # gpt-4 계열 모델 사용시 주석 해제
   # {
   #   "type": "function",
   #   "name": "rag_lookup",
@@ -280,12 +268,6 @@ TOOLS_SPEC = [
     },
   {
     "type": "function",
-    "name": "clarify_builder",
-    "description": "모호 질문 재질문",
-    "parameters": ClarifyInput.model_json_schema(),
-  },
-  {
-    "type": "function",
     "name": "safety_redactor",
     "description": "PII 마스킹/차단",
     "parameters": SafetyRedactorInput.model_json_schema(),
@@ -294,8 +276,7 @@ TOOLS_SPEC = [
 TOOLS_EXEC={
   "offtopic_router":offtopic_router_run,
   "sql_answer":sql_answer_run,
-  # "rag_lookup":rag_lookup_run,
-  "clarify_builder":clarify_builder_run,
+  # "rag_lookup":rag_lookup_run, # gpt-4 계열 모델 사용시 주석 해제
   "safety_redactor":safety_redactor_run,
 }
 def run_tool_safely(name,args,ctx):

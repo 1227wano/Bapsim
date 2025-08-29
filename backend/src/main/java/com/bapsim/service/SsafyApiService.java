@@ -43,12 +43,12 @@ public class SsafyApiService {
             SsafyApiRequest<BalanceInquiryRequest> request = new SsafyApiRequest<>();
             request.setHeader(header);
             
-            // accountNo를 직접 설정 (body 객체가 아닌 최상위 레벨)
+            // BalanceInquiryRequest body 객체 생성 및 설정
             BalanceInquiryRequest requestBody = new BalanceInquiryRequest();
             requestBody.setAccountNo(accountNo);
             
-            // 요청 객체에 필드 직접 복사
-            request.setAccountNo(requestBody.getAccountNo());
+            // body 객체를 request에 설정
+            request.setBody(requestBody);
             
             // API 호출 - 실제 엔드포인트 사용
             String url = ssafyApiConfig.getBaseUrl() + "/demandDeposit/inquireDemandDepositAccountBalance";
@@ -81,10 +81,14 @@ public class SsafyApiService {
             SsafyApiRequest<WithdrawalRequest> request = new SsafyApiRequest<>();
             request.setHeader(header);
             
-            // 필드 직접 설정 (body 객체 사용하지 않음)
-            request.setAccountNo(accountNo);
-            request.setTransactionBalance(amount.toString());
-            request.setTransactionSummary(summary);
+            // WithdrawalRequest body 객체 생성 및 설정
+            WithdrawalRequest requestBody = new WithdrawalRequest();
+            requestBody.setAccountNo(accountNo);
+            requestBody.setTransactionBalance(amount.toString());
+            requestBody.setTransactionSummary(summary);
+            
+            // body 객체를 request에 설정
+            request.setBody(requestBody);
             
             // API 호출 - 실제 엔드포인트 사용
             String url = ssafyApiConfig.getBaseUrl() + "/demandDeposit/updateDemandDepositAccountWithdrawal";
