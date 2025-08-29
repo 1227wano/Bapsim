@@ -22,6 +22,7 @@ public class SecurityConfig {
                         .mvcMatchers(
                                 "/",
                                 "/api/members/**",       // 로그인, 회원가입 등 회원 관련 API
+                                "/api/payment/**",       // 결제 관련 API 허용
                                 "/swagger-ui/**",       // Swagger UI 페이지
                                 "/v3/api-docs/**",      // OpenAPI 3.0 문서
                                 "/swagger-resources/**", // Swagger 리소스

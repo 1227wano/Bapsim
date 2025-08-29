@@ -209,4 +209,13 @@ public class Menus {
     public void setMenuPrices(List<MenuPrice> menuPrices) {
         this.menuPrices = menuPrices;
     }
+    
+    // 메뉴 이름을 가져오는 메서드 (PaymentService에서 사용)
+    public String getMenuName() {
+        if (this.food != null) {
+            return this.food.getMenuName();
+        }
+        // Food가 없는 경우 기본값 반환
+        return this.kind + " - " + this.mealType;
+    }
 }

@@ -56,3 +56,4 @@ volumes:
 networks:
   bapsim-network-local:
     driver: bridge
+
