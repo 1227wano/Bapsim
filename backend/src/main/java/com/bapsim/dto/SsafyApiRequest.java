@@ -3,6 +3,8 @@ package com.bapsim.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.bapsim.dto.BalanceInquiryRequest;
+import com.bapsim.dto.WithdrawalRequest;
 
 /**
  * SSAFY API 요청 래퍼 클래스
@@ -61,4 +63,20 @@ public class SsafyApiRequest<T> {
     
     // 제네릭 타입의 필드들을 직접 사용
     // SSAFY API 구조에 맞춰 body 객체가 아닌 최상위 레벨에 필드 배치
+    
+    /**
+     * 제네릭 타입의 body 객체를 설정하는 메서드
+     * @param body 요청 본문 객체
+     */
+    public void setBody(T body) {
+        if (body instanceof BalanceInquiryRequest) {
+            BalanceInquiryRequest balanceRequest = (BalanceInquiryRequest) body;
+            this.accountNo = balanceRequest.getAccountNo();
+        } else if (body instanceof WithdrawalRequest) {
+            WithdrawalRequest withdrawalRequest = (WithdrawalRequest) body;
+            this.accountNo = withdrawalRequest.getAccountNo();
+            this.transactionBalance = withdrawalRequest.getTransactionBalance();
+            this.transactionSummary = withdrawalRequest.getTransactionSummary();
+        }
+    }
 }

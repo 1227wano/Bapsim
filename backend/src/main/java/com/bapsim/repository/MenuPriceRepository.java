@@ -13,14 +13,13 @@ import java.util.Optional;
 @Repository
 public interface MenuPriceRepository extends JpaRepository<MenuPrice, Long> {
     
-    // 특정 종류와 식사 타입의 현재 유효한 가격 조회
-    @Query("SELECT mp FROM MenuPrice mp WHERE mp.kind = :kind AND mp.mealType = :mealType " +
+    // 특정 종류의 현재 유효한 가격 조회 (mealType 무관)
+    @Query("SELECT mp FROM MenuPrice mp WHERE mp.kind = :kind " +
            "AND mp.isActive = true " +
            "AND (mp.effectiveDate <= :date) " +
            "AND (mp.expiryDate IS NULL OR mp.expiryDate >= :date) " +
            "ORDER BY mp.effectiveDate DESC")
     Optional<MenuPrice> findCurrentPrice(@Param("kind") String kind, 
-                                       @Param("mealType") String mealType, 
                                        @Param("date") LocalDate date);
     
     // 특정 날짜의 모든 유효한 가격 조회
@@ -45,4 +44,8 @@ public interface MenuPriceRepository extends JpaRepository<MenuPrice, Long> {
            "ORDER BY mp.kind")
     List<MenuPrice> findCurrentPricesByMealType(@Param("mealType") String mealType, 
                                                @Param("date") LocalDate date);
+    
+    // 특정 메뉴 ID로 가격 정보 조회
+    Optional<MenuPrice> findByMenu_MenuNoAndIsActiveTrue(Long menuNo);
+    
 }

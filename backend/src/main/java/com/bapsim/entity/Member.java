@@ -36,6 +36,9 @@ public class Member {
     @Column(name = "USER_STATUS", length = 20, nullable = false)
     private String userStatus;
     
+    @Column(name = "USER_PIN", length = 4, nullable = false)
+    private String userPin;
+    
     @Column(name = "CREATED_ID", length = 100, nullable = false)
     private String createdId;
     
@@ -176,6 +179,14 @@ public class Member {
         this.userStatus = userStatus;
     }
     
+    public String getUserPin() {
+        return userPin;
+    }
+    
+    public void setUserPin(String userPin) {
+        this.userPin = userPin;
+    }
+    
     public String getCreatedId() {
         return createdId;
     }
@@ -206,5 +217,28 @@ public class Member {
     
     public void setUpdatedAt(java.time.LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+    
+    // Business Methods
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = java.time.LocalDateTime.now();
+        if (this.createdId == null) {
+            this.createdId = "system";
+        }
+        if (this.updatedId == null) {
+            this.updatedId = "system";
+        }
+        if (this.updatedAt == null) {
+            this.updatedAt = this.createdAt;
+        }
+    }
+    
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = java.time.LocalDateTime.now();
+        if (this.updatedId == null) {
+            this.updatedId = "system";
+        }
     }
 }
