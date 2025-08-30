@@ -74,12 +74,12 @@ public class MenuController {
      * 음식 상세 정보 조회
      */
     @GetMapping("/{menuNo}/food")
-    public ResponseEntity<Food> getFoodInfo(@PathVariable Long menuNo) {
+    public ResponseEntity<List<Food>> getFoodInfo(@PathVariable Long menuNo) {
         Optional<Menus> menuOptional = menuRepository.findById(menuNo);
         if (menuOptional.isPresent()) {
-            Food food = menuOptional.get().getFood();
-            if (food != null) {
-                return ResponseEntity.ok(food);
+            List<Food> foods = menuOptional.get().getFoods();
+            if (foods != null && !foods.isEmpty()) {
+                return ResponseEntity.ok(foods);
             }
         }
         return ResponseEntity.notFound().build();

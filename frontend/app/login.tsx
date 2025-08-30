@@ -16,7 +16,7 @@ export default function LoginScreen() {
 
   const performLogin = async (id: string, pw: string) => {
     try {
-      const response = await fetch('http://localhost:8082/api/members/login', {
+      const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/members/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
