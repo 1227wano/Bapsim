@@ -712,7 +712,7 @@ export default function PaymentScreen() {
           <Text style={styles.sectionTitle}>주문 내역</Text>
           <View style={styles.orderCard}>
             <Image
-              source={require('../assets/images/food_sample9.jpg')}
+              source={require('../assets/images/food_sample.jpg')}
               style={styles.foodImage}
               resizeMode="cover"
             />
