@@ -75,11 +75,11 @@ class MenuControllerIntegrationTest {
         testMenuPrice.setUpdatedAt(LocalDateTime.now());
 
         // 4. 연관관계 설정
-        testMenu.setFood(testFood);
+        testMenu.setFoods(new ArrayList<>());
+        testMenu.getFoods().add(testFood);
         testFood.setMenu(testMenu);
 
-        testMenu.setMenuPrices(new ArrayList<>());
-        testMenu.getMenuPrices().add(testMenuPrice);
+        testMenu.setMenuPrice(testMenuPrice);
         testMenuPrice.setMenu(testMenu);
 
         // 5. Menus 저장 (Food, MenuPrice는 CascadeType.ALL로 자동 저장)
@@ -93,7 +93,7 @@ class MenuControllerIntegrationTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$[0].menuNo").value(testMenu.getMenuNo()))
                 .andExpect(jsonPath("$[0].menuName").value("우렁된장찌개"))
-                .andExpect(jsonPath("$[0].price").value(6000));
+                .andExpect(jsonPath("$[0].menuPrice.price").value(6000));
     }
 
     @Test

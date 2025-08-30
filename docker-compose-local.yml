@@ -50,6 +50,22 @@ services:
 
 
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bapsim-frontend-local
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    networks:
+      - bapsim-network-local
+    environment:
+      - EXPO_PUBLIC_API_URL=http://backend:8080
+
+
 volumes:
   mysql_data_local:
 

@@ -71,7 +71,9 @@ class MenuDataServiceTest {
         assertEquals(1L, capturedMenu.getCafeNo());
 
         // Menus에 Food가 올바르게 연결되었는지 확인
-        Food capturedFood = capturedMenu.getFood();
+        assertNotNull(capturedMenu.getFoods());
+        assertFalse(capturedMenu.getFoods().isEmpty());
+        Food capturedFood = capturedMenu.getFoods().get(0);
         assertNotNull(capturedFood);
         assertEquals("우렁된장찌개", capturedFood.getMenuName());
         assertEquals(450L, capturedFood.getKcal());

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, SafeAreaView, StatusBar, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient'; // 맨 위 import 추가
+import { Config } from '../constants/Config';
 
 const PRIMARY_COLOR = '#1BB1E7';
 
