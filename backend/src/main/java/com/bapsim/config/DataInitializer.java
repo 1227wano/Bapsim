@@ -27,27 +27,8 @@ public class DataInitializer implements CommandLineRunner {
     
     @Override
     public void run(String... args) throws Exception {
-        logger.info("데이터 초기화 시작");
-        
-        try {
-            // 1. 기본 데이터 초기화 (대학교, 사용자, 카페테리아, 레스토랑)
-            basicDataService.initializeBasicData();
-            
-            // 2. 카페테리아 메뉴 데이터 로드
-            loadMenuData("data/menus/cafeteria_menus.json");
-            
-            // 3. 레스토랑 메뉴 데이터 로드
-            loadMenuData("data/menus/restaurant_menus.json");
-            
-            // 4. 메뉴 가격 정보 초기화
-            menuPriceService.initializeDefaultPrices();
-            
-            logger.info("데이터 초기화 완료");
-            
-        } catch (Exception e) {
-            logger.warn("데이터 초기화 중 오류 발생: {}", e.getMessage());
-            // 초기화 실패해도 애플리케이션은 계속 실행
-        }
+        // 데이터 초기화 로직 비활성화
+        logger.info("데이터 초기화 로직이 비활성화되었습니다.");
     }
     
     private void loadMenuData(String jsonFilePath) {

@@ -17,7 +17,7 @@ export default function LoginScreen() {
 
   const performLogin = async (id: string, pw: string) => {
     try {
-        const response = await fetch(`${Config.API_BASE_URL}/api/members/login`, {
+      const response = await fetch('http://localhost:8082/api/members/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
