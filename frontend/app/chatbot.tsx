@@ -19,7 +19,7 @@ const ChatbotScreen = () => {
     {
       id: 'welcome',
       role: 'assistant',
-      content: '안녕하세요! 무엇을 도와드릴까요? 챗봇은 현재 베타이며, 곧 API와 연동됩니다.',
+      content: '안녕하세요! 당신의 학식메이트 뽀먹이에요! 무엇을 도와드릴까요?',
       createdAt: Date.now(),
     },
   ]);
@@ -46,6 +46,12 @@ const ChatbotScreen = () => {
     setIsSending(true);
 
     try {
+        // 🔥 이전 대화 내역 + 새 메시지까지 포함한 context 생성
+      const fullContext = [...messages, userMsg].map(msg => ({
+        role: msg.role,
+        content: msg.content,
+      }));
+
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -53,6 +59,7 @@ const ChatbotScreen = () => {
           user_id: currentUserId,
           message: userMsg.content,
           context: { locale: 'ko' },
+          history: fullContext,
         }),
       });
       let replyText = '';
@@ -91,7 +98,7 @@ const ChatbotScreen = () => {
         <TouchableOpacity onPress={handleBack} style={styles.backButton} activeOpacity={0.7}>
           <Ionicons name="arrow-back" size={24} color="#333" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>챗봇 (베타)</Text>
+        <Text style={styles.headerTitle}>챗봇</Text>
         <View style={{ width: 24 }} />
       </View>
 

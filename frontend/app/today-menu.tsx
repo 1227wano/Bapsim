@@ -1,18 +1,38 @@
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import React, { useState, useEffect, useMemo } from 'react';
+import { View, Text, SafeAreaView, StatusBar, ScrollView, TouchableOpacity, Image, StyleSheet, Dimensions, Platform } from 'react-native';
 import { router } from 'expo-router';
-import React, { useEffect, useMemo, useState } from 'react';
-import {
-  Dimensions,
-  Image,
-  Platform,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Config } from '../constants/Config';
 import { styles } from '../screens/TodayMenuScreen.styles';
+
+// 날짜/종류별 샘플 이미지 매핑
+const menuImages: Record<string, any> = {
+  '2025-08-25-A': require('../assets/images/food_sample.jpg'),
+  '2025-08-25-B': require('../assets/images/food_sample2.jpg'),
+  '2025-08-26-A': require('../assets/images/food_sample3.jpg'),
+  '2025-08-26-B': require('../assets/images/food_sample4.jpg'),
+  '2025-08-27-A': require('../assets/images/food_sample5.jpg'),
+  '2025-08-27-B': require('../assets/images/food_sample6.jpg'),
+  '2025-08-28-A': require('../assets/images/food_sample7.jpg'),
+  '2025-08-28-B': require('../assets/images/food_sample8.jpg'),
+  '2025-08-29-A': require('../assets/images/food_sample9.jpg'),
+  '2025-08-29-B': require('../assets/images/food_sample10.jpg'),
+};
+
+// 날짜별 하드코딩 메뉴 (이미지 require 사용)
+const hardcodedMenus: any[] = [
+  { date: '2025-08-25', img: require('../assets/images/food_sample.jpg'), menuname: '김치나베돈까스', kind: 'A' },
+  { date: '2025-08-25', img: require('../assets/images/food_sample2.jpg'), menuname: '우렁바지락된장찌개', kind: 'B' },
+  { date: '2025-08-26', img: require('../assets/images/food_sample3.jpg'), menuname: '비빔밥', kind: 'A' },
+  { date: '2025-08-26', img: require('../assets/images/food_sample4.jpg'), menuname: '가락국수', kind: 'B' },
+  { date: '2025-08-27', img: require('../assets/images/food_sample5.jpg'), menuname: '사골우거지탕', kind: 'A' },
+  { date: '2025-08-27', img: require('../assets/images/food_sample6.jpg'), menuname: '새우튀김카레라이스', kind: 'B' },
+  { date: '2025-08-28', img: require('../assets/images/food_sample7.jpg'), menuname: '돼지고기고추장볶음', kind: 'A' },
+  { date: '2025-08-28', img: require('../assets/images/food_sample8.jpg'), menuname: '영양닭죽&떡갈비피망조림', kind: 'B' },
+  { date: '2025-08-29', img: require('../assets/images/food_sample9.jpg'), menuname: '장조림버터밥', kind: 'A' },
+  { date: '2025-08-29', img: require('../assets/images/food_sample10.jpg'), menuname: '차이나스파게티', kind: 'B' },
+];
+
 
 const { width } = Dimensions.get('window');
 
@@ -75,7 +95,8 @@ const TodayMenuScreen = () => {
 
   // API 응답 -> 화면 카드 데이터로 매핑
   const apiMenuCards = useMemo<MenuCard[] | null>(() => {
-    if (!fetchedMenus || !Array.isArray(fetchedMenus)) return null;
+    // API 데이터 없으면 null 유지
+    if (!fetchedMenus || !Array.isArray(fetchedMenus) || fetchedMenus.length === 0) return null;
     const sampleImage = require('../assets/images/food_sample.jpg');
     const dateStr = formatIsoDate(selectedDate);
     // 식당 1번 데이터 중 선택 날짜 + 시그니처 메뉴만 표시
@@ -90,17 +111,55 @@ const TodayMenuScreen = () => {
       },
       menuNo: m?.menuNo,
       mealType: m?.mealType,
+      kind: m?.kind ?? m?.mealType ?? '', // kind 필드 추가 (없으면 mealType 사용)
       resNo: m?.resNo || m?.restaurant?.resNo,
       items: [],
       allergy: m?.food?.allergyInfo ? String(m.food.allergyInfo).split(',').map((s: string) => s.trim()).filter(Boolean) : undefined,
     }));
   }, [fetchedMenus, selectedDate]);
 
-  // 실제 렌더에 사용할 카드 데이터 (API 결과 없으면 빈 배열)
-  const menuCardsForRender = useMemo<MenuCard[]>(() => {
-    return apiMenuCards && apiMenuCards.length > 0 ? apiMenuCards : [];
-  }, [apiMenuCards]);
-
+    // 실제 렌더에 사용할 카드 데이터 (API 없으면 하드코딩)
+    const menuCardsForRender = useMemo<MenuCard[]>(() => {
+      const dateStr = formatIsoDate(selectedDate);
+    
+      if (!Array.isArray(fetchedMenus) || fetchedMenus.length === 0) {
+        // API 데이터 없으면 하드코딩만 사용
+        return hardcodedMenus
+          .filter(h => h.date === dateStr)
+          .map(h => ({
+            title: h.kind,
+            mainDish: { name: h.menuname, image: h.img },
+            items: [],
+            allergy: [],
+            kind: h.kind,
+          }));
+      }
+    
+      // API 데이터 중 isSignature인 것만
+      const filtered = fetchedMenus.filter((m: any) => m.menuDate === dateStr && m.isSignature === true);
+    
+      return filtered.map((m: any) => {
+        // 하드코딩 매핑
+        const hardcoded = hardcodedMenus.find(h => h.date === dateStr && h.kind === m.kind);
+    
+        return {
+          title: m.mealType ?? '',
+          mainDish: {
+            name: hardcoded?.menuname ?? m.food?.menuName ?? m.food?.menu_name ?? '',
+            image: hardcoded?.img ?? require('../assets/images/food_sample.jpg'),
+            calories: Number(m.food?.kcal) || undefined,
+          },
+          items: [],
+          allergy: m.food?.allergyInfo
+            ? String(m.food.allergyInfo).split(',').map((s: string) => s.trim()).filter(Boolean)
+            : [],
+          kind: m.kind,
+          menuNo: m.menuNo,
+          resNo: m.resNo,
+          mealType: m.mealType,
+        };
+      });
+    }, [fetchedMenus, selectedDate]);
   // 즐겨찾기 토글
   // 즐겨찾기 제거 요구사항에 따라 관련 상태/핸들러 제거
 
@@ -160,7 +219,7 @@ const TodayMenuScreen = () => {
     const fetchMenus = async () => {
       try {
         setIsLoading(true);
-        const url = `http://localhost:8082/api/menus/restaurant/${selectedRestaurantId}`;
+        const url = `${Config.API_BASE_URL}/api/menus/restaurant/${selectedRestaurantId}`;
         const res = await fetch(url, { signal: controller.signal });
   
         if (!res.ok) {
@@ -281,7 +340,6 @@ const TodayMenuScreen = () => {
                       pathname: '/today-menu-detail',
                       params: {
                         cat: set.title,
-                        data: JSON.stringify(set),
                         date: formatKoreanDate(selectedDate),
                         place: selectedRestaurant?.name || '',
                         soldout: String(isSoldOut),
@@ -289,6 +347,7 @@ const TodayMenuScreen = () => {
                         resNo: String(set.resNo ?? ''),
                         isoDate: String(formatIsoDate(selectedDate)),
                         mealType: String(set.mealType ?? ''),
+                        kind:String(set.kind ?? ''),
                       },
                     })}
                   >

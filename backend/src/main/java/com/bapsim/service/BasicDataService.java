@@ -94,6 +94,7 @@ public class BasicDataService {
         member.setUserPhone("010-1234-5678");
         member.setUserType("STUDENT");
         member.setUserStatus("ACTIVE");
+        member.setUserPin("1234");
         member.setCreatedId("system");
         member.setCreatedAt(LocalDateTime.now());
         member.setUpdatedId("system");
@@ -123,6 +124,7 @@ public class BasicDataService {
         admin.setUserPhone("010-0000-0000");
         admin.setUserType("ADMIN");
         admin.setUserStatus("ACTIVE");
+        admin.setUserPin("1234");
         admin.setCreatedId("system");
         admin.setCreatedAt(LocalDateTime.now());
         admin.setUpdatedId("system");
