@@ -1,0 +1,1996 @@
+﻿bapsim-backend-local  | > Task :compileJava
+bapsim-backend-local  | > Task :processResources UP-TO-DATE
+bapsim-backend-local  | > Task :classes
+bapsim-backend-local  | > Task :bootRunMainClassName
+bapsim-backend-local  | 
+bapsim-backend-local  | > Task :bootRun
+bapsim-backend-local  | 13:26:15.876 [Thread-0] DEBUG org.springframework.boot.devtools.restart.classloader.RestartClassLoader - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@164710a9
+bapsim-backend-local  | 
+bapsim-backend-local  |   .   ____          _            __ _ _
+bapsim-backend-local  |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+bapsim-backend-local  | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+bapsim-backend-local  |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+bapsim-backend-local  |   '  |____| .__|_| |_|_| |_\__, | / / / /
+bapsim-backend-local  |  =========|_|==============|___/=/_/_/_/
+bapsim-backend-local  |  :: Spring Boot ::               (v2.7.18)
+bapsim-backend-local  | 
+bapsim-backend-local  | 2025-08-29 13:26:19.935  INFO 119 --- [  restartedMain] com.bapsim.BapsimApplication             : Starting BapsimApplication using Java 17.0.10 on 5eb2cfa1ebc6 with PID 119 (/app/build/classes/java/main started by root in /app)
+bapsim-backend-local  | 2025-08-29 13:26:19.938 DEBUG 119 --- [  restartedMain] com.bapsim.BapsimApplication             : Running with Spring Boot v2.7.18, Spring v5.3.31
+bapsim-backend-local  | 2025-08-29 13:26:19.938  INFO 119 --- [  restartedMain] com.bapsim.BapsimApplication             : The following 1 profile is active: "local"
+bapsim-backend-local  | 2025-08-29 13:26:20.268  INFO 119 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+bapsim-backend-local  | 2025-08-29 13:26:20.268  INFO 119 --- [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+bapsim-backend-local  | 2025-08-29 13:26:28.606  INFO 119 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+bapsim-backend-local  | 2025-08-29 13:26:29.878  INFO 119 --- [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1189 ms. Found 7 JPA repository interfaces.
+bapsim-backend-local  | 2025-08-29 13:26:34.689  INFO 119 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+bapsim-backend-local  | 2025-08-29 13:26:34.754  INFO 119 --- [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+bapsim-backend-local  | 2025-08-29 13:26:34.754  INFO 119 --- [  restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.83]
+bapsim-backend-local  | 2025-08-29 13:26:35.090  INFO 119 --- [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+bapsim-backend-local  | 2025-08-29 13:26:35.090  INFO 119 --- [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 14818 ms
+bapsim-backend-local  | 2025-08-29 13:26:36.916  INFO 119 --- [  restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+bapsim-backend-local  | 2025-08-29 13:26:37.659  INFO 119 --- [  restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+bapsim-backend-local  | 2025-08-29 13:26:39.683  INFO 119 --- [  restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+bapsim-backend-local  | 2025-08-29 13:26:41.413  INFO 119 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+bapsim-backend-local  | 2025-08-29 13:26:42.832  INFO 119 --- [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+bapsim-backend-local  | 2025-08-29 13:26:43.046  INFO 119 --- [  restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+bapsim-backend-local  | 2025-08-29 13:26:51.507  INFO 119 --- [  restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+bapsim-backend-local  | 2025-08-29 13:26:51.635  INFO 119 --- [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+bapsim-backend-local  | 2025-08-29 13:26:56.822  WARN 119 --- [  restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+bapsim-backend-local  | 
+bapsim-backend-local  | Using generated security password: 00bd4255-4296-48c3-b5b2-5af09c7ba29a
+bapsim-backend-local  | 
+bapsim-backend-local  | This generated password is for development use only. Your security configuration must be updated before running your application in production.
+bapsim-backend-local  | 
+bapsim-backend-local  | 2025-08-29 13:26:57.917  WARN 119 --- [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+bapsim-backend-local  | 2025-08-29 13:26:58.596 DEBUG 119 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 24 mappings in 'requestMappingHandlerMapping'
+bapsim-backend-local  | 2025-08-29 13:26:59.217 DEBUG 119 --- [  restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+bapsim-backend-local  | 2025-08-29 13:26:59.381  INFO 119 --- [  restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@96d974a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27b68843, org.springframework.security.web.context.SecurityContextPersistenceFilter@246ec6f9, org.springframework.security.web.header.HeaderWriterFilter@6b32b20a, org.springframework.security.web.authentication.logout.LogoutFilter@304c4a35, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f697d21, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f16c87, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e575888, org.springframework.security.web.session.SessionManagementFilter@24bb6cef, org.springframework.security.web.access.ExceptionTranslationFilter@587221d0, org.springframework.security.web.access.intercept.AuthorizationFilter@56ef134f]
+bapsim-backend-local  | 2025-08-29 13:26:59.717 DEBUG 119 --- [  restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+bapsim-backend-local  | 2025-08-29 13:27:00.106 DEBUG 119 --- [  restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+bapsim-backend-local  | 2025-08-29 13:27:01.483  INFO 119 --- [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+bapsim-backend-local  | 2025-08-29 13:27:01.575  INFO 119 --- [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+bapsim-backend-local  | 2025-08-29 13:27:01.593  INFO 119 --- [  restartedMain] com.bapsim.BapsimApplication             : Started BapsimApplication in 45.52 seconds (JVM running for 47.958)
+bapsim-backend-local  | 2025-08-29 13:27:01.598  INFO 119 --- [  restartedMain] com.bapsim.config.DataInitializer        : ?곗씠??珥덇린???쒖옉
+bapsim-backend-local  | 2025-08-29 13:27:01.683  INFO 119 --- [  restartedMain] com.bapsim.service.BasicDataService      : 湲곕낯 ?곗씠??珥덇린???쒖옉
+bapsim-backend-local  | 2025-08-29 13:27:01.782 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         count(*) as col_0_0_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         university university0_
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         count(*) as col_0_0_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         university university0_
+bapsim-backend-local  | 2025-08-29 13:27:01.901 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         university0_.uni_id as uni_id1_10_,
+bapsim-backend-local  |         university0_.uni_name as uni_name2_10_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         university university0_
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         university0_.uni_id as uni_id1_10_,
+bapsim-backend-local  |         university0_.uni_name as uni_name2_10_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         university university0_
+bapsim-backend-local  | 2025-08-29 13:27:02.170 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         member0_.user_no as user_no1_4_,
+bapsim-backend-local  |         member0_.created_at as created_2_4_,
+bapsim-backend-local  |         member0_.created_id as created_3_4_,
+bapsim-backend-local  |         member0_.uni_id as uni_id4_4_,
+bapsim-backend-local  |         member0_.updated_at as updated_5_4_,
+bapsim-backend-local  |         member0_.updated_id as updated_6_4_,
+bapsim-backend-local  |         member0_.user_email as user_ema7_4_,
+bapsim-backend-local  |         member0_.user_id as user_id8_4_,
+bapsim-backend-local  |         member0_.user_name as user_nam9_4_,
+bapsim-backend-local  |         member0_.user_pass as user_pa10_4_,
+bapsim-backend-local  |         member0_.user_phone as user_ph11_4_,
+bapsim-backend-local  |         member0_.user_status as user_st12_4_,
+bapsim-backend-local  |         member0_.user_type as user_ty13_4_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         member member0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         member0_.user_id=?
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         member0_.user_no as user_no1_4_,
+bapsim-backend-local  |         member0_.created_at as created_2_4_,
+bapsim-backend-local  |         member0_.created_id as created_3_4_,
+bapsim-backend-local  |         member0_.uni_id as uni_id4_4_,
+bapsim-backend-local  |         member0_.updated_at as updated_5_4_,
+bapsim-backend-local  |         member0_.updated_id as updated_6_4_,
+bapsim-backend-local  |         member0_.user_email as user_ema7_4_,
+bapsim-backend-local  |         member0_.user_id as user_id8_4_,
+bapsim-backend-local  |         member0_.user_name as user_nam9_4_,
+bapsim-backend-local  |         member0_.user_pass as user_pa10_4_,
+bapsim-backend-local  |         member0_.user_phone as user_ph11_4_,
+bapsim-backend-local  |         member0_.user_status as user_st12_4_,
+bapsim-backend-local  |         member0_.user_type as user_ty13_4_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         member member0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         member0_.user_id=?
+bapsim-backend-local  | 2025-08-29 13:27:02.179 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [1443254]
+bapsim-backend-local  | 2025-08-29 13:27:02.208 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         member0_.user_no as user_no1_4_,
+bapsim-backend-local  |         member0_.created_at as created_2_4_,
+bapsim-backend-local  |         member0_.created_id as created_3_4_,
+bapsim-backend-local  |         member0_.uni_id as uni_id4_4_,
+bapsim-backend-local  |         member0_.updated_at as updated_5_4_,
+bapsim-backend-local  |         member0_.updated_id as updated_6_4_,
+bapsim-backend-local  |         member0_.user_email as user_ema7_4_,
+bapsim-backend-local  |         member0_.user_id as user_id8_4_,
+bapsim-backend-local  |         member0_.user_name as user_nam9_4_,
+bapsim-backend-local  |         member0_.user_pass as user_pa10_4_,
+bapsim-backend-local  |         member0_.user_phone as user_ph11_4_,
+bapsim-backend-local  |         member0_.user_status as user_st12_4_,
+bapsim-backend-local  |         member0_.user_type as user_ty13_4_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         member member0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         member0_.user_id=?
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         member0_.user_no as user_no1_4_,
+bapsim-backend-local  |         member0_.created_at as created_2_4_,
+bapsim-backend-local  |         member0_.created_id as created_3_4_,
+bapsim-backend-local  |         member0_.uni_id as uni_id4_4_,
+bapsim-backend-local  |         member0_.updated_at as updated_5_4_,
+bapsim-backend-local  |         member0_.updated_id as updated_6_4_,
+bapsim-backend-local  |         member0_.user_email as user_ema7_4_,
+bapsim-backend-local  |         member0_.user_id as user_id8_4_,
+bapsim-backend-local  |         member0_.user_name as user_nam9_4_,
+bapsim-backend-local  |         member0_.user_pass as user_pa10_4_,
+bapsim-backend-local  |         member0_.user_phone as user_ph11_4_,
+bapsim-backend-local  |         member0_.user_status as user_st12_4_,
+bapsim-backend-local  |         member0_.user_type as user_ty13_4_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         member member0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         member0_.user_id=?
+bapsim-backend-local  | 2025-08-29 13:27:02.209 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [1443254]
+bapsim-backend-local  | 2025-08-29 13:27:02.211 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         member0_.user_no as user_no1_4_,
+bapsim-backend-local  |         member0_.created_at as created_2_4_,
+bapsim-backend-local  |         member0_.created_id as created_3_4_,
+bapsim-backend-local  |         member0_.uni_id as uni_id4_4_,
+bapsim-backend-local  |         member0_.updated_at as updated_5_4_,
+bapsim-backend-local  |         member0_.updated_id as updated_6_4_,
+bapsim-backend-local  |         member0_.user_email as user_ema7_4_,
+bapsim-backend-local  |         member0_.user_id as user_id8_4_,
+bapsim-backend-local  |         member0_.user_name as user_nam9_4_,
+bapsim-backend-local  |         member0_.user_pass as user_pa10_4_,
+bapsim-backend-local  |         member0_.user_phone as user_ph11_4_,
+bapsim-backend-local  |         member0_.user_status as user_st12_4_,
+bapsim-backend-local  |         member0_.user_type as user_ty13_4_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         member member0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         member0_.user_id=?
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         member0_.user_no as user_no1_4_,
+bapsim-backend-local  |         member0_.created_at as created_2_4_,
+bapsim-backend-local  |         member0_.created_id as created_3_4_,
+bapsim-backend-local  |         member0_.uni_id as uni_id4_4_,
+bapsim-backend-local  |         member0_.updated_at as updated_5_4_,
+bapsim-backend-local  |         member0_.updated_id as updated_6_4_,
+bapsim-backend-local  |         member0_.user_email as user_ema7_4_,
+bapsim-backend-local  |         member0_.user_id as user_id8_4_,
+bapsim-backend-local  |         member0_.user_name as user_nam9_4_,
+bapsim-backend-local  |         member0_.user_pass as user_pa10_4_,
+bapsim-backend-local  |         member0_.user_phone as user_ph11_4_,
+bapsim-backend-local  |         member0_.user_status as user_st12_4_,
+bapsim-backend-local  |         member0_.user_type as user_ty13_4_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         member member0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         member0_.user_id=?
+bapsim-backend-local  | 2025-08-29 13:27:02.211 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [admin]
+bapsim-backend-local  | 2025-08-29 13:27:02.214 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         member0_.user_no as user_no1_4_,
+bapsim-backend-local  |         member0_.created_at as created_2_4_,
+bapsim-backend-local  |         member0_.created_id as created_3_4_,
+bapsim-backend-local  |         member0_.uni_id as uni_id4_4_,
+bapsim-backend-local  |         member0_.updated_at as updated_5_4_,
+bapsim-backend-local  |         member0_.updated_id as updated_6_4_,
+bapsim-backend-local  |         member0_.user_email as user_ema7_4_,
+bapsim-backend-local  |         member0_.user_id as user_id8_4_,
+bapsim-backend-local  |         member0_.user_name as user_nam9_4_,
+bapsim-backend-local  |         member0_.user_pass as user_pa10_4_,
+bapsim-backend-local  |         member0_.user_phone as user_ph11_4_,
+bapsim-backend-local  |         member0_.user_status as user_st12_4_,
+bapsim-backend-local  |         member0_.user_type as user_ty13_4_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         member member0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         member0_.user_id=?
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         member0_.user_no as user_no1_4_,
+bapsim-backend-local  |         member0_.created_at as created_2_4_,
+bapsim-backend-local  |         member0_.created_id as created_3_4_,
+bapsim-backend-local  |         member0_.uni_id as uni_id4_4_,
+bapsim-backend-local  |         member0_.updated_at as updated_5_4_,
+bapsim-backend-local  |         member0_.updated_id as updated_6_4_,
+bapsim-backend-local  |         member0_.user_email as user_ema7_4_,
+bapsim-backend-local  |         member0_.user_id as user_id8_4_,
+bapsim-backend-local  |         member0_.user_name as user_nam9_4_,
+bapsim-backend-local  |         member0_.user_pass as user_pa10_4_,
+bapsim-backend-local  |         member0_.user_phone as user_ph11_4_,
+bapsim-backend-local  |         member0_.user_status as user_st12_4_,
+bapsim-backend-local  |         member0_.user_type as user_ty13_4_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         member member0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         member0_.user_id=?
+bapsim-backend-local  | 2025-08-29 13:27:02.214 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [admin]
+bapsim-backend-local  | 2025-08-29 13:27:02.216 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         count(*) as col_0_0_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         cafeterias cafeterias0_
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         count(*) as col_0_0_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         cafeterias cafeterias0_
+bapsim-backend-local  | 2025-08-29 13:27:02.219 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         cafeterias0_.cafe_no as cafe_no1_2_,
+bapsim-backend-local  |         cafeterias0_.build_name as build_na2_2_,
+bapsim-backend-local  |         cafeterias0_.close_time as close_ti3_2_,
+bapsim-backend-local  |         cafeterias0_.created_at as created_4_2_,
+bapsim-backend-local  |         cafeterias0_.created_id as created_5_2_,
+bapsim-backend-local  |         cafeterias0_.del_yn as del_yn6_2_,
+bapsim-backend-local  |         cafeterias0_.open_time as open_tim7_2_,
+bapsim-backend-local  |         cafeterias0_.phone_no as phone_no8_2_,
+bapsim-backend-local  |         cafeterias0_.run_yn as run_yn9_2_,
+bapsim-backend-local  |         cafeterias0_.uni_id as uni_id10_2_,
+bapsim-backend-local  |         cafeterias0_.updated_at as updated11_2_,
+bapsim-backend-local  |         cafeterias0_.updated_id as updated12_2_,
+bapsim-backend-local  |         cafeterias0_.visitor as visitor13_2_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         cafeterias cafeterias0_
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         cafeterias0_.cafe_no as cafe_no1_2_,
+bapsim-backend-local  |         cafeterias0_.build_name as build_na2_2_,
+bapsim-backend-local  |         cafeterias0_.close_time as close_ti3_2_,
+bapsim-backend-local  |         cafeterias0_.created_at as created_4_2_,
+bapsim-backend-local  |         cafeterias0_.created_id as created_5_2_,
+bapsim-backend-local  |         cafeterias0_.del_yn as del_yn6_2_,
+bapsim-backend-local  |         cafeterias0_.open_time as open_tim7_2_,
+bapsim-backend-local  |         cafeterias0_.phone_no as phone_no8_2_,
+bapsim-backend-local  |         cafeterias0_.run_yn as run_yn9_2_,
+bapsim-backend-local  |         cafeterias0_.uni_id as uni_id10_2_,
+bapsim-backend-local  |         cafeterias0_.updated_at as updated11_2_,
+bapsim-backend-local  |         cafeterias0_.updated_id as updated12_2_,
+bapsim-backend-local  |         cafeterias0_.visitor as visitor13_2_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         cafeterias cafeterias0_
+bapsim-backend-local  | 2025-08-29 13:27:02.231 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menus0_.cafe_no as cafe_no2_6_0_,
+bapsim-backend-local  |         menus0_.menu_no as menu_no1_6_0_,
+bapsim-backend-local  |         menus0_.menu_no as menu_no1_6_1_,
+bapsim-backend-local  |         menus0_.cafe_no as cafe_no2_6_1_,
+bapsim-backend-local  |         menus0_.created_at as created_3_6_1_,
+bapsim-backend-local  |         menus0_.created_id as created_4_6_1_,
+bapsim-backend-local  |         menus0_.is_signature as is_signa5_6_1_,
+bapsim-backend-local  |         menus0_.kind as kind6_6_1_,
+bapsim-backend-local  |         menus0_.meal_type as meal_typ7_6_1_,
+bapsim-backend-local  |         menus0_.menu_date as menu_dat8_6_1_,
+bapsim-backend-local  |         menus0_.res_no as res_no9_6_1_,
+bapsim-backend-local  |         menus0_.sold_out as sold_ou10_6_1_,
+bapsim-backend-local  |         menus0_.updated_at as updated11_6_1_,
+bapsim-backend-local  |         menus0_.updated_id as updated12_6_1_,
+bapsim-backend-local  |         restaurant1_.res_no as res_no1_9_2_,
+bapsim-backend-local  |         restaurant1_.address as address2_9_2_,
+bapsim-backend-local  |         restaurant1_.close_time as close_ti3_9_2_,
+bapsim-backend-local  |         restaurant1_.created_at as created_4_9_2_,
+bapsim-backend-local  |         restaurant1_.created_id as created_5_9_2_,
+bapsim-backend-local  |         restaurant1_.del_yn as del_yn6_9_2_,
+bapsim-backend-local  |         restaurant1_.open_time as open_tim7_9_2_,
+bapsim-backend-local  |         restaurant1_.phone_no as phone_no8_9_2_,
+bapsim-backend-local  |         restaurant1_.res_name as res_name9_9_2_,
+bapsim-backend-local  |         restaurant1_.run_yn as run_yn10_9_2_,
+bapsim-backend-local  |         restaurant1_.updated_at as updated11_9_2_,
+bapsim-backend-local  |         restaurant1_.updated_id as updated12_9_2_,
+bapsim-backend-local  |         restaurant1_.visitor as visitor13_9_2_,
+bapsim-backend-local  |         food2_.food_no as food_no1_3_3_,
+bapsim-backend-local  |         food2_.allergy as allergy2_3_3_,
+bapsim-backend-local  |         food2_.allergy_info as allergy_3_3_3_,
+bapsim-backend-local  |         food2_.category as category4_3_3_,
+bapsim-backend-local  |         food2_.content as content5_3_3_,
+bapsim-backend-local  |         food2_.kcal as kcal6_3_3_,
+bapsim-backend-local  |         food2_.menu_no as menu_no9_3_3_,
+bapsim-backend-local  |         food2_.menu_name as menu_nam7_3_3_,
+bapsim-backend-local  |         food2_.photo_path as photo_pa8_3_3_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menus menus0_ 
+bapsim-backend-local  |     left outer join
+bapsim-backend-local  |         restaurants restaurant1_ 
+bapsim-backend-local  |             on menus0_.res_no=restaurant1_.res_no 
+bapsim-backend-local  |     left outer join
+bapsim-backend-local  |         food food2_ 
+bapsim-backend-local  |             on menus0_.menu_no=food2_.menu_no 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menus0_.cafe_no=?
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menus0_.cafe_no as cafe_no2_6_0_,
+bapsim-backend-local  |         menus0_.menu_no as menu_no1_6_0_,
+bapsim-backend-local  |         menus0_.menu_no as menu_no1_6_1_,
+bapsim-backend-local  |         menus0_.cafe_no as cafe_no2_6_1_,
+bapsim-backend-local  |         menus0_.created_at as created_3_6_1_,
+bapsim-backend-local  |         menus0_.created_id as created_4_6_1_,
+bapsim-backend-local  |         menus0_.is_signature as is_signa5_6_1_,
+bapsim-backend-local  |         menus0_.kind as kind6_6_1_,
+bapsim-backend-local  |         menus0_.meal_type as meal_typ7_6_1_,
+bapsim-backend-local  |         menus0_.menu_date as menu_dat8_6_1_,
+bapsim-backend-local  |         menus0_.res_no as res_no9_6_1_,
+bapsim-backend-local  |         menus0_.sold_out as sold_ou10_6_1_,
+bapsim-backend-local  |         menus0_.updated_at as updated11_6_1_,
+bapsim-backend-local  |         menus0_.updated_id as updated12_6_1_,
+bapsim-backend-local  |         restaurant1_.res_no as res_no1_9_2_,
+bapsim-backend-local  |         restaurant1_.address as address2_9_2_,
+bapsim-backend-local  |         restaurant1_.close_time as close_ti3_9_2_,
+bapsim-backend-local  |         restaurant1_.created_at as created_4_9_2_,
+bapsim-backend-local  |         restaurant1_.created_id as created_5_9_2_,
+bapsim-backend-local  |         restaurant1_.del_yn as del_yn6_9_2_,
+bapsim-backend-local  |         restaurant1_.open_time as open_tim7_9_2_,
+bapsim-backend-local  |         restaurant1_.phone_no as phone_no8_9_2_,
+bapsim-backend-local  |         restaurant1_.res_name as res_name9_9_2_,
+bapsim-backend-local  |         restaurant1_.run_yn as run_yn10_9_2_,
+bapsim-backend-local  |         restaurant1_.updated_at as updated11_9_2_,
+bapsim-backend-local  |         restaurant1_.updated_id as updated12_9_2_,
+bapsim-backend-local  |         restaurant1_.visitor as visitor13_9_2_,
+bapsim-backend-local  |         food2_.food_no as food_no1_3_3_,
+bapsim-backend-local  |         food2_.allergy as allergy2_3_3_,
+bapsim-backend-local  |         food2_.allergy_info as allergy_3_3_3_,
+bapsim-backend-local  |         food2_.category as category4_3_3_,
+bapsim-backend-local  |         food2_.content as content5_3_3_,
+bapsim-backend-local  |         food2_.kcal as kcal6_3_3_,
+bapsim-backend-local  |         food2_.menu_no as menu_no9_3_3_,
+bapsim-backend-local  |         food2_.menu_name as menu_nam7_3_3_,
+bapsim-backend-local  |         food2_.photo_path as photo_pa8_3_3_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menus menus0_ 
+bapsim-backend-local  |     left outer join
+bapsim-backend-local  |         restaurants restaurant1_ 
+bapsim-backend-local  |             on menus0_.res_no=restaurant1_.res_no 
+bapsim-backend-local  |     left outer join
+bapsim-backend-local  |         food food2_ 
+bapsim-backend-local  |             on menus0_.menu_no=food2_.menu_no 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menus0_.cafe_no=?
+bapsim-backend-local  | 2025-08-29 13:27:02.235 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.263 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         count(*) as col_0_0_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         restaurants restaurant0_
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         count(*) as col_0_0_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         restaurants restaurant0_
+bapsim-backend-local  | 2025-08-29 13:27:02.271 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         restaurant0_.res_no as res_no1_9_,
+bapsim-backend-local  |         restaurant0_.address as address2_9_,
+bapsim-backend-local  |         restaurant0_.close_time as close_ti3_9_,
+bapsim-backend-local  |         restaurant0_.created_at as created_4_9_,
+bapsim-backend-local  |         restaurant0_.created_id as created_5_9_,
+bapsim-backend-local  |         restaurant0_.del_yn as del_yn6_9_,
+bapsim-backend-local  |         restaurant0_.open_time as open_tim7_9_,
+bapsim-backend-local  |         restaurant0_.phone_no as phone_no8_9_,
+bapsim-backend-local  |         restaurant0_.res_name as res_name9_9_,
+bapsim-backend-local  |         restaurant0_.run_yn as run_yn10_9_,
+bapsim-backend-local  |         restaurant0_.updated_at as updated11_9_,
+bapsim-backend-local  |         restaurant0_.updated_id as updated12_9_,
+bapsim-backend-local  |         restaurant0_.visitor as visitor13_9_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         restaurants restaurant0_
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         restaurant0_.res_no as res_no1_9_,
+bapsim-backend-local  |         restaurant0_.address as address2_9_,
+bapsim-backend-local  |         restaurant0_.close_time as close_ti3_9_,
+bapsim-backend-local  |         restaurant0_.created_at as created_4_9_,
+bapsim-backend-local  |         restaurant0_.created_id as created_5_9_,
+bapsim-backend-local  |         restaurant0_.del_yn as del_yn6_9_,
+bapsim-backend-local  |         restaurant0_.open_time as open_tim7_9_,
+bapsim-backend-local  |         restaurant0_.phone_no as phone_no8_9_,
+bapsim-backend-local  |         restaurant0_.res_name as res_name9_9_,
+bapsim-backend-local  |         restaurant0_.run_yn as run_yn10_9_,
+bapsim-backend-local  |         restaurant0_.updated_at as updated11_9_,
+bapsim-backend-local  |         restaurant0_.updated_id as updated12_9_,
+bapsim-backend-local  |         restaurant0_.visitor as visitor13_9_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         restaurants restaurant0_
+bapsim-backend-local  | 2025-08-29 13:27:02.273 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menus0_.res_no as res_no9_6_0_,
+bapsim-backend-local  |         menus0_.menu_no as menu_no1_6_0_,
+bapsim-backend-local  |         menus0_.menu_no as menu_no1_6_1_,
+bapsim-backend-local  |         menus0_.cafe_no as cafe_no2_6_1_,
+bapsim-backend-local  |         menus0_.created_at as created_3_6_1_,
+bapsim-backend-local  |         menus0_.created_id as created_4_6_1_,
+bapsim-backend-local  |         menus0_.is_signature as is_signa5_6_1_,
+bapsim-backend-local  |         menus0_.kind as kind6_6_1_,
+bapsim-backend-local  |         menus0_.meal_type as meal_typ7_6_1_,
+bapsim-backend-local  |         menus0_.menu_date as menu_dat8_6_1_,
+bapsim-backend-local  |         menus0_.res_no as res_no9_6_1_,
+bapsim-backend-local  |         menus0_.sold_out as sold_ou10_6_1_,
+bapsim-backend-local  |         menus0_.updated_at as updated11_6_1_,
+bapsim-backend-local  |         menus0_.updated_id as updated12_6_1_,
+bapsim-backend-local  |         cafeterias1_.cafe_no as cafe_no1_2_2_,
+bapsim-backend-local  |         cafeterias1_.build_name as build_na2_2_2_,
+bapsim-backend-local  |         cafeterias1_.close_time as close_ti3_2_2_,
+bapsim-backend-local  |         cafeterias1_.created_at as created_4_2_2_,
+bapsim-backend-local  |         cafeterias1_.created_id as created_5_2_2_,
+bapsim-backend-local  |         cafeterias1_.del_yn as del_yn6_2_2_,
+bapsim-backend-local  |         cafeterias1_.open_time as open_tim7_2_2_,
+bapsim-backend-local  |         cafeterias1_.phone_no as phone_no8_2_2_,
+bapsim-backend-local  |         cafeterias1_.run_yn as run_yn9_2_2_,
+bapsim-backend-local  |         cafeterias1_.uni_id as uni_id10_2_2_,
+bapsim-backend-local  |         cafeterias1_.updated_at as updated11_2_2_,
+bapsim-backend-local  |         cafeterias1_.updated_id as updated12_2_2_,
+bapsim-backend-local  |         cafeterias1_.visitor as visitor13_2_2_,
+bapsim-backend-local  |         food2_.food_no as food_no1_3_3_,
+bapsim-backend-local  |         food2_.allergy as allergy2_3_3_,
+bapsim-backend-local  |         food2_.allergy_info as allergy_3_3_3_,
+bapsim-backend-local  |         food2_.category as category4_3_3_,
+bapsim-backend-local  |         food2_.content as content5_3_3_,
+bapsim-backend-local  |         food2_.kcal as kcal6_3_3_,
+bapsim-backend-local  |         food2_.menu_no as menu_no9_3_3_,
+bapsim-backend-local  |         food2_.menu_name as menu_nam7_3_3_,
+bapsim-backend-local  |         food2_.photo_path as photo_pa8_3_3_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menus menus0_ 
+bapsim-backend-local  |     left outer join
+bapsim-backend-local  |         cafeterias cafeterias1_ 
+bapsim-backend-local  |             on menus0_.cafe_no=cafeterias1_.cafe_no 
+bapsim-backend-local  |     left outer join
+bapsim-backend-local  |         food food2_ 
+bapsim-backend-local  |             on menus0_.menu_no=food2_.menu_no 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menus0_.res_no=?
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menus0_.res_no as res_no9_6_0_,
+bapsim-backend-local  |         menus0_.menu_no as menu_no1_6_0_,
+bapsim-backend-local  |         menus0_.menu_no as menu_no1_6_1_,
+bapsim-backend-local  |         menus0_.cafe_no as cafe_no2_6_1_,
+bapsim-backend-local  |         menus0_.created_at as created_3_6_1_,
+bapsim-backend-local  |         menus0_.created_id as created_4_6_1_,
+bapsim-backend-local  |         menus0_.is_signature as is_signa5_6_1_,
+bapsim-backend-local  |         menus0_.kind as kind6_6_1_,
+bapsim-backend-local  |         menus0_.meal_type as meal_typ7_6_1_,
+bapsim-backend-local  |         menus0_.menu_date as menu_dat8_6_1_,
+bapsim-backend-local  |         menus0_.res_no as res_no9_6_1_,
+bapsim-backend-local  |         menus0_.sold_out as sold_ou10_6_1_,
+bapsim-backend-local  |         menus0_.updated_at as updated11_6_1_,
+bapsim-backend-local  |         menus0_.updated_id as updated12_6_1_,
+bapsim-backend-local  |         cafeterias1_.cafe_no as cafe_no1_2_2_,
+bapsim-backend-local  |         cafeterias1_.build_name as build_na2_2_2_,
+bapsim-backend-local  |         cafeterias1_.close_time as close_ti3_2_2_,
+bapsim-backend-local  |         cafeterias1_.created_at as created_4_2_2_,
+bapsim-backend-local  |         cafeterias1_.created_id as created_5_2_2_,
+bapsim-backend-local  |         cafeterias1_.del_yn as del_yn6_2_2_,
+bapsim-backend-local  |         cafeterias1_.open_time as open_tim7_2_2_,
+bapsim-backend-local  |         cafeterias1_.phone_no as phone_no8_2_2_,
+bapsim-backend-local  |         cafeterias1_.run_yn as run_yn9_2_2_,
+bapsim-backend-local  |         cafeterias1_.uni_id as uni_id10_2_2_,
+bapsim-backend-local  |         cafeterias1_.updated_at as updated11_2_2_,
+bapsim-backend-local  |         cafeterias1_.updated_id as updated12_2_2_,
+bapsim-backend-local  |         cafeterias1_.visitor as visitor13_2_2_,
+bapsim-backend-local  |         food2_.food_no as food_no1_3_3_,
+bapsim-backend-local  |         food2_.allergy as allergy2_3_3_,
+bapsim-backend-local  |         food2_.allergy_info as allergy_3_3_3_,
+bapsim-backend-local  |         food2_.category as category4_3_3_,
+bapsim-backend-local  |         food2_.content as content5_3_3_,
+bapsim-backend-local  |         food2_.kcal as kcal6_3_3_,
+bapsim-backend-local  |         food2_.menu_no as menu_no9_3_3_,
+bapsim-backend-local  |         food2_.menu_name as menu_nam7_3_3_,
+bapsim-backend-local  |         food2_.photo_path as photo_pa8_3_3_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menus menus0_ 
+bapsim-backend-local  |     left outer join
+bapsim-backend-local  |         cafeterias cafeterias1_ 
+bapsim-backend-local  |             on menus0_.cafe_no=cafeterias1_.cafe_no 
+bapsim-backend-local  |     left outer join
+bapsim-backend-local  |         food food2_ 
+bapsim-backend-local  |             on menus0_.menu_no=food2_.menu_no 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menus0_.res_no=?
+bapsim-backend-local  | 2025-08-29 13:27:02.274 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.326  INFO 119 --- [  restartedMain] com.bapsim.service.BasicDataService      : 湲곕낯 ?곗씠??珥덇린???꾨즺
+bapsim-backend-local  | 2025-08-29 13:27:02.358  INFO 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ?곗씠??JSON ?뚯씪 濡쒕뵫 ?쒖옉: data/menus/cafeteria_menus.json
+bapsim-backend-local  | 2025-08-29 13:27:02.440  INFO 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : JSON ?뚯씪?먯꽌 9 媛쒖쓽 硫붾돱 ?곗씠?곕? ?쎌뿀?듬땲??
+bapsim-backend-local  | 2025-08-29 13:27:02.488 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.489 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.489 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [????먮?)]
+bapsim-backend-local  | 2025-08-29 13:27:02.489 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.489 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?먮??ㅽ뀒?댄겕? 移좊━?뚯뒪]
+bapsim-backend-local  | 2025-08-29 13:27:02.489 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [450]
+bapsim-backend-local  | 2025-08-29 13:27:02.490 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.490 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?먮??ㅽ뀒?댄겕+移좊━?뚯뒪]
+bapsim-backend-local  | 2025-08-29 13:27:02.490 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.507 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 133
+bapsim-backend-local  | 2025-08-29 13:27:02.526 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.530 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.511908007]
+bapsim-backend-local  | 2025-08-29 13:27:02.530 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.533 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [true]
+bapsim-backend-local  | 2025-08-29 13:27:02.533 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [C]
+bapsim-backend-local  | 2025-08-29 13:27:02.533 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.536 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-25]
+bapsim-backend-local  | 2025-08-29 13:27:02.536 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.536 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.536 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.511908007]
+bapsim-backend-local  | 2025-08-29 13:27:02.536 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.550 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 133
+bapsim-backend-local  | 2025-08-29 13:27:02.550 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.551 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+bapsim-backend-local  | 2025-08-29 13:27:02.551 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [諛(?곕룞硫?]
+bapsim-backend-local  | 2025-08-29 13:27:02.551 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.551 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [蹂띠쓬?곕룞]
+bapsim-backend-local  | 2025-08-29 13:27:02.551 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [380]
+bapsim-backend-local  | 2025-08-29 13:27:02.551 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.551 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [蹂띠쓬?곕룞]
+bapsim-backend-local  | 2025-08-29 13:27:02.551 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.552 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 134
+bapsim-backend-local  | 2025-08-29 13:27:02.552 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.552518153]
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [C]
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-25]
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.552518153]
+bapsim-backend-local  | 2025-08-29 13:27:02.553 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.554 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 134
+bapsim-backend-local  | 2025-08-29 13:27:02.555 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.555 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [15]
+bapsim-backend-local  | 2025-08-29 13:27:02.555 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [??퀬湲?
+bapsim-backend-local  | 2025-08-29 13:27:02.555 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.556 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [????댁궡 蹂띠쓬諛?
+bapsim-backend-local  | 2025-08-29 13:27:02.556 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [420]
+bapsim-backend-local  | 2025-08-29 13:27:02.556 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.556 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [????댁궡蹂띠쓬諛?
+bapsim-backend-local  | 2025-08-29 13:27:02.556 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.557 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 135
+bapsim-backend-local  | 2025-08-29 13:27:02.557 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.558 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.557319954]
+bapsim-backend-local  | 2025-08-29 13:27:02.558 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.558 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.558 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [C]
+bapsim-backend-local  | 2025-08-29 13:27:02.558 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.559 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-26]
+bapsim-backend-local  | 2025-08-29 13:27:02.559 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.559 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.559 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.557319954]
+bapsim-backend-local  | 2025-08-29 13:27:02.559 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.560 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 135
+bapsim-backend-local  | 2025-08-29 13:27:02.561 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.561 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [10]
+bapsim-backend-local  | 2025-08-29 13:27:02.561 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쇱?怨좉린]
+bapsim-backend-local  | 2025-08-29 13:27:02.561 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.561 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [留ㅼ숴???쒖쑁??갈]
+bapsim-backend-local  | 2025-08-29 13:27:02.562 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [500]
+bapsim-backend-local  | 2025-08-29 13:27:02.562 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.562 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?쒖쑁??갈]
+bapsim-backend-local  | 2025-08-29 13:27:02.562 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.574 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 136
+bapsim-backend-local  | 2025-08-29 13:27:02.575 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.575 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.574824341]
+bapsim-backend-local  | 2025-08-29 13:27:02.575 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.575 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.575 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [C]
+bapsim-backend-local  | 2025-08-29 13:27:02.575 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.575 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-27]
+bapsim-backend-local  | 2025-08-29 13:27:02.576 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.576 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.576 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.574824341]
+bapsim-backend-local  | 2025-08-29 13:27:02.576 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.577 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 136
+bapsim-backend-local  | 2025-08-29 13:27:02.577 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.577 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+bapsim-backend-local  | 2025-08-29 13:27:02.578 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [???李몄튂)]
+bapsim-backend-local  | 2025-08-29 13:27:02.578 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.578 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [李몄튂源移섎뜮諛?
+bapsim-backend-local  | 2025-08-29 13:27:02.578 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [480]
+bapsim-backend-local  | 2025-08-29 13:27:02.578 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.578 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [李몄튂源移섎뜮諛?
+bapsim-backend-local  | 2025-08-29 13:27:02.578 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.579 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 137
+bapsim-backend-local  | 2025-08-29 13:27:02.579 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.579489917]
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [C]
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-28]
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.579489917]
+bapsim-backend-local  | 2025-08-29 13:27:02.580 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.581 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 137
+bapsim-backend-local  | 2025-08-29 13:27:02.582 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.582 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+bapsim-backend-local  | 2025-08-29 13:27:02.582 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [諛(鍮?, ?쇱?怨좉린(?뚯떆吏)]
+bapsim-backend-local  | 2025-08-29 13:27:02.582 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.582 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?ル룄洹?
+bapsim-backend-local  | 2025-08-29 13:27:02.582 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [350]
+bapsim-backend-local  | 2025-08-29 13:27:02.582 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.582 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?ル룄洹?
+bapsim-backend-local  | 2025-08-29 13:27:02.583 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.583 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 138
+bapsim-backend-local  | 2025-08-29 13:27:02.584 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.585 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.584391522]
+bapsim-backend-local  | 2025-08-29 13:27:02.585 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.585 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [true]
+bapsim-backend-local  | 2025-08-29 13:27:02.585 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [D]
+bapsim-backend-local  | 2025-08-29 13:27:02.585 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.586 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.586 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.586 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.586 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.584391522]
+bapsim-backend-local  | 2025-08-29 13:27:02.586 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.587 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 138
+bapsim-backend-local  | 2025-08-29 13:27:02.587 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.587 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.588 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쒕쪟(怨꾨?), ?쇱?怨좉린(踰좎씠而?, ?좊쭏??
+bapsim-backend-local  | 2025-08-29 13:27:02.588 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.588 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [BELT?뚮뱶?꾩튂]
+bapsim-backend-local  | 2025-08-29 13:27:02.588 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [400]
+bapsim-backend-local  | 2025-08-29 13:27:02.588 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.588 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [BELT?뚮뱶?꾩튂]
+bapsim-backend-local  | 2025-08-29 13:27:02.588 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.589 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 139
+bapsim-backend-local  | 2025-08-29 13:27:02.590 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.590 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.589887267]
+bapsim-backend-local  | 2025-08-29 13:27:02.590 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.590 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.590 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [D]
+bapsim-backend-local  | 2025-08-29 13:27:02.591 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.591 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.591 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.591 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.591 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.589887267]
+bapsim-backend-local  | 2025-08-29 13:27:02.591 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.593 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 139
+bapsim-backend-local  | 2025-08-29 13:27:02.593 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.594 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.594 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [????먮?)]
+bapsim-backend-local  | 2025-08-29 13:27:02.594 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.594 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?먮??먮윭??
+bapsim-backend-local  | 2025-08-29 13:27:02.594 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [250]
+bapsim-backend-local  | 2025-08-29 13:27:02.594 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.594 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?먮??먮윭??
+bapsim-backend-local  | 2025-08-29 13:27:02.594 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.595 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 140
+bapsim-backend-local  | 2025-08-29 13:27:02.596 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.595663174]
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [D]
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.595663174]
+bapsim-backend-local  | 2025-08-29 13:27:02.596 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.598 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 140
+bapsim-backend-local  | 2025-08-29 13:27:02.599 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.599 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [0]
+bapsim-backend-local  | 2025-08-29 13:27:02.599 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - []
+bapsim-backend-local  | 2025-08-29 13:27:02.599 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.599 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?먮몢?쒕젅??
+bapsim-backend-local  | 2025-08-29 13:27:02.599 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [80]
+bapsim-backend-local  | 2025-08-29 13:27:02.599 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.599 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?먮몢?쒕젅??
+bapsim-backend-local  | 2025-08-29 13:27:02.599 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.601 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 141
+bapsim-backend-local  | 2025-08-29 13:27:02.601 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.601374918]
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [D]
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.601374918]
+bapsim-backend-local  | 2025-08-29 13:27:02.602 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.603 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 141
+bapsim-backend-local  | 2025-08-29 13:27:02.603  INFO 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ?곗씠??????꾨즺
+bapsim-backend-local  | 2025-08-29 13:27:02.622  INFO 119 --- [  restartedMain] com.bapsim.config.DataInitializer        : 硫붾돱 ?곗씠??濡쒕뱶 ?꾨즺: data/menus/cafeteria_menus.json
+bapsim-backend-local  | 2025-08-29 13:27:02.623  INFO 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ?곗씠??JSON ?뚯씪 濡쒕뵫 ?쒖옉: data/menus/restaurant_menus.json
+bapsim-backend-local  | 2025-08-29 13:27:02.637  INFO 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : JSON ?뚯씪?먯꽌 13 媛쒖쓽 硫붾돱 ?곗씠?곕? ?쎌뿀?듬땲??
+bapsim-backend-local  | 2025-08-29 13:27:02.638 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.638 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.639 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [????쒖옣), 議곌컻瑜??곕쟻??諛붿???]
+bapsim-backend-local  | 2025-08-29 13:27:02.639 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.639 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?곕쟻?댁? 諛붿??쎌씠 ?ㅼ뼱媛??쒖옣李뚭컻]
+bapsim-backend-local  | 2025-08-29 13:27:02.639 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [200]
+bapsim-backend-local  | 2025-08-29 13:27:02.639 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.639 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?곕쟻?대컮吏?쎈맂?μ컡媛?
+bapsim-backend-local  | 2025-08-29 13:27:02.639 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.642 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 142
+bapsim-backend-local  | 2025-08-29 13:27:02.642 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.642298481]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [true]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [A]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-25]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.642298481]
+bapsim-backend-local  | 2025-08-29 13:27:02.643 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.646 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 142
+bapsim-backend-local  | 2025-08-29 13:27:02.646 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.647 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [0]
+bapsim-backend-local  | 2025-08-29 13:27:02.647 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - []
+bapsim-backend-local  | 2025-08-29 13:27:02.647 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.647 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?묐?諛??먮뒗 ?諛?
+bapsim-backend-local  | 2025-08-29 13:27:02.647 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [320]
+bapsim-backend-local  | 2025-08-29 13:27:02.647 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.647 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?묐?諛??諛?
+bapsim-backend-local  | 2025-08-29 13:27:02.647 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.648 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 143
+bapsim-backend-local  | 2025-08-29 13:27:02.649 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.649 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.648976231]
+bapsim-backend-local  | 2025-08-29 13:27:02.649 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.650 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.650 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [A]
+bapsim-backend-local  | 2025-08-29 13:27:02.650 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.650 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-25]
+bapsim-backend-local  | 2025-08-29 13:27:02.650 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.650 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.650 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.648976231]
+bapsim-backend-local  | 2025-08-29 13:27:02.650 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.651 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 143
+bapsim-backend-local  | 2025-08-29 13:27:02.652 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.653 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+bapsim-backend-local  | 2025-08-29 13:27:02.653 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쇱?怨좉린, ????먮?)]
+bapsim-backend-local  | 2025-08-29 13:27:02.653 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.653 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?쇱?怨좉린 源移섏컡媛?
+bapsim-backend-local  | 2025-08-29 13:27:02.653 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [250]
+bapsim-backend-local  | 2025-08-29 13:27:02.653 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.653 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [源移섏컡媛?
+bapsim-backend-local  | 2025-08-29 13:27:02.653 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.655 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 144
+bapsim-backend-local  | 2025-08-29 13:27:02.656 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.656 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.655493238]
+bapsim-backend-local  | 2025-08-29 13:27:02.656 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.656 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.656 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [A]
+bapsim-backend-local  | 2025-08-29 13:27:02.656 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.656 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-26]
+bapsim-backend-local  | 2025-08-29 13:27:02.656 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.657 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.657 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.655493238]
+bapsim-backend-local  | 2025-08-29 13:27:02.657 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.658 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 144
+bapsim-backend-local  | 2025-08-29 13:27:02.659 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.659 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.659 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [????쒕몢遺), ?쒕쪟]
+bapsim-backend-local  | 2025-08-29 13:27:02.659 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.659 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?쇳겙???쒕몢遺李뚭컻]
+bapsim-backend-local  | 2025-08-29 13:27:02.660 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [220]
+bapsim-backend-local  | 2025-08-29 13:27:02.660 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.660 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?쒕몢遺李뚭컻]
+bapsim-backend-local  | 2025-08-29 13:27:02.660 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.661 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 145
+bapsim-backend-local  | 2025-08-29 13:27:02.662 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.662 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.661958570]
+bapsim-backend-local  | 2025-08-29 13:27:02.662 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.662 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.663 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [A]
+bapsim-backend-local  | 2025-08-29 13:27:02.663 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.663 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-27]
+bapsim-backend-local  | 2025-08-29 13:27:02.663 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.663 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.663 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.661958570]
+bapsim-backend-local  | 2025-08-29 13:27:02.663 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.668 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 145
+bapsim-backend-local  | 2025-08-29 13:27:02.669 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.669 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [9]
+bapsim-backend-local  | 2025-08-29 13:27:02.669 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쇱?怨좉린, ???
+bapsim-backend-local  | 2025-08-29 13:27:02.669 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.669 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?꾧낵 ?뚯떆吏媛 ?ㅼ뼱媛?遺?李뚭컻]
+bapsim-backend-local  | 2025-08-29 13:27:02.669 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [300]
+bapsim-backend-local  | 2025-08-29 13:27:02.669 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.669 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [遺?李뚭컻]
+bapsim-backend-local  | 2025-08-29 13:27:02.670 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.671 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 146
+bapsim-backend-local  | 2025-08-29 13:27:02.673 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.672200261]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [A]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-28]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.672200261]
+bapsim-backend-local  | 2025-08-29 13:27:02.674 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.677 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 146
+bapsim-backend-local  | 2025-08-29 13:27:02.678 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.679 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [16]
+bapsim-backend-local  | 2025-08-29 13:27:02.679 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?좉퀬湲?
+bapsim-backend-local  | 2025-08-29 13:27:02.679 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.679 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [吏꾪븳 ?뚭퀬湲?誘몄뿭援?
+bapsim-backend-local  | 2025-08-29 13:27:02.679 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [180]
+bapsim-backend-local  | 2025-08-29 13:27:02.679 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.679 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?뚭퀬湲곕???뎅]
+bapsim-backend-local  | 2025-08-29 13:27:02.679 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.680 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 147
+bapsim-backend-local  | 2025-08-29 13:27:02.683 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.683 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.681062110]
+bapsim-backend-local  | 2025-08-29 13:27:02.684 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.684 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.684 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [A]
+bapsim-backend-local  | 2025-08-29 13:27:02.684 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.684 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.684 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.685 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.686 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.681062110]
+bapsim-backend-local  | 2025-08-29 13:27:02.686 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.687 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 147
+bapsim-backend-local  | 2025-08-29 13:27:02.692 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.692 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.692 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쇱?怨좉린, 諛, ?쒕쪟]
+bapsim-backend-local  | 2025-08-29 13:27:02.692 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.692 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?섏젣 ?덇퉴??
+bapsim-backend-local  | 2025-08-29 13:27:02.692 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [600]
+bapsim-backend-local  | 2025-08-29 13:27:02.692 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.692 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?덇퉴??
+bapsim-backend-local  | 2025-08-29 13:27:02.693 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.697 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 148
+bapsim-backend-local  | 2025-08-29 13:27:02.698 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.699 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.697460074]
+bapsim-backend-local  | 2025-08-29 13:27:02.699 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.700 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [true]
+bapsim-backend-local  | 2025-08-29 13:27:02.700 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [B]
+bapsim-backend-local  | 2025-08-29 13:27:02.700 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.700 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-25]
+bapsim-backend-local  | 2025-08-29 13:27:02.700 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.700 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.700 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.697460074]
+bapsim-backend-local  | 2025-08-29 13:27:02.700 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.701 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 148
+bapsim-backend-local  | 2025-08-29 13:27:02.702 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.702 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.702 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쒕쪟(怨꾨?)]
+bapsim-backend-local  | 2025-08-29 13:27:02.702 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.702 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [?ㅻ??쇱씠??
+bapsim-backend-local  | 2025-08-29 13:27:02.702 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [550]
+bapsim-backend-local  | 2025-08-29 13:27:02.702 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.702 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?ㅻ??쇱씠??
+bapsim-backend-local  | 2025-08-29 13:27:02.702 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.704 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 149
+bapsim-backend-local  | 2025-08-29 13:27:02.704 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.705 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.704400816]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [B]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-26]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.704400816]
+bapsim-backend-local  | 2025-08-29 13:27:02.706 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.709 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 149
+bapsim-backend-local  | 2025-08-29 13:27:02.712 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.713 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+bapsim-backend-local  | 2025-08-29 13:27:02.713 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쇱?怨좉린]
+bapsim-backend-local  | 2025-08-29 13:27:02.713 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.713 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [吏꾪븳 移대젅?쇱씠??
+bapsim-backend-local  | 2025-08-29 13:27:02.713 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [530]
+bapsim-backend-local  | 2025-08-29 13:27:02.713 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.713 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [移대젅?쇱씠??
+bapsim-backend-local  | 2025-08-29 13:27:02.713 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.715 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 150
+bapsim-backend-local  | 2025-08-29 13:27:02.716 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.716 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.715503143]
+bapsim-backend-local  | 2025-08-29 13:27:02.716 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.716 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.716 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [B]
+bapsim-backend-local  | 2025-08-29 13:27:02.716 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.716 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-27]
+bapsim-backend-local  | 2025-08-29 13:27:02.716 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.717 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.717 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.715503143]
+bapsim-backend-local  | 2025-08-29 13:27:02.717 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.719 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 150
+bapsim-backend-local  | 2025-08-29 13:27:02.719 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.725 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+bapsim-backend-local  | 2025-08-29 13:27:02.725 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [諛(硫?, ?쇱?怨좉린]
+bapsim-backend-local  | 2025-08-29 13:27:02.725 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.725 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [吏쒖옣硫?
+bapsim-backend-local  | 2025-08-29 13:27:02.725 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [620]
+bapsim-backend-local  | 2025-08-29 13:27:02.725 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.725 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [吏쒖옣硫?
+bapsim-backend-local  | 2025-08-29 13:27:02.725 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.728 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 151
+bapsim-backend-local  | 2025-08-29 13:27:02.730 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.728466321]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [B]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-28]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.728466321]
+bapsim-backend-local  | 2025-08-29 13:27:02.731 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.733 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 151
+bapsim-backend-local  | 2025-08-29 13:27:02.734 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.734 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+bapsim-backend-local  | 2025-08-29 13:27:02.734 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [諛(硫?, ?쇱?怨좉린]
+bapsim-backend-local  | 2025-08-29 13:27:02.734 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.734 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [以묎뎅???щ즺瑜??쒖슜???ㅽ뙆寃뚰떚]
+bapsim-backend-local  | 2025-08-29 13:27:02.734 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [580]
+bapsim-backend-local  | 2025-08-29 13:27:02.734 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.734 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?ъ쿇?앸쭏?뚯뒪?뚭쾶??
+bapsim-backend-local  | 2025-08-29 13:27:02.734 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.735 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 152
+bapsim-backend-local  | 2025-08-29 13:27:02.736 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.735899336]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [true]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [B]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.735899336]
+bapsim-backend-local  | 2025-08-29 13:27:02.736 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.743 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 152
+bapsim-backend-local  | 2025-08-29 13:27:02.743 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.743 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+bapsim-backend-local  | 2025-08-29 13:27:02.743 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [諛(鍮?, ?곗쑀]
+bapsim-backend-local  | 2025-08-29 13:27:02.743 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.743 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [吏곸젒 留뚮뱺 留덈뒛鍮?
+bapsim-backend-local  | 2025-08-29 13:27:02.743 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [200]
+bapsim-backend-local  | 2025-08-29 13:27:02.743 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.743 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?섏젣留덈뒛鍮?
+bapsim-backend-local  | 2025-08-29 13:27:02.743 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.744 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 153
+bapsim-backend-local  | 2025-08-29 13:27:02.749 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.749 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.745501762]
+bapsim-backend-local  | 2025-08-29 13:27:02.749 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.749 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.749 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [B]
+bapsim-backend-local  | 2025-08-29 13:27:02.749 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.749 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.749 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.750 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.750 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.745501762]
+bapsim-backend-local  | 2025-08-29 13:27:02.750 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.751 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 153
+bapsim-backend-local  | 2025-08-29 13:27:02.752 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         food
+bapsim-backend-local  |         (allergy, allergy_info, category, content, kcal, menu_no, menu_name, photo_path) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.752 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [2]
+bapsim-backend-local  | 2025-08-29 13:27:02.752 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [諛]
+bapsim-backend-local  | 2025-08-29 13:27:02.753 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.753 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [諛붿궘???댁돩釉뚮씪??
+bapsim-backend-local  | 2025-08-29 13:27:02.753 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [BIGINT] - [250]
+bapsim-backend-local  | 2025-08-29 13:27:02.753 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [BIGINT] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.753 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [?댁돩釉뚮씪??耳李?
+bapsim-backend-local  | 2025-08-29 13:27:02.753 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [null]
+bapsim-backend-local  | 2025-08-29 13:27:02.758 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : ?뚯떇 ?곗씠??????꾨즺: 154
+bapsim-backend-local  | 2025-08-29 13:27:02.759 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     insert 
+bapsim-backend-local  |     into
+bapsim-backend-local  |         menus
+bapsim-backend-local  |         (created_at, created_id, is_signature, kind, meal_type, menu_date, res_no, sold_out, updated_at, updated_id) 
+bapsim-backend-local  |     values
+bapsim-backend-local  |         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+bapsim-backend-local  | 2025-08-29 13:27:02.759 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [TIMESTAMP] - [2025-08-29T13:27:02.758826812]
+bapsim-backend-local  | 2025-08-29 13:27:02.759 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.759 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.759 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [B]
+bapsim-backend-local  | 2025-08-29 13:27:02.759 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.760 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.760 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [BIGINT] - [1]
+bapsim-backend-local  | 2025-08-29 13:27:02.760 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [BOOLEAN] - [false]
+bapsim-backend-local  | 2025-08-29 13:27:02.760 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [TIMESTAMP] - [2025-08-29T13:27:02.758826812]
+bapsim-backend-local  | 2025-08-29 13:27:02.760 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [VARCHAR] - [system]
+bapsim-backend-local  | 2025-08-29 13:27:02.762 DEBUG 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ????꾨즺: 154
+bapsim-backend-local  | 2025-08-29 13:27:02.762  INFO 119 --- [  restartedMain] com.bapsim.service.MenuDataService       : 硫붾돱 ?곗씠??????꾨즺
+bapsim-backend-local  | 2025-08-29 13:27:02.792  INFO 119 --- [  restartedMain] com.bapsim.config.DataInitializer        : 硫붾돱 ?곗씠??濡쒕뱶 ?꾨즺: data/menus/restaurant_menus.json
+bapsim-backend-local  | 2025-08-29 13:27:02.809 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | 2025-08-29 13:27:02.809 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [A]
+bapsim-backend-local  | 2025-08-29 13:27:02.809 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쒖떇]
+bapsim-backend-local  | 2025-08-29 13:27:02.809 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.809 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.814 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | 2025-08-29 13:27:02.815 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [B]
+bapsim-backend-local  | 2025-08-29 13:27:02.816 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?쇳뭹]
+bapsim-backend-local  | 2025-08-29 13:27:02.816 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.816 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.818 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | 2025-08-29 13:27:02.819 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [C]
+bapsim-backend-local  | 2025-08-29 13:27:02.819 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?꾩떆??
+bapsim-backend-local  | 2025-08-29 13:27:02.819 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.819 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.821 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | 2025-08-29 13:27:02.821 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [D]
+bapsim-backend-local  | 2025-08-29 13:27:02.821 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [釉뚮윴移?
+bapsim-backend-local  | 2025-08-29 13:27:02.821 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.821 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.824 DEBUG 119 --- [  restartedMain] org.hibernate.SQL                        : 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | Hibernate: 
+bapsim-backend-local  |     select
+bapsim-backend-local  |         menuprice0_.price_no as price_no1_5_,
+bapsim-backend-local  |         menuprice0_.created_at as created_2_5_,
+bapsim-backend-local  |         menuprice0_.created_id as created_3_5_,
+bapsim-backend-local  |         menuprice0_.description as descript4_5_,
+bapsim-backend-local  |         menuprice0_.effective_date as effectiv5_5_,
+bapsim-backend-local  |         menuprice0_.expiry_date as expiry_d6_5_,
+bapsim-backend-local  |         menuprice0_.is_active as is_activ7_5_,
+bapsim-backend-local  |         menuprice0_.kind as kind8_5_,
+bapsim-backend-local  |         menuprice0_.meal_type as meal_typ9_5_,
+bapsim-backend-local  |         menuprice0_.menu_no as menu_no13_5_,
+bapsim-backend-local  |         menuprice0_.price as price10_5_,
+bapsim-backend-local  |         menuprice0_.updated_at as updated11_5_,
+bapsim-backend-local  |         menuprice0_.updated_id as updated12_5_ 
+bapsim-backend-local  |     from
+bapsim-backend-local  |         menu_price menuprice0_ 
+bapsim-backend-local  |     where
+bapsim-backend-local  |         menuprice0_.kind=? 
+bapsim-backend-local  |         and menuprice0_.meal_type=? 
+bapsim-backend-local  |         and menuprice0_.is_active=1 
+bapsim-backend-local  |         and menuprice0_.effective_date<=? 
+bapsim-backend-local  |         and (
+bapsim-backend-local  |             menuprice0_.expiry_date is null 
+bapsim-backend-local  |             or menuprice0_.expiry_date>=?
+bapsim-backend-local  |         ) 
+bapsim-backend-local  |     order by
+bapsim-backend-local  |         menuprice0_.effective_date DESC
+bapsim-backend-local  | 2025-08-29 13:27:02.825 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [E]
+bapsim-backend-local  | 2025-08-29 13:27:02.825 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [VARCHAR] - [?먮윭??
+bapsim-backend-local  | 2025-08-29 13:27:02.825 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.825 TRACE 119 --- [  restartedMain] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [DATE] - [2025-08-29]
+bapsim-backend-local  | 2025-08-29 13:27:02.827  INFO 119 --- [  restartedMain] com.bapsim.service.MenuPriceService      : 湲곕낯 硫붾돱 媛寃??뺣낫 珥덇린???꾨즺
+bapsim-backend-local  | 2025-08-29 13:27:02.828  INFO 119 --- [  restartedMain] com.bapsim.config.DataInitializer        : ?곗씠??珥덇린???꾨즺
+bapsim-backend-local  | 2025-08-29 13:27:08.152  INFO 119 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+bapsim-backend-local  | 2025-08-29 13:27:08.152  INFO 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+bapsim-backend-local  | 2025-08-29 13:27:08.153 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+bapsim-backend-local  | 2025-08-29 13:27:08.153 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+bapsim-backend-local  | 2025-08-29 13:27:08.153 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+bapsim-backend-local  | 2025-08-29 13:27:08.153 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@506555a5
+bapsim-backend-local  | 2025-08-29 13:27:08.153 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@241e3711
+bapsim-backend-local  | 2025-08-29 13:27:08.153 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+bapsim-backend-local  | 2025-08-29 13:27:08.153  INFO 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+bapsim-backend-local  | 2025-08-29 13:27:08.191 DEBUG 119 --- [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/members/login
+bapsim-backend-local  | 2025-08-29 13:27:08.213 DEBUG 119 --- [nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+bapsim-backend-local  | 2025-08-29 13:27:08.222 DEBUG 119 --- [nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+bapsim-backend-local  | 2025-08-29 13:27:08.239 DEBUG 119 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.bapsim.controller.MemberController#login(LoginRequestDto)
+bapsim-backend-local  | 2025-08-29 13:27:08.244 DEBUG 119 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.bapsim.controller.MemberController#login(LoginRequestDto)
+bapsim-backend-local  | 2025-08-29 13:27:08.245 DEBUG 119 --- [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/members/login
+bapsim-backend-local  | 2025-08-29 13:27:08.251 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/api/members/login", parameters={}
+bapsim-backend-local  | 2025-08-29 13:27:08.254 DEBUG 119 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.bapsim.controller.MemberController#login(LoginRequestDto)
+bapsim-backend-local  | 2025-08-29 13:27:08.261 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Failed to complete request: java.lang.IllegalArgumentException: When allowCredentials is true, allowedOrigins cannot contain the special value "*" since that cannot be set on the "Access-Control-Allow-Origin" response header. To allow credentials to a set of origins, list them explicitly or consider using "allowedOriginPatterns" instead.
+bapsim-backend-local  | 2025-08-29 13:27:08.265 DEBUG 119 --- [nio-8080-exec-1] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+bapsim-backend-local  | 2025-08-29 13:27:08.265 DEBUG 119 --- [nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+bapsim-backend-local  | 2025-08-29 13:27:08.346 ERROR 119 --- [nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: When allowCredentials is true, allowedOrigins cannot contain the special value "*" since that cannot be set on the "Access-Control-Allow-Origin" response header. To allow credentials to a set of origins, list them explicitly or consider using "allowedOriginPatterns" instead.] with root cause
+bapsim-backend-local  | 
+bapsim-backend-local  | java.lang.IllegalArgumentException: When allowCredentials is true, allowedOrigins cannot contain the special value "*" since that cannot be set on the "Access-Control-Allow-Origin" response header. To allow credentials to a set of origins, list them explicitly or consider using "allowedOriginPatterns" instead.
+bapsim-backend-local  | 	at org.springframework.web.cors.CorsConfiguration.validateAllowCredentials(CorsConfiguration.java:495) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:532) ~[spring-webmvc-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1266) ~[spring-webmvc-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1048) ~[spring-webmvc-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965) ~[spring-webmvc-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+bapsim-backend-local  | 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623) ~[tomcat-embed-core-9.0.83.jar:4.0.FR]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:96) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186) ~[spring-security-web-5.7.11.jar:5.7.11]
+bapsim-backend-local  | 	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.31.jar:5.3.31]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.83.jar:9.0.83]
+bapsim-backend-local  | 	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+bapsim-backend-local  | 
+bapsim-backend-local  | 2025-08-29 13:27:08.354 DEBUG 119 --- [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /error
+bapsim-backend-local  | 2025-08-29 13:27:08.354 DEBUG 119 --- [nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to empty SecurityContext
+bapsim-backend-local  | 2025-08-29 13:27:08.354 DEBUG 119 --- [nio-8080-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+bapsim-backend-local  | 2025-08-29 13:27:08.354 DEBUG 119 --- [nio-8080-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /error
+bapsim-backend-local  | 2025-08-29 13:27:08.354 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+bapsim-backend-local  | 2025-08-29 13:27:08.361 DEBUG 119 --- [nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+bapsim-backend-local  | 2025-08-29 13:27:08.468 DEBUG 119 --- [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+bapsim-backend-local  | 2025-08-29 13:27:08.469 DEBUG 119 --- [nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Fri Aug 29 13:27:08 UTC 2025, status=500, error=Internal Server Error, trace=java.lang.Il (truncated)...]
+bapsim-backend-local  | 2025-08-29 13:27:08.607 DEBUG 119 --- [nio-8080-exec-1] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+bapsim-backend-local  | 2025-08-29 13:27:08.612 DEBUG 119 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 500
+bapsim-backend-local  | 2025-08-29 13:27:08.612 DEBUG 119 --- [nio-8080-exec-1] w.c.HttpSessionSecurityContextRepository : Did not store anonymous SecurityContext
+bapsim-backend-local  | 2025-08-29 13:27:08.612 DEBUG 119 --- [nio-8080-exec-1] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request

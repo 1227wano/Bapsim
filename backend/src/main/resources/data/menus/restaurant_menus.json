@@ -1,0 +1,262 @@
+[
+  {
+    "kind": "A",
+    "mealType": "한식",
+    "isSignature": true,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-25",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "우렁이바지락된장찌개",
+      "kcal": 200,
+      "allergy": 1,
+      "allergyInfo": "대두(된장), 조개류(우렁이,바지락)",
+      "category": "한식",
+      "content": "우렁이와 바지락이 들어간 된장찌개"
+    }
+  },
+  {
+    "kind": "A",
+    "mealType": "한식",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-25",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "흑미밥/쌀밥",
+      "kcal": 320,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "한식",
+      "content": "흑미밥 또는 쌀밥"
+    }
+  },
+  {
+    "kind": "A",
+    "mealType": "한식",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-26",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "김치찌개",
+      "kcal": 250,
+      "allergy": 9,
+      "allergyInfo": "돼지고기, 대두(두부)",
+      "category": "한식",
+      "content": "돼지고기 김치찌개"
+    }
+  },
+  {
+    "kind": "A",
+    "mealType": "한식",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-27",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "순두부찌개",
+      "kcal": 220,
+      "allergy": 1,
+      "allergyInfo": "대두(순두부), 난류",
+      "category": "한식",
+      "content": "얼큰한 순두부찌개"
+    }
+  },
+  {
+    "kind": "A",
+    "mealType": "한식",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-28",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "부대찌개",
+      "kcal": 300,
+      "allergy": 9,
+      "allergyInfo": "돼지고기, 대두",
+      "category": "한식",
+      "content": "햄과 소시지가 들어간 부대찌개"
+    }
+  },
+  {
+    "kind": "A",
+    "mealType": "한식",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "소고기미역국",
+      "kcal": 180,
+      "allergy": 16,
+      "allergyInfo": "쇠고기",
+      "category": "한식",
+      "content": "진한 소고기 미역국"
+    }
+  },
+  {
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": true,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-25",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "돈까스",
+      "kcal": 600,
+      "allergy": 1,
+      "allergyInfo": "돼지고기, 밀, 난류",
+      "category": "일품",
+      "content": "수제 돈까스"
+    }
+  },
+  {
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-26",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "오므라이스",
+      "kcal": 550,
+      "allergy": 1,
+      "allergyInfo": "난류(계란)",
+      "category": "일품",
+      "content": "오므라이스"
+    }
+  },
+  {
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-27",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "카레라이스",
+      "kcal": 530,
+      "allergy": 2,
+      "allergyInfo": "돼지고기",
+      "category": "일품",
+      "content": "진한 카레라이스"
+    }
+  },
+  {
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-28",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "짜장면",
+      "kcal": 620,
+      "allergy": 2,
+      "allergyInfo": "밀(면), 돼지고기",
+      "category": "일품",
+      "content": "짜장면"
+    }
+  },
+  {
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": true,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "사천식마파스파게티",
+      "kcal": 580,
+      "allergy": 2,
+      "allergyInfo": "밀(면), 돼지고기",
+      "category": "일품",
+      "content": "중국식 재료를 활용한 스파게티"
+    }
+  },
+  {
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "수제마늘빵",
+      "kcal": 200,
+      "allergy": 2,
+      "allergyInfo": "밀(빵), 우유",
+      "category": "일품",
+      "content": "직접 만든 마늘빵"
+    }
+  },
+  {
+    "kind": "B",
+    "mealType": "일품",
+    "isSignature": false,
+    "soldOut": false,
+    "resNo": 1,
+    "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "해쉬브라운+케찹",
+      "kcal": 250,
+      "allergy": 2,
+      "allergyInfo": "밀",
+      "category": "일품",
+      "content": "바삭한 해쉬브라운"
+    }
+  }
+]

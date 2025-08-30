@@ -1,0 +1,182 @@
+[
+  {
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": true,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "두부스테이크+칠리소스",
+      "kcal": 450,
+      "allergy": 1,
+      "allergyInfo": "대두(두부)",
+      "category": "도시락",
+      "content": "두부스테이크와 칠리소스"
+    }
+  },
+  {
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-25",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "볶음우동",
+      "kcal": 380,
+      "allergy": 2,
+      "allergyInfo": "밀(우동면)",
+      "category": "도시락",
+      "content": "볶음우동"
+    }
+  },
+  {
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-26",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "닭가슴살볶음밥",
+      "kcal": 420,
+      "allergy": 15,
+      "allergyInfo": "닭고기",
+      "category": "도시락",
+      "content": "닭가슴살 볶음밥"
+    }
+  },
+  {
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-27",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "제육덮밥",
+      "kcal": 500,
+      "allergy": 10,
+      "allergyInfo": "돼지고기",
+      "category": "도시락",
+      "content": "매콤한 제육덮밥"
+    }
+  },
+  {
+    "kind": "C",
+    "mealType": "도시락",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-28",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "참치김치덮밥",
+      "kcal": 480,
+      "allergy": 9,
+      "allergyInfo": "대두(참치)",
+      "category": "도시락",
+      "content": "참치김치덮밥"
+    }
+  },
+  {
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": true,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "핫도그",
+      "kcal": 350,
+      "allergy": 2,
+      "allergyInfo": "밀(빵), 돼지고기(소시지)",
+      "category": "브런치",
+      "content": "핫도그"
+    }
+  },
+  {
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "BELT샌드위치",
+      "kcal": 400,
+      "allergy": 1,
+      "allergyInfo": "난류(계란), 돼지고기(베이컨), 토마토",
+      "category": "브런치",
+      "content": "BELT샌드위치"
+    }
+  },
+  {
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "두부샐러드",
+      "kcal": 250,
+      "allergy": 1,
+      "allergyInfo": "대두(두부)",
+      "category": "브런치",
+      "content": "두부샐러드"
+    }
+  },
+  {
+    "kind": "D",
+    "mealType": "브런치",
+    "isSignature": false,
+    "soldOut": false,
+    "cafeNo": 1,
+    "menuDate": "2025-08-29",
+    "createdId": "admin",
+    "createdAt": "2025-08-28T12:00:00",
+    "updatedId": "admin",
+    "updatedAt": "2025-08-28T12:00:00",
+    "food": {
+      "menuName": "자두드레싱",
+      "kcal": 80,
+      "allergy": null,
+      "allergyInfo": null,
+      "category": "브런치",
+      "content": "자두드레싱"
+    }
+  }
+]

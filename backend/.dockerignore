@@ -1,0 +1,25 @@
+# Frontend, AI project
+frontend/
+AI/
+
+# Gradle cache
+.gradle/
+**/.gradle/
+build/
+
+# IDE settings
+.idea/
+*.iml
+
+# Git
+.git
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose-aws.yml
+
+# Logs
+*.log

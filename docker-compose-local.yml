@@ -1,0 +1,75 @@
+
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: bapsim-db-local
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: bapsim_local
+      MYSQL_USER: bapsim_user
+      MYSQL_PASSWORD: bapsim1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data_local:/var/lib/mysql
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - bapsim-network-local
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot1234"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: --default-authentication-plugin=mysql_native_password
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    container_name: bapsim-backend-local
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - bapsim-network-local
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/bapsim_local?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+      - SPRING_DATASOURCE_USERNAME=bapsim_user
+      - SPRING_DATASOURCE_PASSWORD=bapsim1234
+      - JAVA_OPTS=-Xmx512m -Xms256m
+      - GRADLE_OPTS=-Dorg.gradle.daemon=false
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./backend:/app
+      - /app/target
+
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bapsim-frontend-local
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    networks:
+      - bapsim-network-local
+    environment:
+      - EXPO_PUBLIC_API_URL=http://backend:8080
+
+
+volumes:
+  mysql_data_local:
+
+networks:
+  bapsim-network-local:
+    driver: bridge
+
