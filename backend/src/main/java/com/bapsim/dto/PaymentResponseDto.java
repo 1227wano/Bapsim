@@ -32,6 +32,12 @@ public class PaymentResponseDto {
     private String errorCode; // 오류 코드 (실패시)
     private String errorMessage; // 오류 메시지 (실패시)
     
+    // 포인트 사용 관련 필드 추가
+    private Boolean usePoints;      // 포인트 사용 여부
+    private Integer pointAmount;    // 사용된 포인트 금액
+    private Integer originalPrice;  // 원래 메뉴 가격
+    private Integer finalAmount;    // 포인트 차감 후 최종 결제 금액
+    
     // 성공 응답 생성
     public static PaymentResponseDto success(Long paymentId, Long userNo, Long menuId, 
                                           String menuType, String menuName, Integer amount,
@@ -51,6 +57,36 @@ public class PaymentResponseDto {
                 .ssafyTransactionId(ssafyTransactionId)
                 .createdAt(LocalDateTime.now())
                 .message("결제가 성공적으로 완료되었습니다")
+                .usePoints(false)
+                .pointAmount(0)
+                .originalPrice(amount)
+                .finalAmount(amount)
+                .build();
+    }
+    
+    // 포인트 사용 시 성공 응답 생성
+    public static PaymentResponseDto successWithPoints(Long paymentId, Long userNo, Long menuId, 
+                                                     String menuType, String menuName, Integer originalPrice, Integer finalAmount,
+                                                     PaymentStatus status, PaymentMethod method,
+                                                     String transactionId, String ssafyTransactionId, Integer pointAmount) {
+        return PaymentResponseDto.builder()
+                .paymentId(paymentId)
+                .userNo(userNo)
+                .menuId(menuId)
+                .menuType(menuType)
+                .menuName(menuName)
+                .amount(finalAmount)
+                .paymentStatus(status)
+                .paymentMethod(method)
+                .pinVerified(true)
+                .transactionId(transactionId)
+                .ssafyTransactionId(ssafyTransactionId)
+                .createdAt(LocalDateTime.now())
+                .message("포인트 사용 결제가 성공적으로 완료되었습니다")
+                .usePoints(true)
+                .pointAmount(pointAmount)
+                .originalPrice(originalPrice)
+                .finalAmount(finalAmount)
                 .build();
     }
     

@@ -3,6 +3,7 @@ package com.bapsim.controller;
 import com.bapsim.dto.*;
 import com.bapsim.entity.Payment;
 import com.bapsim.service.PaymentService;
+import com.bapsim.repository.PaymentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/payment")
@@ -27,6 +29,9 @@ public class PaymentController {
     
     @Autowired
     private PaymentService paymentService;
+
+    @Autowired
+    private PaymentRepository paymentRepository;
     
     /**
      * 결제 전 검증
@@ -263,19 +268,31 @@ public class PaymentController {
      * GET /api/payment/{paymentId}
      */
     @GetMapping("/{paymentId}")
-    public ResponseEntity<PaymentHistoryDto> getPaymentDetail(@PathVariable Long paymentId) {
+    public ResponseEntity<Map<String, Object>> getPaymentDetail(@PathVariable Long paymentId) {
         try {
-            // TODO: PaymentService에 getPaymentById 메서드 추가 필요
-            // PaymentHistoryDto payment = paymentService.getPaymentById(paymentId);
-            // if (payment != null) {
-            //     return ResponseEntity.ok(payment);
-            // } else {
-            //     return ResponseEntity.notFound().build();
-            // }
+            log.info("결제 상세 조회 API 호출: paymentId={}", paymentId);
             
-            return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
+            Optional<Payment> paymentOpt = paymentRepository.findById(paymentId);
+            if (paymentOpt.isPresent()) {
+                Payment payment = paymentOpt.get();
+                Map<String, Object> result = new java.util.HashMap<>();
+                result.put("success", true);
+                result.put("payment", convertToDetailDto(payment));
+                return ResponseEntity.ok(result);
+            } else {
+                Map<String, Object> result = new java.util.HashMap<>();
+                result.put("success", false);
+                result.put("error", "PAYMENT_NOT_FOUND");
+                result.put("message", "결제 내역을 찾을 수 없습니다");
+                return ResponseEntity.notFound().build();
+            }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            log.error("결제 상세 조회 중 오류 발생: paymentId={}", paymentId, e);
+            Map<String, Object> result = new java.util.HashMap<>();
+            result.put("success", false);
+            result.put("error", "INTERNAL_ERROR");
+            result.put("message", "결제 조회 중 오류가 발생했습니다");
+            return ResponseEntity.internalServerError().body(result);
         }
     }
     
@@ -435,5 +452,27 @@ public class PaymentController {
             errorResponse.put("error", "메뉴 가격 조회 중 오류가 발생했습니다: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
+    }
+    
+    /**
+     * Payment 엔티티를 상세 조회용 DTO로 변환
+     */
+    private Map<String, Object> convertToDetailDto(Payment payment) {
+        Map<String, Object> dto = new java.util.HashMap<>();
+        dto.put("paymentId", payment.getPaymentId());
+        dto.put("userNo", payment.getUserNo());
+        dto.put("menuId", payment.getMenuId());
+        dto.put("menuType", payment.getMenuType());
+        dto.put("amount", payment.getAmount());
+        dto.put("paymentStatus", payment.getPaymentStatus());
+        dto.put("paymentMethod", payment.getPaymentMethod());
+        dto.put("pinVerified", payment.getPinVerified());
+        dto.put("transactionId", payment.getTransactionId());
+        dto.put("ssafyTransactionId", payment.getSsafyTransactionId());
+        dto.put("createdAt", payment.getCreatedAt());
+        dto.put("updatedAt", payment.getUpdatedAt());
+        dto.put("createdId", payment.getCreatedId());
+        dto.put("updatedId", payment.getUpdatedId());
+        return dto;
     }
 }

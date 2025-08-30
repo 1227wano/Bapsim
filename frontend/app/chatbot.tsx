@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, TextInput, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { styles } from '../screens/ChatbotScreen.styles';
 
 type ChatMessage = {
@@ -12,6 +12,9 @@ type ChatMessage = {
 };
 
 const ChatbotScreen = () => {
+  const API_URL = 'http://3.39.192.187:8000/chat';
+  const params = useLocalSearchParams();
+  const currentUserId = typeof params.user_id === 'string' ? params.user_id : 'u1';
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 'welcome',
@@ -42,13 +45,35 @@ const ChatbotScreen = () => {
     setInput('');
     setIsSending(true);
 
-    // TODO: 실제 API 연동 예정. 아래는 임시 응답 시뮬레이션입니다.
     try {
-      await new Promise(res => setTimeout(res, 700));
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          user_id: currentUserId,
+          message: userMsg.content,
+          context: { locale: 'ko' },
+        }),
+      });
+      let replyText = '';
+      if (response.ok) {
+        const data = await response.json();
+        replyText = typeof data?.reply === 'string' ? data.reply : '응답을 이해하지 못했습니다.';
+      } else {
+        replyText = `서버 오류가 발생했습니다. (HTTP ${response.status})`;
+      }
       const assistantMsg: ChatMessage = {
         id: `a-${Date.now()}`,
         role: 'assistant',
-        content: '현재는 시범 서비스입니다. 곧 실제 챗봇과 연결됩니다! \n요청: ' + userMsg.content,
+        content: replyText,
+        createdAt: Date.now(),
+      };
+      setMessages(prev => [...prev, assistantMsg]);
+    } catch (e: any) {
+      const assistantMsg: ChatMessage = {
+        id: `a-${Date.now()}`,
+        role: 'assistant',
+        content: '네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.',
         createdAt: Date.now(),
       };
       setMessages(prev => [...prev, assistantMsg]);
@@ -79,7 +104,7 @@ const ChatbotScreen = () => {
         >
           {messages.map(m => (
             <View key={m.id} style={[styles.messageBubble, m.role === 'user' ? styles.userBubble : styles.assistantBubble]}>
-              <Text style={[styles.messageText, m.role === 'user' ? styles.userText : styles.assistantText]}>
+              <Text style={m.role === 'user' ? styles.userText : styles.assistantText}>
                 {m.content}
               </Text>
             </View>

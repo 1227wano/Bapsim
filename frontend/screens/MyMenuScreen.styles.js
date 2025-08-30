@@ -53,7 +53,6 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
     marginHorizontal: 20,
     marginTop: 16,
-    marginBottom: 8,
   },
 
   // ===== 메인 콘텐츠 영역 스타일 =====
@@ -197,9 +196,29 @@ export const styles = StyleSheet.create({
       android: { elevation: 5 },
     }),
   },
+  studentPoint: {
+    backgroundColor: '#1BB1E7',
+    borderRadius: 20,
+    padding: 20,
+    marginTop: 10,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.15,
+        shadowRadius: 8,
+      },
+      android: { elevation: 5 },
+    }),
+  },
+  pointName: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   studentCardLabel: {
     color: '#FFE9D7',
-    fontSize: 13,
+    fontSize: 16,
     marginBottom: 8,
     fontWeight: '700',
   },
@@ -227,12 +246,12 @@ export const styles = StyleSheet.create({
   },
   studentId: {
     color: '#FFE9D7',
-    fontSize: 14,
+    fontSize: 16,
     marginBottom: 4,
   },
   studentName: {
     color: '#fff',
-    fontSize: 22,
+    fontSize: 25,
     fontWeight: 'bold',
   },
   studentBadgeRow: {

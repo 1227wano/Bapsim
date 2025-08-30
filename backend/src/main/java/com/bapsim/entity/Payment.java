@@ -42,6 +42,16 @@ public class Payment {
     @Column(name = "SSAFY_TRANSACTION_ID", length = 100)
     private String ssafyTransactionId;
     
+    // 포인트 사용 관련 필드 추가
+    @Column(name = "USE_POINTS")
+    private Boolean usePoints = false; // 포인트 사용 여부
+    
+    @Column(name = "POINT_AMOUNT")
+    private Integer pointAmount = 0; // 사용된 포인트 금액
+    
+    @Column(name = "ORIGINAL_PRICE")
+    private Integer originalPrice; // 원래 메뉴 가격 (포인트 차감 전)
+    
     @Column(name = "CREATED_AT", nullable = false)
     private LocalDateTime createdAt;
     
@@ -64,6 +74,8 @@ public class Payment {
     
     @OneToMany(mappedBy = "payment")
     private List<PointHistory> pointHistories;
+    
+    // MealTicket과의 연관관계는 제거 (단순화)
     
     // Payment Status Enum
     public enum PaymentStatus {
@@ -169,6 +181,30 @@ public class Payment {
         this.ssafyTransactionId = ssafyTransactionId;
     }
     
+    public Boolean getUsePoints() {
+        return usePoints;
+    }
+    
+    public void setUsePoints(Boolean usePoints) {
+        this.usePoints = usePoints;
+    }
+    
+    public Integer getPointAmount() {
+        return pointAmount;
+    }
+    
+    public void setPointAmount(Integer pointAmount) {
+        this.pointAmount = pointAmount;
+    }
+    
+    public Integer getOriginalPrice() {
+        return originalPrice;
+    }
+    
+    public void setOriginalPrice(Integer originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+    
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
@@ -224,6 +260,8 @@ public class Payment {
     public void setPointHistories(List<PointHistory> pointHistories) {
         this.pointHistories = pointHistories;
     }
+    
+        // MealTicket getter/setter 제거 (단순화)
     
     // Business Methods
     @PrePersist

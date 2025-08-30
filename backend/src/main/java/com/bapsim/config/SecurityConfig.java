@@ -21,8 +21,11 @@ public class SecurityConfig {
                         // 아래 경로들은 인증 없이 누구나 접근할 수 있도록 허용합니다.
                         .mvcMatchers(
                                 "/",
+                                "/api/menus/**",       // 학식 조회 관련 API
                                 "/api/members/**",       // 로그인, 회원가입 등 회원 관련 API
                                 "/api/payment/**",       // 결제 관련 API 허용
+                                "/api/meal-ticket/**",   // 식권 관련 API 허용
+                                "/api/points/**",        // 포인트 관련 API 허용
                                 "/swagger-ui/**",       // Swagger UI 페이지
                                 "/v3/api-docs/**",      // OpenAPI 3.0 문서
                                 "/swagger-resources/**", // Swagger 리소스
