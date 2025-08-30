@@ -8,9 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface MenuRepository extends JpaRepository<Menus, Long> {
+
+    @Query("SELECT m FROM Menus m LEFT JOIN FETCH m.food LEFT JOIN FETCH m.cafeteria WHERE m.menuNo = :menuNo AND m.cafeNo = :cafeNo")
+    Optional<Menus> findByMenuNoAndCafeNo(@Param("menuNo") Long menuNo, @Param("cafeNo") Long cafeNo);
     
     @Query("SELECT m FROM Menus m LEFT JOIN FETCH m.food LEFT JOIN FETCH m.cafeteria LEFT JOIN FETCH m.restaurant WHERE m.cafeNo = :cafeNo")
     List<Menus> findByCafeNo(@Param("cafeNo") Long cafeNo);
