@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, SafeAreaView, StatusBar, TextInput, TouchableOpacity, Image, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient'; // 맨 위 import 추가
+import { Config } from '../constants/Config';
 
 const PRIMARY_COLOR = '#1BB1E7';
 
@@ -16,7 +17,7 @@ export default function LoginScreen() {
 
   const performLogin = async (id: string, pw: string) => {
     try {
-      const response = await fetch('http://localhost:8082/api/members/login', {
+        const response = await fetch(`${Config.API_BASE_URL}/api/members/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

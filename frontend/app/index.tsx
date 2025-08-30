@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, StatusBar, TouchableOpacity, Image, Alert, Ke
 import { router } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient'; // 맨 위 import 추가
 import { Ionicons } from '@expo/vector-icons';
+import { Config } from '../constants/Config';
 
 const PRIMARY_COLOR = '#1BB1E7';
 const BACKGROUND_COLOR = '#E4E5FF'; // 이미지 참고 연보라 배경
