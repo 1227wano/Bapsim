@@ -1,5 +1,6 @@
 package com.bapsim.service;
 
+import com.bapsim.dto.RandomMenuResponse;
 import com.bapsim.entity.Food;
 import com.bapsim.entity.Menus;
 import com.bapsim.repository.MenuRepository;
@@ -9,6 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +22,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 @Service
 public class MenuDataService {
@@ -73,6 +78,23 @@ public class MenuDataService {
 
         } catch (Exception e) {
             logger.error("메뉴 데이터 저장 실패: {}", menuData, e);
+        }
+    }
+
+    @Transactional(readOnly = true)
+    public RandomMenuResponse getRandomMenu() {
+        long count = menuRepository.count();
+        if (count == 0) {
+            throw new RuntimeException("No menus available");
+        }
+        int randomIndex = new Random().nextInt((int) count);
+        Pageable pageable = PageRequest.of(randomIndex, 1);
+        Page<Menus> menuPage = menuRepository.findAll(pageable);
+        if (menuPage.hasContent()) {
+            Menus menu = menuPage.getContent().get(0);
+            return new RandomMenuResponse(menu);
+        } else {
+            throw new RuntimeException("Menu not found at random index.");
         }
     }
 
