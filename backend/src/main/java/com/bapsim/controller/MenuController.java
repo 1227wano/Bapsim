@@ -1,5 +1,7 @@
 package com.bapsim.controller;
 
+import com.bapsim.dto.RandomMenuResponse;
+import com.bapsim.dto.SpecificMenuResponse;
 import com.bapsim.entity.Food;
 import com.bapsim.entity.Menus;
 import com.bapsim.entity.MenuPrice;
@@ -7,6 +9,9 @@ import com.bapsim.repository.FoodRepository;
 import com.bapsim.repository.MenuRepository;
 import com.bapsim.service.MenuPriceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @RestController
@@ -30,6 +36,33 @@ public class MenuController {
     
     @Autowired
     private MenuPriceService menuPriceService;
+
+    @GetMapping("/random")
+    public ResponseEntity<RandomMenuResponse> getRandomMenu() {
+        long count = menuRepository.count();
+        if (count == 0) {
+            return ResponseEntity.notFound().build();
+        }
+        int randomIndex = new Random().nextInt((int) count);
+        Pageable pageable = PageRequest.of(randomIndex, 1);
+        Page<Menus> menuPage = menuRepository.findAll(pageable);
+        if (menuPage.hasContent()) {
+            Menus menu = menuPage.getContent().get(0);
+            return ResponseEntity.ok(new RandomMenuResponse(menu));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/specific")
+    public ResponseEntity<SpecificMenuResponse> getSpecificMenu(
+            @RequestParam Long menuNo, 
+            @RequestParam Long cafeNo) {
+        Optional<Menus> menuOptional = menuRepository.findByMenuNoAndCafeNo(menuNo, cafeNo);
+        return menuOptional
+                .map(menu -> ResponseEntity.ok(new SpecificMenuResponse(menu)))
+                .orElse(ResponseEntity.notFound().build());
+    }
     
     /**
      * 모든 메뉴 조회
@@ -194,7 +227,7 @@ public class MenuController {
     public ResponseEntity<List<MenuPrice>> getMenuPricesByMealType(@PathVariable String mealType, @PathVariable String date) {
         try {
             LocalDate menuDate = LocalDate.parse(date);
-            List<MenuPrice> prices = menuPriceService.getCurrentPricesByMealType(mealType, menuDate);
+            List<MenuPrice> prices = menuPriceService.getCurrentPricesByMealType(mealType, date);
             return ResponseEntity.ok(prices);
         } catch (DateTimeParseException e) {
             return ResponseEntity.badRequest().build();

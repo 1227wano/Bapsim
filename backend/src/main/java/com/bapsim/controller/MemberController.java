@@ -14,11 +14,11 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/members") // "/api/users" -> "/api/members"로 변경
-public class MemberController { // UserController -> MemberController로 변경
+@RequestMapping("/api/members")
+public class MemberController {
 
     @Autowired
-    private MemberRepository memberRepository; // UserRepository -> MemberRepository
+    private MemberRepository memberRepository;
 
     @Autowired
     private MemberService memberService;
@@ -42,8 +42,8 @@ public class MemberController { // UserController -> MemberController로 변경
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Member> getMemberById(@PathVariable Long id) { // getUserById -> getMemberById
-        Member member = memberRepository.findById(id).orElse(null); // User -> Member
+    public ResponseEntity<Member> getMemberById(@PathVariable Long id) {
+        Member member = memberRepository.findById(id).orElse(null);
         if (member != null) {
             return ResponseEntity.ok(member);
         }
@@ -56,21 +56,20 @@ public class MemberController { // UserController -> MemberController로 변경
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Member> updateMember(@PathVariable Long id, @RequestBody Member memberDetails) { // updateUser -> updateMember, User -> Member
-        Member member = memberRepository.findById(id).orElse(null); // User -> Member
+    public ResponseEntity<Member> updateMember(@PathVariable Long id, @RequestBody Member memberDetails) {
+        Member member = memberRepository.findById(id).orElse(null);
         if (member != null) {
-            // User의 getName(), getEmail()을 Member의 필드에 맞게 변경
             member.setUserName(memberDetails.getUserName());
             member.setUserEmail(memberDetails.getUserEmail());
-            Member updatedMember = memberRepository.save(member); // updatedUser -> updatedMember
+            Member updatedMember = memberRepository.save(member);
             return ResponseEntity.ok(updatedMember);
         }
         return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteMember(@PathVariable Long id) { // deleteUser -> deleteMember
-        Member member = memberRepository.findById(id).orElse(null); // User -> Member
+    public ResponseEntity<?> deleteMember(@PathVariable Long id) {
+        Member member = memberRepository.findById(id).orElse(null);
         if (member != null) {
             memberRepository.delete(member);
             return ResponseEntity.ok().build();

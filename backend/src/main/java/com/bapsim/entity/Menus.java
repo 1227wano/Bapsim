@@ -15,6 +15,10 @@ public class Menus {
     @Column(name = "MENU_NO")
     private Long menuNo;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 0e8b4bb207c7bdc1ddda5d81e6733070780fff8f
     @Column(name = "KIND", length = 1, nullable = false)
     private String kind;
 
